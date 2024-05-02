@@ -13,3 +13,163 @@
 
 
 
+//4. components
+@import 'components/imgSwiper'; 
+@import 'components/bannerSwiperPadding16';
+// @import 'components/freeSwiper';
+@import 'components/starRating';
+@import 'components/menuSwiper';
+@import 'components/rankList';
+@import 'components/divider';
+@import 'components/exhibitionList';
+@import 'components/lpList';
+@import 'components/icons';
+@import 'components/directIcon';
+@import 'components/galleryItem';
+@import 'components/threeItem';
+@import 'components/layerPopup';
+@import 'components/select';
+@import 'components/combinationTable';
+@import 'components/input';
+@import 'components/textarea';
+@import 'components/checkbox';
+@import 'components/radio';
+@import 'components/lpSearchSort';
+@import 'components/PDPShare';
+@import 'components/listCategory';
+@import 'components/listFilter';
+@import 'components/listNodata';
+@import 'components/searchRelateKeyword';
+@import 'components/categoryRecommand';
+@import 'components/confirmLogout';
+@import 'components/homeShortcutsMenus.scss';
+@import "components/wishIcon.scss";
+
+//5. modules
+@import 'modules/boutiqueMenu003';
+@import 'modules/boutiqueProduct004';
+@import 'modules/boutiqueProduct005';
+@import 'modules/cppBanner004';
+@import 'modules/cppBrand001';
+@import 'modules/cppCategory001';
+@import 'modules/cppTitle002';
+@import 'modules/homeBanner002';
+@import 'modules/homeBanner003';
+@import 'modules/homeBanner007';
+@import 'modules/homeBanner009';
+@import 'modules/homeBigSwiper';
+@import 'modules/homeBrandPick001';
+@import 'modules/homeBrandPick002';
+@import 'modules/homeContent001';
+@import 'modules/homeContent002';
+@import 'modules/homeEx001';
+@import 'modules/homeEx003';
+@import 'modules/homeMenu001';
+@import 'modules/homeProduct001';
+@import 'modules/homeProduct002';
+@import 'modules/homeProductDetail001';
+@import 'modules/homeProductDetail002';
+@import 'modules/moduleHotDealV2.scss';
+@import 'modules/moduleRanking.scss';
+@import 'modules/homeRanking001';
+@import 'modules/homeReview001';
+@import 'modules/homeReview002';
+@import 'modules/homeTitle001';
+@import 'modules/homeTitle004';
+@import 'modules/homeLinearBanner0012';
+@import 'modules/hotdealProductDeal003';
+@import 'modules/hotdealProductDeal004';
+@import 'modules/hotdealProductDeal005';
+@import 'modules/hotdealProductDeal006';
+@import 'modules/hotdealProductDeal007';
+@import 'modules/hotdealTitle003';
+@import 'modules/hotdealLayerSort';
+@import 'modules/homeNoticeModal';
+@import 'modules/homeAdModal';
+@import 'modules/outletBanner008';
+@import 'modules/outletMenu004';
+@import 'modules/outletProduct';
+@import 'modules/outletProduct008';
+@import 'modules/outletProduct009';
+@import 'modules/outletProductCate';
+@import 'modules/titleArea';
+@import 'modules/searchItem';
+
+/* 카테고리 홈 */
+@import 'modules/categoryHome001';
+@import 'modules/categoryHome002';
+@import 'modules/categoryHome003';
+@import 'modules/categoryHome';
+
+//6. layout (ex header, footer
+@import 'layout/subTopHeader'; //legacy
+@import 'layout/header'; //통합 홈
+@import 'layout/subHeader'; //sub
+@import 'layout/drawerNavigation';
+@import 'layout/alert';
+@import 'layout/footer';
+@import 'layout/subBottom';
+@import 'layout/headerBanner';
+@import 'layout/productHeader';
+@import 'layout/allModal';
+@import 'layout/imageModal';
+@import 'layout/confirm';
+@import 'layout/slideLayer';
+
+//7. page
+///root
+@import 'pages/main';
+@import 'pages/home';
+@import 'pages/ranking';
+@import 'pages/cpp';
+@import 'pages/vip';
+@import 'pages/PDP';
+@import 'pages/comparePrice';
+@import 'pages/sizeModules';
+@import 'pages/lp';
+@import 'pages/magazin';
+@import 'pages/miniShop';
+@import 'pages/mustCareProgram';
+@import 'pages/purchasingSafety';
+
+/// board
+@import 'pages/board/introduceOurPolicies';
+@import 'pages/board/careContent';
+
+/// etc
+@import 'pages/etc/eventAllView';
+@import 'pages/etc/outletView';
+
+///layer
+@import 'pages/layer/dormantMemberWelcome';
+@import 'pages/layer/gradeUpgradePeriod';
+@import 'pages/layer/productDetailStatement';
+@import 'pages/layer/order/orderTerms';
+@import 'pages/layer/order/orderConsent';
+@import 'pages/layer/order/orderClearance';
+@import 'pages/layer/order/orderCreditCardBenefit';
+@import 'pages/layer/order/orderAlert';
+@import 'pages/layer/order/orderDiscount';
+@import 'pages/layer/order/ordererInfo';
+@import 'pages/layer/order/orderDeliveryList'; // 주문서 UI - 배송지 목록
+@import 'pages/layer/order/orderDeliveryForm'; // 주문서 UI - 배송지 수정 & 배송지 등록
+@import 'pages/layer/product/accountList'; // [회원] 구매 회원가입 정책 변경
+@import 'pages/layer/product/alarmPriceDrop.scss'; 
+@import 'pages/layer/product/discountInfo.scss'; 
+
+///mypage
+@import 'pages/mypage/membershipBenefit';
+@import 'pages/mypage/membershipMall';
+@import 'pages/mypage/forgeryApply';
+@import 'pages/mypage/forgeryApplyLayer';
+@import 'pages/mypage/wishlist';
+
+/// order
+@import 'pages/order/order';
+
+///product
+@import 'pages/layer/product/membershipPointInfo';
+@import 'pages/product/hotdeal';
+@import 'pages/product/searchView';
+
+
