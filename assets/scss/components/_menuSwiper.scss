@@ -1,0 +1,28 @@
+.comp_menu_swiper {
+    padding-bottom: 24px;
+    background-color: $white;
+    .swiper-slide{
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 34px;
+        font-size: 13px;
+        color: $gray8;
+        padding: 0 15px;
+        cursor: pointer;
+        margin-right: 6px;
+        border-radius: 17px;
+        border:1px solid $color-e6;
+        background: $white;
+        -webkit-tap-highlight-color:transparent;
+        &.active{
+            font-weight: $fw-semibold;
+            color:$white;
+            background: $gray3;
+            border-color:$gray3;
+        }
+        &:first-child{margin-left: 16px;}
+        &:last-child{margin-right: 16px;}
+    }
+}
+

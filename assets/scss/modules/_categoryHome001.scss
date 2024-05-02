@@ -1,0 +1,43 @@
+.category_home_shortcut {
+    position: sticky;
+    top: 56px;
+    padding: 16px 0;
+    background: $white;
+    .banner_swiper {
+        .banner_box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 68px;
+            &:first-child {margin-left: 8px;}
+            &:last-child {margin-right: 8px;}
+            &.new::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 4px;
+                width: 4px;
+                height: 4px;
+                background-color: $primary;
+                border-radius: 100%;
+            }
+            a {
+                display: block;
+                text-align: center;
+                .img img {
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 12px;
+                }
+                .name {
+                    margin-top: 8px;
+                    font-size: 12px;
+                    font-weight: $fw-regular;
+                    line-height: 1.33;
+                    color: $gray2;
+                    @include single-ellipsis;
+                }
+            }
+        }
+    }
+}

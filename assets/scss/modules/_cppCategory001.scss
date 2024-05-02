@@ -1,0 +1,11 @@
+.category_list{
+    .category_list__nav{
+        padding:20px 0;
+        .swiper-slide{
+            width:auto;
+            margin-right: 6px;
+            &:first-child{margin-left: 12px;}
+            &:last-child{margin-right: 12px;}
+        }
+    }
+}

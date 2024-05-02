@@ -1,0 +1,384 @@
+.wishlist_content{
+    padding-bottom: 24px; //total 40px
+    
+    // page tab
+    .page_tab{
+        position: sticky;
+        display: flex;
+        padding:0 16px;
+        top:52px;
+        background: $white;
+        z-index:50;
+        &::after{
+            content: "";
+            position: absolute;
+            left:0;
+            bottom:0;
+            width:100%;
+            height:1px;
+            background-color: $color-f0;
+            z-index: 1;
+        }
+        a,
+        button{
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width:50%;
+            height:45px;
+            font-size: 16px;
+            font-weight: $fw-medium;
+            line-height: 1.5;
+            color: $graya;
+            &.active{
+                font-size: 16px;
+                font-weight: $fw-bold;
+                color: $gray2;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    left:0;
+                    bottom: 0;
+                    width:100%;
+                    height:2px;
+                    background: $gray2;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+
+    //최근본상품
+    //리스트 상단 영역
+    .list_controller{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 8px 0;
+        padding:0 16px;
+        height:48px;
+        p,button,a{
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        p{color: $gray2;}
+        button,a{color: $gray8;}
+    }
+
+    // 리스트 영역 >최근 본 상품 & 찜의 상품
+    .wish_product_list{
+        position: relative;
+        padding:0 40px 0 16px;
+        margin-bottom: 16px;
+        &.soldout{
+            .img::after{
+                content: "";
+                position: absolute;
+                left:0;
+                top:0;
+                width:100%;
+                height:100%;
+                z-index: 2;
+                background: url($s3-path + "img/m/m_mypage/whishlist_soldout.png") left top / 100% auto no-repeat;
+            }
+            .text_box::after{
+                content: "";
+                position: absolute;
+                left:0;
+                top:0;
+                width:100%;
+                height:100%;
+                background: rgba($white,0.7);
+            }
+        }
+        >a{display: flex;}
+
+        .comp_icon_wish{
+            position: absolute;
+            right: 12px;
+            top: 4px;
+        }
+
+        .close_btn{
+            position: absolute;
+            right: 12px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            background: url($s3-path + "img/m/m_icon/icon_close_w12.svg") center center
+            no-repeat;
+        }
+        .img{
+            position: relative;
+            flex:0 0 88px;
+            width:88px;
+            height:88px;
+            img{
+                @include thumbnail;
+            }
+            &::before{
+                content:'';
+                @include thumOverDeem;
+            }
+        }
+        .text_box{
+            position: relative;
+            width:calc(100% - 160px);
+            margin-left: 16px;
+            padding-top: 4px;
+            flex:1 1 auto;
+            .brand{
+                display: inline-flex;
+                align-items: center;
+                width: 100%;
+                .text{
+                    font-size: 12px;
+                    font-weight: $fw-bold;
+                    line-height: 1.33;
+                    color: $gray2;
+                    @include single-ellipsis;
+                }
+                .delivery_icon {
+                    position: relative;
+                    margin-left: 4px;
+                    width: 16px;
+                    height: 16px;
+                    flex: 0 0 16px;
+                    img {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 100%;
+                    }
+                }
+            }
+            .name{
+                margin-top: 4px;
+                font-size: 13px;
+                line-height: 1.38;
+                color: $gray5;
+                @include single-ellipsis;
+            }
+            .price{
+                display: inline-flex;
+                align-items: center;
+                margin-top: 4px;
+                .discount_price{
+                    font-size: 13px;
+                    font-weight: $fw-bold;
+                    line-height: 1.38;
+                    color: $gray2;
+                }
+                .discount{
+                    margin-left: 4px;
+                    font-size: 13px;
+                    font-weight: $fw-bold;
+                    line-height: 1.38;
+                    color: $primary;
+                }
+            }
+            del{
+                display: block;
+                font-size: 11px;
+                line-height: 1.27;
+                color: $graya;
+            }
+        }
+    }
+
+    //찜 라운드 메뉴
+    .comp_menu_swiper{padding-top:16px;}
+
+    //찜 > 브랜드 버튼
+    .add_brands{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 48px;
+        padding: 0 12px 0 16px;
+        margin:0 16px 20px;
+        border-radius: 4px;
+        background-color: #f7f7f7;
+        font-size: 13px;
+        line-height: 1.38;
+        color: $gray2;
+        &::after{
+            content: "";
+            width:16px;
+            height:16px;
+            background: url($s3-path + 'img/m/m_icon/icon_brand_arrow.svg') center / 16px no-repeat;
+        }
+    }
+
+    //찜 > 브랜드 리스트
+    .wish_brand_list{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin:0 16px 16px;
+        padding:15px;
+        border-radius: 8px;
+        border: solid 1px $color-f0;
+        .eng{
+            display: inline-flex;
+            align-items: center;
+            align-self:start;
+            margin-bottom: 2px;
+            max-width:calc(100% - 32px);
+            &::after{
+                content: "";
+                margin-left: 2px;
+                width:16px;
+                height:16px;
+                background: url($s3-path + 'img/m/m_icon/icon_brand_arrow.svg') center / 16px no-repeat;
+            }
+            span{
+                font-size: 18px;
+                font-weight: $fw-bold;
+                line-height: 1.33;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+        }
+        .kor{
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray8;
+        }
+        .items{
+            display: flex;
+            >a{
+                position: relative;
+                width:calc( (100% - 8px) / 3);
+                padding-top: calc( (100% - 8px) / 3);
+                margin-right: 4px;
+                &:last-of-type{margin-right: 0;}
+                &::after{
+                    content:"";
+                    @include thumOverDeem;
+                }
+                img{@include thumbnail;}
+            }
+        }
+        .close_btn{
+            position: absolute;
+            right: 15px;
+            top: 17px;
+            width: 20px;
+            height: 20px;
+            background: url($s3-path + "img/m/m_icon/icon_close_w12.svg") center center
+            no-repeat;
+        }
+    }
+
+    //찜 > 판매자 리스트
+    .wish_seller_list{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin:0 16px 16px;
+        padding:15px;
+        border-radius: 8px;
+        border: solid 1px $color-f0;
+        .name{
+            display: inline-flex;
+            align-items: center;
+            align-self:start;
+            margin-bottom: 8px;
+            max-width:calc(100% - 32px);
+
+            &::after{
+                content: "";
+                margin-left: 2px;
+                width:16px;
+                height:16px;
+                background: url($s3-path + 'img/m/m_icon/icon_brand_arrow.svg') center / 16px no-repeat;
+            }
+            span{
+                font-size: 18px;
+                font-weight: $fw-bold;
+                line-height: 1.33;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .icon{
+                display: inline-flex;
+                width: 20px;
+                height: 20px;
+                flex:0 0 20px;
+                margin-right: 8px;
+                &.grand{
+                    background: url($s3-path + 'img/front/icon/seller/icon_seller_grand.svg') center / 20px no-repeat;
+                }
+                &.excellence{
+                    background: url($s3-path + 'img/front/icon/seller/icon_seller_excellence.svg') center / 20px no-repeat;
+                }
+            }
+        }
+        .number{
+            display: flex;
+            align-items: center;
+            flex-wrap:wrap;
+            span{
+                display: inline-flex;
+                align-items: center;
+                font-size: 13px;
+                line-height: 1.38;
+                color: $gray8;
+                &::before{
+                    content: "";
+                    width: 1px;
+                    height: 12px;
+                    margin:0 6px;
+                    background-color: $grayd;
+                }
+                &:first-of-type::before{display: none;}
+            }
+            
+        }
+        .status{
+            margin-top: 16px;
+            p{
+                display: inline-flex;
+                align-items: center;
+                margin-right: 5px;
+                padding:0 8px;
+                height:24px;
+                font-size: 12px;
+                line-height: 1.33;
+                color: $gray5;
+                border-radius: 12px;
+                background-color: $color-f5;
+            }
+        }
+        .items{
+            display: flex;
+            margin-top: 20px;
+            >a{
+                position: relative;
+                width:calc( (100% - 8px) / 3);
+                padding-top: calc( (100% - 8px) / 3);
+                margin-right: 4px;
+                &:last-of-type{margin-right: 0;}
+                &::after{
+                    content:"";
+                    @include thumOverDeem;
+                }
+                img{@include thumbnail;}
+            }
+        }
+        .close_btn{
+            position: absolute;
+            right: 15px;
+            top: 17px;
+            width: 20px;
+            height: 20px;
+            background: url($s3-path + "img/m/m_icon/icon_close_w12.svg") center center
+            no-repeat;
+        }
+    }
+
+}

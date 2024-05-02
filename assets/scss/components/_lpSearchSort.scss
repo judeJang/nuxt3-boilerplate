@@ -1,0 +1,165 @@
+.product_sort_container {
+    width: 100%;
+    .product_list_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height:48px;
+        padding:0 16px;
+        background-color: $white;
+        &.show_only_length{
+            border-bottom:0;
+        }
+        .list_length {
+            font-size: 13px;
+            line-height: 1.385;
+            color: $gray2;
+            strong {
+                font-weight: $fw-bold;
+                font-size: inherit;
+                line-height: inherit;
+                color: inherit;
+            }
+        }
+
+        .b_checkbox_red input + .checkbox_name {color:$gray2}
+
+        .sort_btn {
+            display: flex;
+            align-items: center;
+            gap:2px;
+            font-size: 13px;
+            line-height: 1.385;
+            color: $gray2;
+            &::after {
+                content: '';
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                margin-bottom: -1px;
+                background: url($s3-path + 'img/m/m_icon/icon-sorting-gray2-16.svg')
+                    center center / contain no-repeat;
+            }
+        }
+    }
+    
+    .black_deem {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 9003;
+        background: rgba($black, 0.5);
+    }
+    .product_sort_layer {
+        .sort_box {
+            position: relative;
+            padding: 12px 0;
+            &:not(:last-child) { border-bottom: 1px solid $color-f5; }
+            input { @include blind; }
+            .sort_label {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .text_box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .text {
+                font-size: 16px;
+                line-height: 1.5;
+                color: $gray2;
+            }
+            .ad_text {
+                margin-left: 6px;
+                font-size: 11px;
+                line-height: 1.45;
+                color: $graya;
+            }
+            .btn_question {
+                position: relative;
+                margin-left: 3px;
+            }
+            .icon_question {
+                display: block;
+                width: 16px;
+                height: 16px;
+                background: url($s3-path + 'img/m/m_icon/icon-tooltips-16.png') center center / contain no-repeat;
+                &.active {
+                    background-image: url($s3-path + 'img/m/m_icon/icon-tooltips-active-16.png');
+                }
+            }
+            .radio {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                margin-left: auto;
+                border-radius: 10px;
+                border: 1px solid $grayd;
+                background-color: $white;
+                box-sizing: border-box;
+            }
+            input:checked + .sort_label {
+                .radio {
+                    border: 1px solid $primary;
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 5px;
+                        background-color: $primary;
+                    }
+                }
+            }
+            .premium_info_popup {
+                display: none;
+                top: 24px;
+                left: 8px;
+                z-index: 10;
+                transform: translateX(-50%);
+                @include tooltip-arr-top-center(220px);
+
+                &.active { display: block; }
+            }
+        }
+    }
+}
+
+
+.lp_empty_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 288px;
+    .empty {
+        margin-bottom: 16px;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
+        background: url(#{$s3-path}img/m/m_icon/icon-empty-srp-gray-48.png?v=3) center /
+            contain no-repeat;
+    }
+    p {
+        font-size: 13px;
+        line-height: 1.38;
+        color: $gray8;
+        text-align: center;
+        strong {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #222;
+        }
+        + p {
+            margin-top: 4px;
+        }
+    }
+}

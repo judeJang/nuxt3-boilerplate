@@ -1,0 +1,35 @@
+.layer_all .orderer_container {
+    dl {
+        dt {
+            font-size: 14px;
+            font-weight: $fw-bold;
+            line-height: 1.43;
+            color: $gray2;
+            // &::after{
+            //     content: "*";
+            //     padding-left: 2px;
+            //     color: #f52644;
+            // }
+        }
+        dd {
+            margin-top: 8px;
+            .b_input_clear {
+                input {
+                    padding-left: 11px;
+                    height: 48px;
+                    font-size: 16px;
+                    line-height: 48px;
+                    color: $gray2;
+                    @include place-holder() {
+                        font-size: 16px;
+                        color: $grayc;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        + dl {
+            margin-top: 24px;
+        }
+    }
+}

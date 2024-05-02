@@ -1,0 +1,12 @@
+.hotdeal_subtitle {
+    clear: both;
+    padding: 24px 16px 16px;
+    background-color: $color-fa;
+    &.white_bg {background-color: $white;}
+    .hotdeal_subtitle__name {
+        font-size: 18px;
+        font-weight: $fw-bold;
+        line-height: 1.44;
+        color: $gray2;
+    }
+}

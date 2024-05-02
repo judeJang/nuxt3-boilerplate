@@ -1,0 +1,9 @@
+.divider{
+    width:100%;height:10px;background: $color-fa;
+    border:0;margin:0;
+    &.white_bg{background: $white;}
+    &.f5_bg{background: $color-f5;}
+}
+
+//html ::
+//<div class="divider"></div>

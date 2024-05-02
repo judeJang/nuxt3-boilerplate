@@ -1,0 +1,9 @@
+.home_img_wrap{
+    .home_img_wrap__link{
+        position: relative;
+        display: block;
+        height:get-vw(240px);
+        overflow: hidden;
+        .cover_img{@include thumbnail;}
+    }
+}

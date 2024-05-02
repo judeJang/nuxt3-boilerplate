@@ -1,0 +1,27 @@
+.home_linear_banner0012 {
+    a{
+        position: relative;
+        display: flex;
+        align-items: center;
+        height:40px;
+        padding:0 16px;
+        font-size: 13px;
+        font-weight: $fw-medium;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.23;
+        letter-spacing: normal;
+        text-align: left;
+        color: #fff;
+        color:$white;
+        &::after{
+            content: "";
+            position: absolute;
+            right:12px;
+            top:50%;transform: translateY(-50%);
+            width:16px;
+            height:16px;
+            background: svg-icon(arr_ltr_16, fff);
+        }
+    }
+}

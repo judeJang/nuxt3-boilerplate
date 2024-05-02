@@ -1,0 +1,30 @@
+.boutique_category_direct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 24px 16px 8px;
+    background: $white;
+    .direct_icon {
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: column;
+        flex: 0 0 25%;
+        margin-bottom: 16px;
+        overflow: hidden;
+        .img {
+            width: 64px;
+            height: 64px;
+            overflow: hidden;
+            img {width: 100%;}
+        }
+        .name {
+            margin-top: 6px;
+            width: 64px;
+            font-size: 13px;
+            line-height: 1.38;
+            text-align: center;
+            color: $gray2;
+            @include single-ellipsis;
+        }
+    }
+}

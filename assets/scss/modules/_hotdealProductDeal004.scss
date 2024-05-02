@@ -1,0 +1,84 @@
+.hotdeal_items_swiper {
+    margin-top: -3px;
+    overflow: hidden;
+    background-color: $color-fa;
+    .swiper-wrapper {
+        padding-bottom: 32px;
+        padding-top: 3px;
+    }
+    .swiper_item {
+        width: get-vw(192px);
+        padding: 16px;
+        margin-right: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px 0 rgba($black, 0.03);
+        background-color: $white;
+        &:first-child {margin-left: 16px;}
+        &:last-child {margin-right: 16px;}
+        .img_wrap {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            .cover_img {@include thumbnail;}
+        }
+        .info_container {
+            margin-top: 10px;
+            .brand {
+                font-size: 12px;
+                font-weight: $fw-bold;
+                line-height: 1.33;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .name {
+                margin-top: 4px;
+                font-size: 13px;
+                line-height: 1.38;
+                color: $gray5;
+                @include single-ellipsis;
+            }
+            .price_info {
+                display: flex;
+                margin-top: 4px;
+            }
+            .discount {
+                display: flex;
+                align-items: flex-end;
+                strong {
+                    font-size: 28px;
+                    font-weight: $fw-medium;
+                    line-height: 1.214;
+                    color: $primary;
+                }
+                &::after {
+                    content: '%';
+                    margin-left: 1px;
+                    font-size: 13px;
+                    font-weight: $fw-semibold;
+                    line-height: 23px;
+                    color: $primary;
+                }
+            }
+            .price {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 6px;
+                margin-top: -1px;
+            }
+            .del_price {
+                font-size: 10px;
+                line-height: normal;
+                color: $graya;
+            }
+            .discount_price {
+                font-size: 13px;
+                font-weight: $fw-bold;
+                line-height: 1.23;
+                color: $gray2;
+            }
+        }
+    }
+}

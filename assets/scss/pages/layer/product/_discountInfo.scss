@@ -1,0 +1,81 @@
+.discount_info {
+    .alert_header {
+    }
+    .discount_content {
+        margin-top: 16px;
+        .each_price{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width:100%;
+            min-height:20px;
+            + .each_price{margin-top: 4px;}
+            &.gray{dt,dd{color:$gray8}}
+            &.red{dt,dd{color:$primary}}
+
+            dt,dd{
+                font-size: 13px;
+                line-height: 1.54;
+                color: $gray2;
+            }
+            dd{
+                flex:0 0 84px;
+                text-align: right;
+            }
+            &.child{
+                dt,dd{
+                    font-size: 13px;
+                    line-height: 1.54;
+                    color: $gray8;
+                }
+                dt{
+                    position: relative;
+                    padding-left: 12px;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        left:0;top:6px;
+                        width:6px;height:6px;
+                        background: url($s3-path+'img/m/m_icon/icon_bullet_01.svg') center center no-repeat;    
+                    }
+                }
+            }
+        }
+
+        hr{
+            margin:8px 0;
+            border:0;
+            border-top:1px solid $color-f5;
+        }
+
+        .total_benefit{
+            margin: 8px 0 16px;
+            padding-top: 12px;
+            border-top:1px solid $gray5;
+            dl{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                min-height:20px;
+                dt,dd{
+                    font-size: 16px;
+                    font-weight: $fw-bold;
+                    line-height: 1.25;
+                    color: $gray2;
+                }
+                dt{
+                    flex:0 0 80px;
+                    font-size: 14px;
+                }
+            }
+
+        }
+        .info{
+            font-size: 12px;
+            line-height: 1.33;
+            color: $graya;
+        }
+        
+    }
+}

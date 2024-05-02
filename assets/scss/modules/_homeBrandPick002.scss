@@ -1,0 +1,127 @@
+.brand_pick_version2{
+    background: $white;
+    .brand_pick__nav{
+        margin-bottom: 16px;
+        overflow: hidden;
+        button{
+            display: inline-flex;
+            align-items: center;
+            width: 64px;
+            flex-direction: column;
+            margin-right: 8px;
+            opacity: 0.3;
+            &.active{opacity: 1;}
+            &:first-of-type{margin-left: 16px;}
+            &:last-of-type{margin-right: 16px;}
+            .img_wrap{
+                position: relative;
+                width: 56px;
+                height: 56px;
+                overflow: hidden;
+                border-radius: 100%;
+                >img{@include thumbnail;}
+            }
+            .brand{
+                margin-top: 6px;
+                width: 100%;
+                font-size: 12px;
+                line-height: 1.33;
+                text-align: center;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+        }
+    }
+    .brand_pick__container{
+        overflow: hidden;
+        .banner{
+            position: relative;
+            display: block;
+            >img{width:100%;}
+            &::after{
+                content: "";
+                position: absolute;
+                left:0;
+                top:0;
+                width:100%;
+                height:100%;
+                background: url(#{$s3-path}img/m/m_main/home_module_overlay.png) no-repeat left top / cover;
+                z-index: 1;
+            }
+            .info_container{
+                position: absolute;
+                width:100%;
+                bottom:0;
+                padding:0 get-vw(24px) get-vw(32px);
+                z-index:2;
+                &::after{
+                    content:'';
+                    position: absolute;
+                    right:get-vw(24px);
+                    bottom:get-vw(40px);
+                    width: get-vw(40px);
+                    height: get-vw(10px);
+                    background: url(#{$s3-path}img/m/m_icon/arrow-right-event.svg) no-repeat left top / cover;
+                }
+                .brand{
+                    margin-top: get-vw(4px);
+                    width:get-vw(248px);
+                    font-size: get-vw(26px);
+                    font-weight: $fw-bold;
+                    line-height: 1.31;
+                    color: $white;
+                    @include single-ellipsis();
+                }
+                .desc{
+                    width:get-vw(248px);
+                    font-size: get-vw(14px);
+                    line-height: 1.43;
+                    color: $white;
+                    @include single-ellipsis();
+                }
+                
+            }
+        }
+        .product_container{
+            display: flex;
+            gap:8px;
+            padding:24px 16px;
+            .product{
+                display: block;
+                width:get-vw(104px);
+                .img_wrap{
+                    position: relative;
+                    padding-top: 100%;
+                    overflow: hidden;
+                    img{@include thumbnail}
+                }
+                .info_container{
+                    margin-top: 10px;
+                    .name{
+                        font-size: 12px;
+                        line-height: 1.33;
+                        color: $white;
+                        @include single-ellipsis;
+                    }
+                    .price{
+                        display: flex;
+                        margin-top: 2px;
+                        gap:4px;
+                        .discount_price{
+                            font-size: 13px;
+                            font-weight: $fw-bold;
+                            line-height: 1.38;
+                            color: $white;
+                        }
+                        .discount{
+                            font-size: 13px;
+                            font-weight: $fw-bold;
+                            line-height: 1.38;
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}

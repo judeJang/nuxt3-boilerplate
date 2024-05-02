@@ -1,0 +1,53 @@
+.category_home_direct {
+    position: sticky;
+    top: 164px;
+    padding-bottom: 16px;
+    background: $white;
+    .banner_swiper {
+        .banner_box {
+            margin-right: 8px;
+            width: auto;
+            &:first-child {margin-left: 16px;}
+            &:last-child {margin-right: 16px;}
+            a{
+                display: flex;
+                align-items: center;
+                padding: 3px 11px 3px 3px;
+                border:1px solid $color-e6;
+                border-radius: 18px;
+                .img img{
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 100%;
+                }
+                .name{
+                    position: relative;
+                    display: block;
+                    margin-left: 8px;
+                    padding-right: 18px;
+                    font-size: 12px;
+                    font-weight: $fw-regular;
+                    line-height: 1.33;
+                    color: $gray2;
+                    &.long_txt{
+                        max-width: 109px;
+                        @include single-ellipsis;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top:50%;
+                        right: 0;
+                        display: block;
+                        margin-top: -5px;
+                        margin-left: 8px;
+                        width: 10px;
+                        height: 10px;
+                        background: url('#{$s3-path}img/m/m_icon/icon-arrow-right-category.svg') center /
+                            contain no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}

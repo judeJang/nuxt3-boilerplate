@@ -1,0 +1,48 @@
+.big_product{
+    background: $white;
+    .big_product__link{
+        display: block;
+        padding:12px 16px 23px;
+    }
+    .img_wrap{
+        position: relative;
+        width:get-vw(220px);
+        height:get-vw(220px);
+        overflow: hidden;
+        margin:0 auto;
+        .cover_img{@include thumbnail;}
+    }
+    .info_container{
+        margin-top: 12px;
+        .brand{
+            font-size: 13px;
+            font-weight: $fw-bold;
+            color: $gray2;
+        }
+        .product_info{
+            margin-top: 8px;
+            font-size: 14px;
+            color: $gray5;
+            @include single-ellipsis;
+        }
+        .price{
+            display: flex;
+            align-items: flex-end;
+            margin-top: 9px;
+            font-size: 16px;
+            font-weight: $fw-bold;
+            color: $gray2;
+            .discount{
+                color:$primary;
+                margin-right: 4px;
+            }
+            .del_price{
+                margin-left: 2px;
+                font-size: 14px;
+                color:$graya;
+                font-weight: 400;
+            }
+        }
+    }
+
+}

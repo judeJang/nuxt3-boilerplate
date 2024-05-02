@@ -1,0 +1,336 @@
+.layer_all .discount_container {
+    // 공통
+    .item_box {
+        > a {
+            display: flex;
+            padding: 16px;
+            pointer-events: none;
+        }
+
+        .thum {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            flex: 0 0 60px;
+            img {
+                @include thumbnail;
+            }
+            &::after {
+                content: '';
+                @include thumOverDeem;
+            }
+        }
+        .item_info {
+            width: calc(100% - 108px);
+            flex: 1 1 auto;
+            margin-left: 16px;
+            .name {
+                font-size: 12px;
+                font-weight: $fw-bold;
+                line-height: 1.33;
+                color: $gray2;
+            }
+            .desc {
+                margin-top: 4px;
+                font-size: 13px;
+                line-height: 1.38;
+                color: $gray5;
+                @include single-ellipsis;
+            }
+            .option {
+                // display: inline-flex;
+                margin-top: 6px;
+                @include single-ellipsis;
+                span {
+                    font-size: 12px;
+                    line-height: 1.33;
+                    color: $graya;
+                    &::before {
+                        content: '\00a0|\00a0';
+                        font-size: 12px;
+                        line-height: 1.33;
+                        color: $graya;
+                    }
+                    &:first-child::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .inner_container {
+        padding: 32px 16px;
+        &:first-of-type {
+            padding-top: 16px;
+        }
+        &:last-of-type {
+            padding-bottom: 40px;
+        }
+        .item_box {
+            > a {
+                padding: 0;
+            }
+        }
+    }
+    .divider {
+        height: 10px;
+        background-color: $color-fa;
+    }
+    //할인 혜택
+    .discount_list {
+        padding: 0 16px;
+        li {
+            padding: 16px 0;
+            border-bottom: 1px solid $color-f5;
+            &:last-child {
+                border-bottom: 0;
+            }
+            dl {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            dt {
+                font-size: 14px;
+                line-height: 1.43;
+                color: $gray2;
+            }
+
+            dd {
+                display: flex;
+                align-items: center;
+                .price {
+                    display: flex;
+                    text-align: right;
+                    font-size: 14px;
+                    line-height: 1.43;
+                    color: $gray2;
+                    strong {
+                        font-weight: $fw-bold;
+                    }
+                }
+            }
+            button {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 25px;
+                width: 64px;
+                height: 28px;
+                border-radius: 4px;
+                background: transparent;
+                border: none;
+                font-size: 12px;
+                line-height: 1.33;
+                background: $gray3;
+                color: $white;
+                &.apply {
+                    border: solid 1px $grayd;
+                    background-color: $white;
+                    color: $gray8;
+                }
+                &:disabled {
+                    background: transparent;
+                    color: $primary;
+                    font-size: 13px;
+                    line-height: 1.38;
+                }
+            }
+        }
+    }
+    //할인 쿠폰
+    .coupon_list {
+        display: flex;
+        width: 100%;
+        padding: 15px;
+        margin-top: 8px;
+        border-radius: 4px;
+        border: solid 1px $color-f0;
+        background-color: $white;
+        transition: border 0.2s ease;
+        &:first-of-type {
+            margin-top: 20px;
+        }
+        &.disabled {
+            .radio_circle {
+                border-color: $color-f0;
+                background: $color-fa;
+            }
+        }
+        &.active {
+            border-color: $gray3;
+            .radio_circle {
+                border-color: $primary;
+                &::after {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+            .coupon_info .discount {
+                color: $primary;
+            }
+        }
+        input[type='radio'] {
+            display: none;
+        }
+        .radio_circle {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            border: 1px solid $grayd;
+            transition: all 0.2s ease;
+            min-width: 20px;
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 10px;
+                height: 10px;
+                left: 50%;
+                top: 50%;
+                background: $primary;
+                opacity: 0;
+                border-radius: 100%;
+                transform: translate(-50%, -50%) scale(0);
+                transform-origin: center;
+                transition: all 0.2s ease;
+            }
+        }
+        .coupon_info {
+            margin-left: 8px;
+            .discount {
+                font-size: 14px;
+                font-weight: $fw-bold;
+                line-height: 1.43;
+                color: $gray2;
+            }
+            .name {
+                margin-top: 4px;
+                font-size: 13px;
+                line-height: 1.38;
+                color: $gray5;
+            }
+            .option {
+                @include single-ellipsis;
+                max-width: 277px;
+                color:#888;
+                span {
+                    font-size: 12px;
+                    line-height: 1.33;
+                    color: $gray8;
+                    &::before {
+                        content: '\00a0|\00a0';
+                        font-size: 12px;
+                        line-height: 1.33;
+                        color: $grayd;
+                    }
+                    &:first-child::before {
+                        display: none;
+                    }
+                }
+                .duplicate_used{
+                    font-size: 12px;
+                    line-height: 1.33;
+                    color: $gray8;
+                }
+            }
+            .other_used {
+                margin-top: 4px;
+                font-size: 12px;
+                line-height: 1.33;
+                color: $color-48a;
+            }
+        }
+    }
+    //할인 쿠폰이 없을 경우
+    .emtpy_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 82%;
+        padding: 0 40px;
+        p {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.43;
+            color: $gray8;
+            text-align: center;
+        }
+    }
+    //적립금 & 상품권
+    .total_point_container {
+        padding: 0 16px;
+        dl {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            height: 52px;
+            border-radius: 4px;
+            background: $color-fa;
+            dt {
+                font-size: 14px;
+                line-height: 1.43;
+                color: $gray2;
+            }
+            dd {
+                display: flex;
+                font-size: 16px;
+                font-weight: $fw-bold;
+                line-height: 1.5;
+                text-align: right;
+                color: $primary;
+                &::after {
+                    content: '원';
+                    margin-top: 2px;
+                    margin-left: 1px;
+                    font-size: 14px;
+                    font-weight: $fw-regular;
+                    line-height: 1.43;
+                    color: $primary;
+                }
+            }
+        }
+    }
+    .save_point_container {
+        padding: 24px 16px;
+        border-bottom: 1px solid $color-f0;
+        &:last-of-type {
+            border-bottom: 0;
+        }
+        .item_box > a {
+            padding: 0;
+        }
+        .input_box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            .b_input_clear {
+                flex: 0 1 calc(100% - 88px);
+                height: 40px;
+                input{
+                    padding: 0 34px 0 11px;
+                    @include place-holder() {
+                        color: $grayc;
+                    }
+                }
+
+
+            }
+            .submit_btn {
+                flex: 0 0 80px;
+                width: 80px;
+                height: 40px;
+                border-radius: 4px;
+                border: solid 1px $grayd;
+                background-color: $white;
+                font-size: 14px;
+                line-height: 1.43;
+                color: $gray2;
+            }
+        }
+    }
+}

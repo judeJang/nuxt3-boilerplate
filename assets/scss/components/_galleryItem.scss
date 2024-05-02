@@ -1,0 +1,49 @@
+.comp_gallery_item{
+    display: block;
+    .img_wrap{
+        position: relative;
+        width:100%;
+        padding-top: 100%;
+        background: $white;
+        .cover_img{@include thumbnail;}
+        &::before{
+            content: "";
+            @include thumOverDeem;
+        }
+    }
+    .info_container{
+        margin-top: 12px;
+        padding-bottom: 26px;
+        .brand{
+            font-size: 12px;
+            font-weight: $fw-bold;
+            color: $gray2;
+            @include single-ellipsis;
+            }
+        .desc{
+                margin-top: 10px;
+                font-size: 13px;
+                color: $gray5;
+                @include single-ellipsis;
+            }
+        .price{
+            display: flex;
+            margin-top: 8px;
+            gap:4px;
+            font-size: 13px;
+            font-weight: $fw-bold;
+            color: $gray2;
+            .discount{
+                color:$primary;
+            }
+        }
+        .del_price{
+            display: block;
+            margin-top: 3px;
+            font-size: 11px;
+            color:$graya;
+        }
+    }
+}
+
+

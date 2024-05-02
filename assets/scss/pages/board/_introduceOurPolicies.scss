@@ -1,0 +1,228 @@
+.policy_content {
+    .fit_img {width: 100%;}
+    .blind {@include blind;}
+
+    .policy_video {
+        padding: 40px 20px;
+        background-color: #b21e4b;
+        .title {
+            padding: 2px 0;
+            img {height: 22px;}
+        }
+        .txt {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.43;
+            color: $white;
+        }
+        .video_box {
+            position: relative;
+            margin-top: 32px;
+
+            .btn_play {
+                position: relative;
+                width: 100%;
+                .thum {width: 100%;}
+                .img_btn {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 64px;
+                }
+            }
+        }
+    }
+    .care_program {
+        padding: 40px 20px;
+        background-color: $white;
+        .title {
+            padding: 5px 0;
+            img {height: 54px;}
+        }
+        .care_container {
+            margin-top: 32px;
+            &.pre_care {
+                .care_title {color: #307ed3;}
+                .care_list {
+                    .care {
+                        background-color: #f5f8ff;
+                        $icon-pre: 'icon-policy-precare-examination.png',
+                            'icon-policy-precare-seller-credit.png',
+                            'icon-policy-precare-delay.png',
+                            'icon-policy-precare-monitoring.png';
+                        @each $icon in $icon-pre {
+                            $i: index($icon-pre, $icon);
+
+                            &:nth-child(#{$i}) {
+                                .icon_care {background: url($s3-path + 'img/m/m_board/introduce_our_policies/home/' + $icon) center center / contain no-repeat;}
+                            }
+                        }
+                    }
+                }
+            }
+            &.followup_care {
+                .care_title {
+                    color: #4521c8;
+                }
+                .care_list {
+                    .care {
+                        background-color: #f4f1ff;
+                        $icon-followup: 'icon-policy-aftercare-compensation.png',
+                            'icon-policy-aftercare-as.png',
+                            'icon-policy-aftercare-cleaning.png',
+                            'icon-policy-aftercare-delay.png',
+                            'icon-policy-aftercare-free-exchange.png';
+                        @each $icon in $icon-followup {
+                            $i: index($icon-followup, $icon);
+
+                            &:nth-child(#{$i}) {
+                                .icon_care {background: url($s3-path + 'img/m/m_board/introduce_our_policies/home/' + $icon) center center / contain no-repeat;}
+                            }
+                        }
+                    }
+                }
+            }
+            .care_title {
+                font-size: 14px;
+                font-weight: $fw-medium;
+                line-height: 1.43;
+            }
+            .care_txt_img {
+                margin-top: 4px;
+                height: 19px;
+            }
+            .care_txt {
+                margin-top: 10px;
+                font-size: 14px;
+                line-height: 1.43;
+                color: $gray6;
+            }
+            .care_list {
+                margin-top: 24px;
+                .care {
+                    border-radius: 8px;
+                    &:not(:first-child) {margin-top: 8px;}
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 16px 20px 16px 24px;
+                    }
+                    .icon_care {
+                        display: inline-block;
+                        width: 48px;
+                        height: 48px;
+                        flex-basis: 48px;
+                    }
+                    .text {
+                        flex: 1;
+                        margin: 0 12px;
+                        font-size: 15px;
+                        font-weight: $fw-semibold;
+                        line-height: 1.47;
+                        color: $gray2;
+                    }
+                    .icon_arr {
+                        display: inline-block;
+                        width: 16px;
+                        height: 16px;
+                        flex-basis: 16px;
+                        background: url($s3-path + 'img/m/m_icon/icon_brand_arrow.svg') center center / contain no-repeat;
+                    }
+                }
+            }
+        }
+    }
+    .numbers_container {
+        padding: 40px 0;
+        background-color: #303367;
+        .text_box {
+            padding: 0 20px;
+            .title {
+                padding: 2px 0;
+                img {height: 22px;}
+            }
+            .text {
+                margin-top: 8px;
+                font-size: 14px;
+                line-height: 1.43;
+                color: $white;
+            }
+        }
+        .numbers_swiper {
+            position: relative;
+            margin-top: 40px;
+            text-align: center;
+            overflow: hidden;
+            .swiper-slide {
+                $icon-swiper: 'icon-number-01.png', 'icon-number-02.png',
+                    'icon-number-03.png', 'icon-number-04.png', 'icon-number-05.png';
+                $numbers-color: #69a2ff, #ce71ff, #34bcad, #ff8080, #ffe488;
+
+                @for $i from 1 through 5 {
+                    &.slide_#{$i - 1} {
+                        .icon {
+                            background: url($s3-path + 'img/m/m_board/introduce_our_policies/home/' + nth($icon-swiper, $i)) center center / contain no-repeat;
+                        }
+                        .number_box {color: nth($numbers-color, $i);}
+                    }
+                }
+                .icon {
+                    display: block;
+                    width: 160px;
+                    height: 160px;
+                    margin: 0 auto;
+                }
+                .number_box {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .number {
+                        font-size: 36px;
+                        font-weight: $fw-bold;
+                        line-height: 1.28;
+                    }
+                    .text {
+                        margin-left: 1px;
+                        font-size: 32px;
+                        font-weight: $fw-bold;
+                        line-height: 1.31;
+                    }
+                }
+                .desc_box {
+                    margin-top: 8px;
+                    text-align: center;
+                    .desc {
+                        font-size: 15px;
+                        line-height: 1.47;
+                        color: $white;
+                    }
+                    .desc_sub {
+                        margin-top: 2px;
+                        opacity: 0.7;
+                        font-size: 12px;
+                        line-height: 1.33;
+                        color: $white;
+                    }
+                }
+            }
+            .numbers_pagination {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 32px;
+                .swiper-pagination-bullet {
+                    margin: 0 4.5px;
+                    background-color: $white;
+                    opacity: 0.3;
+                    @include circle(6px);
+                }
+                .swiper-pagination-bullet-active {
+                    background-color: $white;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

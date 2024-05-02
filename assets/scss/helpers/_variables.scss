@@ -1,0 +1,200 @@
+@charset "UTF-8";
+//design to size
+$default-size: 360 !default; //design 사이즈
+$font-family: 'Pretendard' !default;
+$s3-path: 'https://static-ux.mustit.co.kr/';
+$s3-origin:'https://mustit-ux.s3.ap-northeast-2.amazonaws.com/';
+
+$primary: #f52644 !default;
+$white: #fff !default;
+$black: #000 !default;
+$gray2: #222 !default;
+$gray3: #333 !default;
+$gray5: #555 !default;
+$gray6: #666 !default;
+$gray8: #888 !default;
+$graya: #aaa !default;
+$grayc: #ccc !default;
+$grayd: #ddd !default;
+$graye: #eee !default;
+$color-12: #121212 !default;
+$color-f0: #f0f0f0 !default;
+$color-fa: #fafafa !default;
+$color-f2: #f2f2f2 !default;
+$color-f5: #f5f5f5 !default;
+$color-f7: #f7f7f7 !default;
+$color-d8: #d8d8d8 !default;
+$color-e6: #e6e6e6 !default;
+$color-eb: #ebebeb !default;
+$color-ef: #efefef !default;
+$color-05f: #0055ff !default;
+$color-48a: #48a2b6 !default;
+$color-6f5: #6f5fc9 !default;
+$color-cb5: #cb51d7 !default;
+$color-ffa: #ffa540 !default;
+$color-409: #4090d5 !default;
+$color-55a: #55a731 !default;
+$color-1f1: #1f1f2c !default;
+$color-fcbdc7: #fcbdc7 !default;
+$color-f5a: #f5a523 !default;
+$color-outlet: #8c1e46 !default;
+
+/*멤버십 등급*/
+$grade-black: #1f1f2c !default;
+$grade-red: #f52644 !default;
+$grade-blue: #0055ff !default;
+$grade-green: #12cf35 !default;
+
+$fw-light: 300 !default;
+$fw-regular: 400 !default;
+$fw-medium: 500 !default;
+$fw-semibold: 600 !default;
+$fw-bold: 700 !default;
+
+//icons
+$icon-drop: url($s3-path + 'img/m/m_header/icon_drop.png') no-repeat center !default;
+$icon-drop-size: 16px;
+//legacy 아이콘
+$icon-search: url($s3-path + 'img/m/m_header/icon_search.png') no-repeat center !default;
+$icon-search_gr_14: url($s3-path + 'img/m/m_icon/icon_search_gr_14.svg') no-repeat center !default;
+$icon-search-size: 24px;
+$icon-basket: url($s3-path + 'img/m/m_header/icon_basket.png') no-repeat center !default;
+$icon-basket-size: 24px;
+$icon-back: url($s3-path + 'img/m/m_header/icon_back.png') no-repeat center !default;
+$icon-back-size: 24px;
+//E legacy 아이콘
+//header-icon phase2
+$header-back:url($s3-path + 'img/m/m_header/icon_header_back.png') center/ 24px no-repeat !default;
+$header-back-wh:url($s3-path + 'img/m/m_header/icon_header_back_wh.png') center/ 24px no-repeat !default;
+$header-basket:url($s3-path + 'img/m/m_header/icon_header_basket.png') center/ 24px no-repeat !default;
+$header-basket-wh:url($s3-path + 'img/m/m_header/icon_header_basket_wh.png') center/ 24px no-repeat !default;
+$header-search:url($s3-path + 'img/m/m_header/icon_header_search.png') center/ 24px no-repeat !default;
+$header-search-wh:url($s3-path + 'img/m/m_header/icon_header_search_wh.png') center/ 24px no-repeat !default;
+$header-home:url($s3-path + 'img/m/m_header/icon_header_home.png') center/ 24px no-repeat !default;
+$header-home-wh:url($s3-path + 'img/m/m_header/icon_header_home_wh.png') center/ 24px no-repeat !default;
+
+//full modal close btn
+$all-modal-close: url($s3-path + 'img/m/m_icon/icon_modal_close.png') center/ 24px no-repeat !default;
+$all-modal-close-wh: url($s3-path + 'img/m/m_icon/icon_modal_close_wh.png') center/ 24px no-repeat !default;
+
+//lnb icons
+$icon-arrow-r: url($s3-path + 'img/m/m_lnb/icon_arrow_right.png') no-repeat center !default;
+$icon-arrow-r-size: 16px;
+$icon-close: url($s3-path + 'img/m/m_lnb/icon_close.png') no-repeat center !default;
+$icon-close-size: 24px;
+$icon-member: url($s3-path + 'img/m/m_lnb/icon_member.png') no-repeat center !default;
+$icon-member-size: 24px;
+$icon-setting: url($s3-path + 'img/m/m_lnb/icon_setting.png') no-repeat center !default;
+$icon-setting-size: 24px;
+
+//static_footer
+$footer-sns-icon: (
+    'facebook': 'sns_facebook.png',
+    'instagram': 'sns_instagram.png',
+    'youtube': 'sns_youtube.png',
+    'kakaotalk': 'sns_kakaotalkch.png',
+    'naver': 'sns_naverpost.png'
+);
+
+$icon-arr-r-12: url($s3-path + 'img/m/m_mypage/icon-arr-r.png') no-repeat center !default;
+$icon-bell: url($s3-path + 'img/m/m_mypage/icon-bell.png') no-repeat center !default;
+$icon-order-list: url($s3-path + 'img/m/m_mypage/icon-orderlist.png') no-repeat center !default;
+$icon-review: url($s3-path + 'img/m/m_mypage/icon-review.png') no-repeat center !default;
+$icon-box: url($s3-path + 'img/m/m_mypage/icon-item-inquiry.png') no-repeat center !default;
+$icon-chat: url($s3-path + 'img/m/m_mypage/icon-order-chat.png') no-repeat center !default;
+$icon-user: url($s3-path + 'img/m/m_mypage/icon-user.png') no-repeat center !default;
+$icon-size: url($s3-path + 'img/m/m_mypage/icon-size.png') no-repeat center !default;
+$icon-refund: url($s3-path + 'img/m/m_mypage/icon-refund.png') no-repeat center !default;
+$icon-lock: url($s3-path + 'img/m/m_mypage/icon-lock.png') no-repeat center !default;
+$icon-question: url($s3-path + 'img/m/m_mypage/icon-one-inquiry.png') no-repeat center !default;
+$icon-cs: url($s3-path + 'img/m/m_mypage/icon-cs.png') no-repeat center !default;
+$icon-notice: url($s3-path + 'img/m/m_mypage/icon-notice.png') no-repeat center !default;
+$icon-as: url($s3-path + 'img/m/m_mypage/icon-as.png') no-repeat center !default;
+$icon-phone: url($s3-path + 'img/m/m_mypage/icon-phone.png') no-repeat center !default;
+$icon-new-16: url($s3-path + 'img/m/m_mypage/icon-new.png') no-repeat center !default;
+$icon-setting-24: url($s3-path + 'img/m/m_mypage/icon-setting.png') no-repeat center !default;
+$icon-delivery-domestic: url($s3-path + 'img/m/m_mypage/delivery_type1.png') no-repeat
+    center !default;
+$icon-delivery-abroad: url($s3-path + 'img/m/m_mypage/delivery_type2.png') no-repeat
+    center !default;
+$icon-delivery-direct-abroad: url($s3-path + 'img/m/m_mypage/delivery_type3.png')
+    no-repeat center !default;
+$icon-circle-info: url($s3-path + 'img/m/m_mypage/icon-info.png') no-repeat center !default;
+$icon-empty: url($s3-path + 'img/m/m_mypage/icon-empty.png') no-repeat center !default;
+$icon-vip-40: url($s3-path + 'img/m/m_mypage/icon-vip-40.png') no-repeat center !default;
+$icon-box-40: url($s3-path + 'img/m/m_mypage/icon-box-40.png') no-repeat center !default;
+$icon-cs-40: url($s3-path + 'img/m/m_mypage/icon-cs-40.png') no-repeat center !default;
+$icon-dry-40: url($s3-path + 'img/m/m_mypage/icon-dry-40.png') no-repeat center !default;
+$icon-crown-40: url($s3-path + 'img/m/m_mypage/icon-crown-40.png') no-repeat center !default;
+$icon-repair-40: url($s3-path + 'img/m/m_mypage/icon-repair-40.png') no-repeat center !default;
+$icon-cake-40: url($s3-path + 'img/m/m_mypage/icon-cake-40.png') no-repeat center !default;
+
+$grade-green-20: url($s3-path + 'img/m/m_mypage/grade-green-20.png') no-repeat center !default;
+$grade-friends-20: url($s3-path + 'img/m/m_mypage/grade-friends-20.png') no-repeat center !default;
+$grade-blue-20: url($s3-path + 'img/m/m_mypage/grade-blue-20.png') no-repeat center !default;
+$grade-red-20: url($s3-path + 'img/m/m_mypage/grade-red-20.png') no-repeat center !default;
+$grade-black-20: url($s3-path + 'img/m/m_mypage/grade-black-20.png') no-repeat center !default;
+$grade-green-64: url($s3-path + 'img/m/m_mypage/grade-green-64.png') no-repeat center !default;
+$grade-friends-64: url($s3-path + 'img/m/m_mypage/grade-friends-64.png') no-repeat center !default;
+$grade-blue-64: url($s3-path + 'img/m/m_mypage/grade-blue-64.png') no-repeat center !default;
+$grade-red-64: url($s3-path + 'img/m/m_mypage/grade-red-64.png') no-repeat center !default;
+$grade-black-64: url($s3-path + 'img/m/m_mypage/grade-black-64.png') no-repeat center !default;
+
+$creditcard_company_bundle_100: url($s3-path + 'img/m/m_order/creditcard_company_bundle_100_2.png')
+    no-repeat top left !default;
+
+//플로팅 서브 바텀 아이콘
+$sub-bottom-hamburger: url($s3-path + 'img/m/m_icon/icon_sub_bottom_hamburger_sprite_28.png') -5px -5px / 76px 38px no-repeat !default;
+$sub-bottom-category: url($s3-path + 'img/m/m_icon/icon_sub_bottom_category_sprite_28.png') -5px -5px / 76px 38px no-repeat !default;
+$sub-bottom-brands: url($s3-origin + 'img/m/m_icon/icon_sub_bottom_brand_sprite_28.png') -5px -5px / 76px 38px no-repeat !default;
+$sub-bottom-home: url($s3-path + 'img/m/m_icon/icon_sub_bottom_home_sprite_28.png') -5px -5px / 76px 38px no-repeat !default;
+$sub-bottom-mypage: url($s3-path + 'img/m/m_icon/icon_sub_bottom_mypage_sprite_28.png') -5px -5px / 76px 38px no-repeat !default;
+$sub-bottom-view: url($s3-path + 'img/m/m_icon/icon_sub_bottom_watch_sprite_28.png') -5px -5px / 76px 38px no-repeat !default;
+
+$icons: (
+    'icon_order_list': $icon-order-list,
+    'icon_review': $icon-review,
+    'icon_box': $icon-box,
+    'icon_chat': $icon-chat,
+    'icon_user': $icon-user,
+    'icon_size': $icon-size,
+    'icon_refund': $icon-refund,
+    'icon_lock': $icon-lock,
+    'icon_question': $icon-question,
+    'icon_cs': $icon-cs,
+    'icon_notice': $icon-notice,
+    'icon_as': $icon-as,
+    'icon_phone': $icon-phone,
+    'icon_new_16': $icon-new-16,
+    'icon_bell': $icon-bell,
+    'icon_arr_r_12': $icon-arr-r-12,
+    'icon_setting_24': $icon-setting-24,
+    'delivery_domestic': $icon-delivery-domestic,
+    'delivery_abroad': $icon-delivery-abroad,
+    'delivery_direct_abroad': $icon-delivery-direct-abroad,
+    'icon_circle_info': $icon-circle-info,
+    'icon_empty': $icon-empty,
+    'grade_green_20': $grade-green-20,
+    'grade_friends_20': $grade-friends-20,
+    'grade_blue_20': $grade-blue-20,
+    'grade_red_20': $grade-red-20,
+    'grade_black_20': $grade-black-20,
+    'grade_green_64': $grade-green-64,
+    'grade_friends_64': $grade-friends-64,
+    'grade_blue_64': $grade-blue-64,
+    'grade_red_64': $grade-red-64,
+    'grade_black_64': $grade-black-64,
+    'icon_vip_40': $icon-vip-40,
+    'icon_box_40': $icon-box-40,
+    'icon_cs_40': $icon-cs-40,
+    'icon_dry_40': $icon-dry-40,
+    'icon_crown_40': $icon-crown-40,
+    'icon_repair_40': $icon-repair-40,
+    'icon_cake_40': $icon-cake-40
+);
+
+//등락률 아이콘
+$range-up : url($s3-path + 'img/m/m_icon/range-up.svg') no-repeat center !default;
+$range-down : url($s3-path + 'img/m/m_icon/range-down.svg') no-repeat center !default;
+$range-draw : url($s3-path + 'img/m/m_icon/range-draw.svg') no-repeat center !default;
+$range-new : url($s3-path + 'img/m/m_icon/range-new.png') no-repeat center !default;

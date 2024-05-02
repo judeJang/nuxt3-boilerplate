@@ -1,0 +1,26 @@
+.comp_icon_wish{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    &::before{
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
+    &.remove{
+        &::before{
+            background: url($s3-path + "img/m/m_icon/icon_heart_20_off.png") center center no-repeat;
+            background-size: 100% auto;
+        }
+        &.ani::before{animation: wish_off 0.4s ease-in;}
+    }
+    &.add{
+        &::before{
+            background: url($s3-path + "img/m/m_icon/icon_heart_20_on.png") center center no-repeat;
+            background-size: 100% auto;
+        }
+        &.ani::before{animation: wish_on 0.4s ease-in;}
+    }
+    
+}

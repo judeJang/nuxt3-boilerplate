@@ -1,0 +1,42 @@
+.common_alert,
+.alert {
+    &_wrap {
+        position: relative;
+        padding: 16px 20px 20px;
+        border-radius: 8px;
+        background-color: $white;
+    }
+    &_header {
+        position: relative;
+        h1,
+        h2 {
+            width: calc(100% - 56px);
+            font-size: 16px !important;
+            font-weight: $fw-semibold;
+            line-height: 1.5;
+            color: $gray2;
+        }
+        .layer_close {
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: url($s3-path + 'img/m/m_common/laer_close_16.png') no-repeat
+                center;
+            background-size: 16px;
+        }
+    }
+    &_content {
+        position: relative;
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 1.54;
+        color: $gray5;
+        p {
+            font-size: inherit;
+            color: inherit;
+        }
+    }
+}

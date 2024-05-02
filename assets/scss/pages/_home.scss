@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.main_content{
+    position: relative;
+    // background: $color-fa;
+    .thumbnail-default{background: transparent;}
+    .swiper-slide{
+        -webkit-transform: translate3d(0,0,0 );
+        -webkit-backface-visibility: hidden;
+    } //for safari
+}

@@ -1,0 +1,29 @@
+.category_recommand {
+    display: flex;
+    background-color: $white;
+    border-bottom: 1px solid $color-f5;
+    .keyword_title {
+        flex-shrink: 0;
+        padding: 11px 16px;
+        font-size: 13px;
+        font-weight: $fw-bold;
+        line-height: 1.38;
+        color: $gray2;
+    }
+    .keyword_list {
+        display: flex;
+        flex: 1;
+        min-width: 0;
+        padding: 11px 16px 11px 0;
+        overflow-x: auto;
+        @include hide-scroll;
+        .keyword {
+            white-space: nowrap;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray8;
+            &.active {color: $primary;}
+            + .keyword { margin-left: 16px; }
+        }
+    }
+}

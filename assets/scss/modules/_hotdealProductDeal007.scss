@@ -1,0 +1,220 @@
+// 핫딜 신규모듈추가 202304
+.hotdeal_timesale {
+    position: relative;
+    height: calc(get-vw(240px) + 318px);
+    overflow: hidden;
+    .hotdeal_timer_swiper {
+        height: 100%;
+        overflow: hidden;
+        .timer_slide {
+            height: 100%;
+            padding: 32px 24px;
+            text-align: center;
+            &.timesale {background: #e1f0f2;}
+            &.oneday {
+                background: #faf0e1;
+                .timer {color: $primary;}
+            }
+            .timer_title {
+                font-size: 24px;
+                font-weight: $fw-bold;
+                line-height: 1.25;
+                text-align: center;
+                color: $gray2;
+                img {
+                    display: block;
+                    height: 30px;
+                    margin: 0 auto;
+                }
+            }
+            .title {
+                margin-top: 4px;
+                font-size: 15px;
+                line-height: 1.47;
+                text-align: center;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .timer {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                margin-top: 12px;
+                color: $gray2;
+                .day {
+                    font-size: 32px;
+                    font-weight: $fw-bold;
+                    line-height: 34px;
+                }
+                .time {
+                    width: 44px;
+                    font-size: 32px;
+                    font-weight: $fw-bold;
+                    line-height: 34px;
+                    text-align: center;
+                }
+                .text {
+                    width: 8px;
+                    margin: auto 4px 0;
+                    font-size: 20px;
+                    line-height: 32px;
+                    text-align: center;
+                }
+                .colon {
+                    display: inline-block;
+                    width: 10px;
+                    margin: 0 2px;
+                    font-size: 32px;
+                    font-weight: $fw-bold;
+                    line-height: 28px;
+                }
+            }
+        }
+    }
+    @keyframes scaleBounce {
+        0% {transform: scale(0);}
+        33% {transform: scale(1.2);}
+        66% {transform: scale(0.9);}
+        100% {transform: scale(1);}
+    }
+    @keyframes alpha {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    .hotdeal_timesale_swiper {
+        position: absolute;
+        top: 148px;
+        left: 0;
+        right: 0;
+        .hotdeal_item {
+            width: calc(100vw - 48px);
+            padding: 16px;
+            border-radius: 12px;
+            background-color: $white;
+            &.active .discount {
+                &::before {
+                    transform: scale(0);
+                    animation: scaleBounce 0.4s linear forwards;
+                }
+                strong {
+                    opacity: 0;
+                    animation: alpha 0.2s linear forwards;
+                }
+            }
+            &.soldout {
+                .img_wrap::after {
+                    content: '';
+                    display: block;
+                    @include thumbnail;
+                    @include soldoutImgWhite;
+                }
+            }
+            .img_wrap {
+                position: relative;
+                width: get-vw(240px);
+                height: get-vw(240px);
+                margin: 0 auto;
+                .cover_img {@include thumbnail;}
+            }
+            .info_container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                width: 100%;
+                margin-top: 8px;
+                .info_box {
+                    flex: 1;
+                    width: calc(100% - 80px);
+                }
+                .brand {
+                    width: 100%;
+                    font-size: 14px;
+                    font-weight: $fw-bold;
+                    line-height: 1.43;
+                    color: $gray2;
+                    @include single-ellipsis;
+                }
+                .name {
+                    width: 100%;
+                    margin-top: 2px;
+                    font-size: 15px;
+                    line-height: 1.47;
+                    color: $gray5;
+                    @include single-ellipsis;
+                }
+                .price {
+                    display: flex;
+                    margin-top: 2px;
+                    font-size: 18px;
+                    font-weight: $fw-bold;
+                    line-height: 1.44;
+                    color: $primary;
+                    del {
+                        margin: 5px 0 0 4px;
+                        font-size: 13px;
+                        font-weight: $fw-regular;
+                        line-height: 1.38;
+                        color: $graya;
+                    }
+                }
+                .discount {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    width: 64px;
+                    height: 64px;
+                    margin-left: 16px;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background-color: $primary;
+                        transform: scale(0);
+                        z-index: 1;
+                    }
+                    strong {
+                        position: relative;
+                        font-size: 24px;
+                        font-weight: $fw-bold;
+                        color: $white;
+                        z-index: 2;
+                        opacity: 0;
+                        &::after {
+                            content: '%';
+                            position: relative;
+                            margin-bottom: -5px;
+                            font-size: 15px;
+                            font-weight: $fw-bold;
+                            color: $white;
+                            z-index: 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .hotdeal_pagination {
+        position: absolute;
+        display: block;
+        left: 40px;
+        right: 40px;
+        bottom: 32px;
+        width: auto;
+        height: 2px;
+        z-index: 1;
+        background-color: rgba($white, 0.7);
+        .move {
+            display: block;
+            height: 2px;
+            position: absolute;
+            background-color: $gray3;
+            transition: left 0.5s;
+        }
+    }
+}

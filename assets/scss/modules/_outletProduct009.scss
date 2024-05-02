@@ -1,0 +1,70 @@
+.product009_list {
+    padding-bottom: 32px;
+    background-color: $white;
+    overflow: hidden;
+    .swiper-slide {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 16px;
+        .product_box {
+            display: block;
+            width: calc((100% - 16px) / 3);
+            overflow: hidden;
+            .img_wrap {
+                position: relative;
+                width: 100%;
+                padding-top: 100%;
+                background: $white;
+                .cover_img { @include thumbnail; }
+                &::before {
+                    content: '';
+                    @include thumOverDeem;
+                }
+            }
+            .info_container {
+                margin-top: 10px;
+                padding-bottom: 24px;
+                .brand {
+                    font-size: 12px;
+                    line-height: 1.33;
+                    font-weight: $fw-bold;
+                    color: $gray2;
+                    @include single-ellipsis;
+                }
+                .desc {
+                    margin-top: 2px;
+                    font-size: 12px;
+                    line-height: 1.33;
+                    color: $gray5;
+                    @include single-ellipsis;
+                }
+                .price {
+                    display: flex;
+                    margin-top: 2px;
+                    font-size: 13px;
+                    line-height: 1.38;
+                    font-weight: $fw-bold;
+                    color: $gray2;
+                    .discount {
+                        margin-left: 4px;
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+    .product_pagination {
+        position: static;
+        display: flex;
+        justify-content: center;
+        .swiper-pagination-bullet {
+            width: 6px;
+            height: 6px;
+            margin: 0 4.5px;
+            background-color: $color-e6;
+            opacity: 1;
+        }
+        .swiper-pagination-bullet-active {background-color: $gray3;}
+    }
+}

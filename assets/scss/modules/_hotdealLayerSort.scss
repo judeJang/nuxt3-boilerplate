@@ -1,0 +1,85 @@
+.black_deem {
+    position: fixed;
+    z-index: 9003;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba($black, 0.5);
+}
+// 하단 레이어
+.layer_sort {
+    position: fixed;
+    z-index: 9004;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    padding-top: 20px;
+    border-radius: 16px 16px 0 0;
+    .layer_head {
+        position: relative;
+        padding: 2px 12px 3px 16px;
+        .title {
+            font-size: 20px;
+            font-weight: $fw-bold;
+            line-height: 1.35;
+            color: $gray2;
+        }
+        .layer_close {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: url($s3-path + 'img/m/m_common/laer_close_16.png') center no-repeat;
+            background-size: 16px;
+        }
+    }
+    .layer_body {
+        padding: 16px;
+    }
+    .sort_box {
+        padding: 12px 0;
+        &:not(:last-child) {border-bottom: 1px solid $color-f5;}
+        input {@include blind;}
+        .sort_label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .text {
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: $gray2;
+        }
+        .radio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            border: solid 1px $grayd;
+            background-color: $white;
+        }
+        input:checked + .sort_label {
+            .radio {
+                border: solid 1px $primary;
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 5px;
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+}

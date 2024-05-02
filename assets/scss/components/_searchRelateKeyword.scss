@@ -1,0 +1,33 @@
+.search_relate_keyword {
+    display: flex;
+    padding: 14px 0 16px;
+    background-color: $white;
+    .keyword_title {
+        flex-shrink: 0;
+        padding: 0 16px;
+        font-size: 13px;
+        font-weight: $fw-bold;
+        line-height: 1.38;
+        color: $gray2;
+    }
+    .keyword_list {
+        display: flex;
+        flex: 1;
+        min-width: 0;
+        padding-right: 16px;
+        overflow-x: auto;
+        @include hide-scroll;
+        .keyword {
+            white-space: nowrap;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray8;
+            + .keyword { margin-left: 16px; }
+            a {
+                font-size: inherit;
+                line-height: inherit;
+                color: inherit;
+            }
+        }
+    }
+}

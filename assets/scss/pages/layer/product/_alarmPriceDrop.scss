@@ -1,0 +1,106 @@
+.alarm_price_drop {
+    .alert_header {
+    }
+    .alert_content {
+        margin-top: 16px;
+        .alert_item_info{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top:16px;
+            .img_wrap{
+                position: relative;
+                width:64px;
+                height:64px;
+                flex:0 0 64px;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    left:0;top:0;
+                    width:100%;height:100%;
+                    background: rgba($black, 0.03);
+                }
+                img{
+                    width:100%;
+                    height:100%;
+                    object-fit: cover;
+                }
+            }
+            .text_wrap{
+                display: inline-flex;
+                flex-direction: column;
+                flex:1 1 auto;
+                justify-content: center;
+                padding-left: 16px;
+                .brand{
+                    font-size: 12px;
+                    font-weight: $fw-bold;
+                    line-height: 1.33;
+                    color: $gray2;
+                }
+                .desc{
+                    margin-top: 2px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray6;
+                    @include multi-ellipsis(2)
+                }
+            }
+
+
+        }
+
+        hr{
+            padding:0;
+            margin:15px 0 16px;
+            border:0;
+            border-top:1px solid $color-f5;
+        }
+
+        .bottom_txt{
+            position: relative;
+            padding-left: 9px;
+            font-size: 12px;
+            line-height: 16px;
+            color: $gray8;
+            + .bottom_txt{margin-top: 2px;}
+            &::before{
+                content:"";
+                position: absolute;
+                left:0;
+                top:6px;
+                width:3px;height:3px;
+                border-radius: 100%;
+                background: $graya;
+            }
+        }
+
+        .bottom_btn{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap:8px;
+            margin-top: 20px;
+            button{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex:1 1 auto;
+                width: 50%;
+                height:48px;
+                font-size: 15px;
+                font-weight: $fw-semibold;
+                line-height: 1.47;
+                color: $white;
+                background: $gray3;
+                border-radius: 4px;
+                &.white{
+                    color:$gray2;
+                    background: $white;
+                    border:1px solid $gray3;
+                }
+            }
+        }
+        
+    }
+}

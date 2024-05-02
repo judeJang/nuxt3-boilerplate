@@ -1,0 +1,514 @@
+.search {
+    &_content {
+        // min-height: calc(100vh - 56px);
+        padding: 8px 0;
+        background-color: $white;
+        button,
+        a {-webkit-tap-highlight-color: transparent;}
+    }
+
+    // 검색 페이지 헤더
+    &_header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        height: 56px;
+        padding: 8px 16px;
+        z-index: 101; //why mini_vip__btn is z-index 100
+        background-color: $white;
+        
+        .btn_area {
+            display: inline-flex;
+            flex:0 0 auto;
+            margin-left: -8px;
+        }
+        .search_area {
+            display: inline-flex;
+            flex:1 1 auto;
+            .input_box {
+                display: inline-flex;
+                flex: 1;
+                align-items: center;
+                height: 100%;
+                padding: 9px 16px 9px 16px;
+                border-radius: 20px;
+                background-color: $color-f5;
+                .input_search {
+                    flex: 1;
+                    width: calc(100% - 60px);
+                    padding: 0;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 15px;
+                    font-weight: $fw-semibold;
+                    line-height: 1.47;
+                    color: $gray2;
+                    &::placeholder {
+                        font-weight: $fw-regular;
+                        color: $graya;
+                    }
+                }
+                .btn_clear {
+                    width: 16px;
+                    height: 16px;
+                    margin-left: 8px;
+                    background: url($s3-path + 'img/m/m_common/icon-input-clear.png') center / contain no-repeat;
+                }
+                .btn_search {
+                    display: inline-block;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    padding: 3px 4px;
+                    margin-left: 12px;
+                    .icon_search {
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                        background: url($s3-path + 'img/m/m_icon/icon-search-gray3-16.svg') center / contain no-repeat;
+                    }
+                }
+            }
+        }
+        .right_area{
+            display: inline-flex;
+            flex:0 0 auto;
+            margin-right:-8px;
+        }
+        
+        .blind {@include blind;}
+    }
+
+    // 최근 검색어, 인기검색어, 추천 검색어 타이틀 영역
+    &_title_area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 56px;
+        padding: 0 16px;
+        .title {
+            display:inline-flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: $fw-bold;
+            line-height: 1.5;
+            color: $gray2;
+            .tooltip{
+                margin-left: 4px;
+                .question_icon {
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    background: url($s3-path + 'img/m/m_icon/icon-tooltips-16.png') center center / contain no-repeat;
+                    &.active {
+                        background-image: url($s3-path + 'img/m/m_icon/icon-tooltips-active-16.png');
+                    }
+                }
+            }
+        }
+        .btn_delete_all {
+            margin-top: 2px;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray8;
+        }
+        .date {
+            margin-top: 2px;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $graya;
+        }
+        .tooltip_box{
+            position: absolute;
+            display: none;
+            align-items: center;
+            height:32px;
+            padding:0 8px;
+            font-size: 12px;
+            font-weight: $fw-regular;
+            line-height: 1.33;
+            color: $gray5;
+            border: solid 1px $gray5;
+            background-color: $white;
+            border-radius: 3px;
+            &::before{
+                content: '';
+                position: absolute;
+                display: block;
+                width:4px;
+                height:4px;
+                left:-2px;
+                top:50%;
+                transform: rotate(-45deg) translateY(-50%);
+                background:$white;
+                border: 1px solid $gray5;
+                border-width:1px 0 0 1px;
+            }
+            
+            &.active{display: flex;}
+        }
+    }
+
+    //추천검색어
+    &_recommend{
+        .swiper{
+            width: 100%;
+            overflow: hidden;
+            .swiper-wrapper.recommend_list{
+                display: flex;
+                flex-wrap:nowrap;
+                margin-bottom: 16px;
+                .swiper-slide.recommend_keyword{
+                    display:inline-flex;
+                    align-items: center;
+                    width:auto;
+                    margin-right: 6px;
+                    border-radius: 17px;
+                    background-color: #fff5f6;
+                    height: 34px;
+                    padding: 0 12px;
+                    font-size: 13px;
+                    color:$primary;
+                    &:last-of-type{margin-right: 16px;}
+                    &:first-of-type{margin-left: 16px;}
+                }
+            }
+        }
+    }
+
+    // 최근 검색어
+    &_recent {
+        // 리스트 존재 시 스와이퍼
+        .swiper{
+            width: 100%;
+            overflow: hidden;
+            .swiper-wrapper.search_recent_list{
+                flex-wrap:nowrap;
+                gap:0;
+                padding:0;
+                margin-bottom: 16px;
+                .swiper-slide.search_term{
+                    display:inline-flex;
+                    margin-right: 6px;
+                    &:last-of-type{margin-right: 16px;}
+                    &:first-of-type{margin-left: 16px;}
+                }
+            }
+        }
+        
+        .search_recent_list { // 아울렛
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 6px;
+            padding: 0 16px 16px;
+            .search_term {
+                position: relative;
+                width:auto;
+                .text {
+                    display: block;
+                    max-width: 100%;
+                    height: 34px;
+                    padding: 0 33px 0 15px;
+                    border: 1px solid $color-e6;
+                    border-radius: 17px;
+                    font-size: 14px;
+                    line-height: 32px;
+                    color: $gray5;
+                    @include single-ellipsis;
+                }
+                .btn_delete {
+                    position: absolute;
+                    right: 5px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 30px;
+                    height: 30px;
+                    .icon_delete {
+                        display: block;
+                        width: 10px;
+                        height: 10px;
+                        background: url($s3-path + 'img/m/m_icon/icon-close-grayc-10.svg') center / contain no-repeat;
+                    }
+                }
+            }
+        }
+        .search_recent_list_gray { // 202402 검색홈 UI/UX 개선
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 6px;
+            padding: 0 16px 16px;
+            
+            .search_term {
+                position: relative;
+                width:auto;
+                max-width: 100%;
+                .text {
+                    display: block;
+                    max-width: 100%;
+                    height: 34px;
+                    padding: 0 30px 0 12px;
+                    border-radius: 17px;
+                    background-color: $color-f7;
+                    font-size: 13px;
+                    line-height: 34px;
+                    color: $gray2;
+                    @include single-ellipsis;
+                }
+                .btn_delete {
+                    position: absolute;
+                    right: 2px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 30px;
+                    height: 30px;
+                    .icon_delete {
+                        display: block;
+                        width: 10px;
+                        height: 10px;
+                        background: url($s3-path + 'img/m/m_icon/icon-close-grayc-10.svg') center / contain no-repeat;
+                    }
+                }
+            }
+        }
+        .search_recent_nodata {
+            font-size: 14px;
+            line-height: 1.43;
+            color: $gray8;
+        }
+        .blind {@include blind;}
+    }
+    
+    // 인기검색어
+    &_popular {
+        .popular_swiper{
+            position: relative;
+            width:100%;
+            padding-bottom: 20px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            .swiper-slide {
+                width: calc(100% - 60px);
+                margin-right: 8px;
+                &:first-child {margin-left: 16px;}
+                &:last-child {margin-right: 16px;}
+            }
+            .swiper-pagination,
+            .swiper-pagination-bullets{
+                bottom:0px;
+                >span, .swiper-pagination-bullet{
+                    width:6px;
+                    height:6px;
+                    background: $color-e6;
+                    opacity: 1;
+                    margin-left:0;
+                    margin-right:9px;
+                    &:last-child{margin-right: 0;}
+                    &.swiper-pagination-bullet-active{opacity: 1;background-color: $gray3;}
+                }
+            }
+        }
+        .search_popular_list {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 0 16px;
+            height: 176px;
+            padding: 7px 15px;
+            border: 1px solid $color-f0;
+            border-radius: 8px;
+            .search_term {
+                width: calc(50% - 8px);
+                .text_box {
+                    display: flex;
+                    align-items: center;
+                    height: 32px;
+                    .rank {
+                        display: inline-block;
+                        flex-shrink: 0;
+                        width: 20px;
+                        font-size: 13px;
+                        font-weight: $fw-semibold;
+                        line-height: 1.38;
+                        color: $gray2;
+                        &.primary {color: $primary;}
+                    }
+                    .text {
+                        flex: 1;
+                        font-size: 13px;
+                        font-weight: $fw-regular;
+                        line-height: 1.38;
+                        color: $gray2;
+                        @include single-ellipsis;
+                        &.bold {
+                            font-weight: $fw-semibold;
+                            color: $gray2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 급상승 검색어
+    &_rise {
+        padding-bottom: 40px;
+        .search_rise_list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 6px;
+            padding: 0 16px;
+            .search_term {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                height: 34px;
+                max-width: 100%;
+                padding: 0 11px;
+                border-radius: 17px;
+                border: 1px solid $color-e6;
+                
+                $hash-color: #f52644, #48a2b6, #6f5fc9, #ffa540, #55a731;
+                @for $i from 1 through 5 {
+                    &:nth-of-type(5n + #{ $i % 5 })::before {
+                        color: nth($hash-color, $i);
+                    }
+                }
+                &::before {
+                    content: '#';
+                    display: inline-block;
+                    width: 8px;
+                    margin-right: 2px;
+                    font-size: 13px;
+                    line-height: 1.38;
+                }
+                .text {
+                    font-size: 13px;
+                    font-weight: $fw-regular;
+                    line-height: 1.38;
+                    color: $gray2;
+                    @include single-ellipsis;
+                }
+            }
+        }
+    }
+
+    &_result_container {
+        .search_brand_area {
+            padding: 0 16px;
+            .brand_box {
+                display: flex;
+                align-items: center;
+                height: 48px;
+                .badge_brand {
+                    display: inline-block;
+                    width: 40px;
+                    height: 16px;
+                    flex-shrink: 0;
+                    background: url($s3-path + 'img/m/m_badge/badge-brand.png') center / contain no-repeat;
+                }
+                .brand {
+                    flex: 1;
+                    margin-left: 8px;
+                    font-size: 15px;
+                    font-weight: $fw-bold;
+                    line-height: 1.43;
+                    color: $gray2;
+                }
+                .icon_arr {
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    margin-left: 16px;
+                    flex-shrink: 0;
+                    background: url($s3-path + 'img/m/m_icon/icon_brand_arrow.svg') center / contain no-repeat;
+                }
+            }
+        }
+        .search_divider {
+            display: block;
+            height: 1px;
+            margin: 8px 16px;
+            background-color: $color-f5;
+        }
+        .search_result_list {
+            .search_result {
+                padding: 12px 16px;
+                cursor: pointer;
+                &:active{-webkit-tap-highlight-color: rgba($black, 0.03);}
+                &.has_icon {
+                    .text {
+                        display: flex;
+                        font-size: 14px;
+                        line-height: 1.43;
+                        color: $gray2;
+                        &::before {
+                            content: '';
+                            flex-shrink: 0;
+                            display: block;
+                            width: 14px;
+                            height: 14px;
+                            margin-top: 3px;
+                            margin-right: 8px;
+                            background: svg-icon(search_14);
+                            background-size: contain;
+                            background-position: center;
+                        }
+                    }
+                }
+                .text {
+                    display: block;
+                    font-size: 14px;
+                    line-height: 1.43;
+                    color: $gray2;
+                }
+                .highlight {color: $primary;}
+            }
+            .recent_result {
+                padding: 12px 16px;
+                cursor: pointer;
+                &:active{-webkit-tap-highlight-color: rgba($black, 0.03);}
+                .text_box {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    overflow: hidden;
+                    &::before {
+                        content: '';
+                        flex-shrink: 0;
+                        display: block;
+                        width: 14px;
+                        height: 14px;
+                        margin-right: 8px;
+                        background: svg-icon(clock_14);
+                        background-size: contain;
+                        background-position: center;
+                    }
+                }
+                .text{
+                    flex: 1;
+                    font-size: 14px;
+                    line-height: 1.43;
+                    color: $gray2;
+                    @include single-ellipsis;
+                }
+                .date {
+                    flex-shrink: 0;
+                    margin-left: 8px;
+                    font-size: 12px;
+                    line-height: 1.17;
+                    color: #aaa;
+                }
+                .highlight {color: $primary;}
+            }
+        }
+    }
+}

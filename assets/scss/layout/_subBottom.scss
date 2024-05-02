@@ -1,0 +1,184 @@
+.sub_bottom{ 
+    position: fixed;
+    width:100%;
+    bottom:0;
+    z-index: 9002; //기존 
+    transition: all .2s ;
+    &.old{
+        &.scroll_down{
+            bottom: calc(-1 * (65px + constant(safe-area-inset-bottom)));
+            bottom: calc(-1 * (65px + env(safe-area-inset-bottom)));
+        }
+        .sub_footer{
+            display: flex;
+            align-items: center;
+            height:calc(66px + constant(safe-area-inset-bottom));
+            height:calc(66px + env(safe-area-inset-bottom));
+            background: $white;
+        }
+    }
+
+    &:not(.old){
+        &.scroll_down{
+            bottom: calc(-1 * (58px + constant(safe-area-inset-bottom)));
+            bottom: calc(-1 * (58px + env(safe-area-inset-bottom)));
+        }
+        .sub_footer{
+            background: $white;
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -2px 4px 0 rgba($black, 0.03);
+            border:1px solid $color-e6;
+            border-width:1px 1px 0;
+            .inner_wrap{
+                display: flex;
+                align-items: center;
+                height: calc(55px + constant(safe-area-inset-bottom));
+                height: calc(55px + env(safe-area-inset-bottom));
+                width:100%;
+                border-radius: 16px 16px 0 0;
+                overflow: hidden;
+            }
+            button, a{
+                position: relative;
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 7px;
+                width:20%;
+                height:100%;
+                -webkit-tap-highlight-color: rgba($black, 0);
+                
+                //before::  attach icon
+                &::before{
+                    content: "";
+                    position: relative;
+                    width:28px;
+                    height:28px;
+                    z-index: 2;
+                }
+                // 버튼 press 일 때
+                //after :: attach click interaction
+                &.press::after{
+                    position: absolute;
+                    content: "";
+                    width:80px;
+                    height:80px;
+                    border-radius: 100%;
+                    background-color: rgba($black, 0.1);
+                    left:50%;
+                    top:50%;
+                    transform:translate(-50%, -50%);
+                    transform-origin: center;
+                    z-index:1;
+                    opacity: 1;
+                    animation: activeEffect .3s ease-in-out forwards;
+                }
+                
+                &.category{
+                    &::before{background:$sub-bottom-category;}
+                    &.active{
+                        &::before{
+                            background-position:  -42px -5px;
+                        }
+                    }
+                }
+                &.brand::before{background:$sub-bottom-brands;}
+                &.home::before{background:$sub-bottom-home;}
+                &.mypage::before{background:$sub-bottom-mypage;}
+                &.recently{
+                    &::before{background:$sub-bottom-view;}
+                    // 최근본 상품의 경우
+                    &.viewed{
+                        //아아콘 제거
+                        &::before{display: none;}
+                        &.active{
+                            .viewed_img{
+                                border:2px solid $primary;
+                            }
+                        }
+                        //아이콘 제거 후 이미지 노출
+                        .viewed_img{
+                            position: relative;
+                            display: block;
+                            z-index:3;
+                            &::after{
+                                content:"";
+                                position: absolute;
+                                left:50%;
+                                top:50%;
+                                transform: translate(-50%, -50%);
+                                width:100%;
+                                height:100%;
+                                border-radius: 100%;
+                                border:1px solid $white;
+                                box-sizing: border-box;
+                            }
+                        }
+                    }
+                    
+                    .viewed_img{
+                        position: relative;
+                        display: none;
+                        width: 28px;
+                        height: 28px;
+                        border-radius: 100%;
+                        overflow: hidden;
+                        border:1px solid #1f1f2c;
+                        box-sizing: border-box;
+                        img{max-width: 100%;}
+                    }
+    
+                }
+                //현재 페이지 일 때
+                &.active{
+                    &::before{
+                        background-position:  -43px -5px;
+                    }
+                    p{
+                        color:$primary;
+                        font-weight: $fw-semibold;
+                    } 
+                }
+                p{
+                    position: relative;
+                    margin-top: 3px;
+                    font-size: 10px;
+                    line-height: 1.2;
+                    text-align: center;
+                    color: $gray2;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+    
+
+
+    .floating_banner{
+        position: absolute;
+        left:10px;
+        width:100px;
+        height:100px;
+        bottom: calc(62px + constant(safe-area-inset-bottom));
+        bottom: calc(62px + env(safe-area-inset-bottom));
+        .banner{width:100px;}
+        .close_btn{
+            position: absolute;
+            right:0;
+            top:0;
+            width:24px;
+            height:24px;
+            background: url($s3-path+'img/m/m_icon/icon_foot_floating_close_24.png') no-repeat center;
+            background-size: 24px;
+        }
+    }
+    .go_top{
+        position: absolute;
+        right:12px;
+        bottom: calc(62px + constant(safe-area-inset-bottom));
+        bottom: calc(62px + env(safe-area-inset-bottom));
+        img{width:48px;}
+
+    }
+}  

@@ -1,0 +1,199 @@
+.outlet {
+    &_header {
+        position: sticky;
+        top: constant(safe-area-inset-top);
+        top: env(safe-area-inset-top);
+        width: 100%;
+        z-index: 105; //why mini_vip__btn is z-index 100 & category select box
+        background-color: $color-outlet;
+        &.fade {
+            position: fixed;
+            background-color: transparent;
+            transition: all 0.2s;
+        }
+        .header_container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 52px;
+        }
+        .header_title {
+            max-width: calc(100% - 180px);
+            font-size: 17px;
+            color: $white;
+            text-align: center;
+            font-weight: 600;
+            @include single-ellipsis();
+            .app_logo_title {height: 20px;}
+        }
+        .header_left {
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .header_right {
+            position: absolute;
+            display: flex;
+            right: 8px;
+            gap:8px;
+        }
+        // srp
+        .header_search_box {
+            padding: 0 16px 8px;
+            .input_box {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                padding: 0 12px;
+                background-color: $white;
+                border-radius: 4px;
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    flex-shrink: 0;
+                    margin-right: 8px;
+                    background: url($s3-path + 'img/m/m_icon/icon-search-purple-16.svg')
+                        center / contain no-repeat;
+                }
+                .input_search {
+                    flex: 1;
+                    min-width: 0;
+                    padding: 0;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 1.47;
+                    color: $gray2;
+                    outline: none;
+                }
+                .btn_clear {
+                    width: 16px;
+                    height: 16px;
+                    margin-left: 8px;
+                    background: url($s3-path + 'img/m/m_common/icon-input-clear.png')
+                        center / contain no-repeat;
+                }
+            }
+        }
+    }
+    // 검색 페이지 헤더
+    &_search_header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        height: 56px;
+        padding: 8px 8px 8px 16px;
+        z-index: 101; //why mini_vip__btn is z-index 100
+        background-color: $color-outlet;
+
+        .btn_area {
+            display: inline-flex;
+            flex: 0 0 auto;
+            .btn_back {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+                width: 40px;
+                height: 40px;
+                font-size: 15px;
+                line-height: 1.47;
+                text-align: center;
+                color: $white;
+            }
+        }
+        .search_area {
+            display: inline-flex;
+            flex: 1 1 auto;
+            .input_box {
+                display: inline-flex;
+                flex: 1;
+                align-items: center;
+                height: 100%;
+                padding: 9px 12px 9px 8px;
+                border-radius: 4px;
+                background-color: $white;
+                .input_search {
+                    flex: 1;
+                    width: calc(100% - 60px);
+                    padding: 0;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 15px;
+                    font-weight: $fw-semibold;
+                    line-height: 1.47;
+                    color: $gray2;
+                    &::placeholder {
+                        font-weight: $fw-regular;
+                        color: $graya;
+                    }
+                }
+                .btn_clear {
+                    width: 16px;
+                    height: 16px;
+                    margin-left: 8px;
+                    background: url($s3-path + 'img/m/m_common/icon-input-clear.png')
+                        center / contain no-repeat;
+                }
+                .btn_search {
+                    display: inline-block;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    padding: 3px 4px;
+                    margin-right: 4px;
+                    .icon_search {
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                        background: url($s3-path + 'img/m/m_icon/icon-search-purple-16.svg')
+                            center / contain no-repeat;
+                    }
+                }
+            }
+        }
+        .right_area {
+            display: inline-flex;
+            flex: 0 0 auto;
+            margin-right: -8px;
+            .button_basket {
+                position: relative;
+                display: flex;
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+
+                .badge {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    right: 3px;
+                    top: 6px;
+                    font-size: 10px;
+                    min-width: 16px;
+                    height: 16px;
+                    padding: 0;
+                    font-weight: $fw-semibold;
+                    color: $white;
+                    white-space: nowrap;
+                    text-align: center;
+                    border-radius: 100%;
+                    background-color: $primary;
+                }
+            }
+        }
+
+        .blind { @include blind; }
+    }
+}

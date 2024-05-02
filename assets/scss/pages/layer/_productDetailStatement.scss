@@ -1,0 +1,104 @@
+.product_report {
+    padding-bottom: 40px;
+    .report_notice {
+        padding: 15px 16px;
+        p {
+            position: relative;
+            padding-left: 12px;
+            margin-top: 2px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: $gray2;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 8px;
+                left: 0;
+                @include circle(4px);
+                background-color: $gray5;
+            }
+        }
+    }
+    .report_data_container {
+        padding: 0 16px;
+        .report_data_table {
+            width: 100%;
+            border-top: 1px solid $gray5;
+            border-collapse: separate;
+            th {
+                border-bottom: 1px solid $color-e6;
+                padding: 9px 16px 10px;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 1.5;
+                text-align: left;
+                color: $gray2;
+                background: $color-fa;
+                border-right: 1px solid $color-e6;
+                vertical-align: middle;
+            }
+            td {
+                padding: 9px 16px;
+                border-bottom: 1px solid $color-e6;
+                text-align: left;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 1.5;
+                color: $gray5;
+                vertical-align: middle;
+            }
+        }
+    }
+    .product_apply_form {
+        padding: 0 16px;
+        .comp_inp_box {
+            margin-top: 24px;
+        }
+        .notice_box {
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 1.54;
+            color: $gray8;
+            .link {
+                font-size: inherit;
+                line-height: inherit;
+                color: $color-48a;
+                text-decoration: underline;
+            }
+        }
+        .btn_box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            .reset_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc(50% - 4px);
+                height: 52px;
+                padding: 16px 0 17px;
+                border-radius: 4px;
+                border: 1px solid $gray3;
+                background-color: $white;
+                font-size: 16px;
+                font-weight: $fw-semibold;
+                color: $gray2;
+            }
+            .submit_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc(50% - 4px);
+                height: 52px;
+                padding: 16px 0 17px;
+                border-radius: 4px;
+                border: 1px solid $gray3;
+                background-color: $gray3;
+                font-size: 16px;
+                font-weight: $fw-semibold;
+                color: $white;
+            }
+        }
+    }
+}

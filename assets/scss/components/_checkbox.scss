@@ -1,0 +1,94 @@
+.b_checkbox_red{
+    display: inline-flex;
+    input{
+        display: none;
+        & + .checkbox_name {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            width: 100%;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray8;
+            &::before {
+                content: '';
+                display: block;
+                flex-shrink: 0;
+                width: 20px;
+                height: 20px;
+                margin: 0 6px 0 0;
+                border-radius: 2px;
+                border: solid 1px $grayd;
+                background: url($s3-path + 'img/m/m_icon/icon_checkbox_check_off.svg')
+                    center center no-repeat $white;
+                box-sizing: border-box;
+            }
+        }
+
+        &:checked + .checkbox_name {
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 20px;
+                height: 20px;
+                left: 0;
+                top: 0;
+                border-radius: 2px;
+                border: solid 1px $primary;
+                background: url($s3-path + 'img/m/m_icon/icon_checkbox_check_on.svg')
+                    center center no-repeat $primary;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+}
+
+
+.b_checkbox_black{
+    display: inline-flex;
+    input{
+        display: none;
+        & + .checkbox_name {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap:6px;
+            width: 100%;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray2;
+            &::before {
+                content: '';
+                display: block;
+                flex-shrink: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                border: solid 1px $grayd;
+                background: url($s3-path + 'img/m/m_icon/icon_checkbox_check_off.svg')
+                    center center no-repeat $white;
+                box-sizing: border-box;
+            }
+        }
+
+        &:checked + .checkbox_name {
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 20px;
+                height: 20px;
+                left: 0;
+                top: 0;
+                border-radius: 2px;
+                border: solid 1px $gray3;
+                background: url($s3-path + 'img/m/m_icon/icon_checkbox_check_on.svg')
+                    center center no-repeat $gray3;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,45 @@
+.comp_img_swiper{
+    .swiper_link{
+        position: relative;
+        display: block;
+        width: 100%;
+        height:get-vw(96px);
+        overflow: hidden;
+        .cover_img{@include thumbnail;}
+    }
+    .swiper-pagination,
+    .swiper-pagination-bullets{
+        bottom:12px;
+        >span, .swiper-pagination-bullet{
+            width:6px;
+            height:6px;
+            background: $white;
+            opacity: .3;
+            margin-left:0;
+            margin-right:9px;
+            &:last-child{margin-right: 0;}
+            &.swiper-pagination-bullet-active{opacity: 1;}
+        }
+    }
+    //dev env 
+    &.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin-left:0;
+        margin-right:9px;
+    }
+}
+
+
+//function :: BulletBannerInit(target)
+//html :: 
+// <div id="changeID30" class="comp_img_banner swiper-container">
+//     <ul class="swiper-wrapper">
+//         <?php for($i = 0; $i < 3; $i++){ ?>
+//         <li class="swiper-slide">
+//             <a class="swiper_link" href="#">
+//                 <img src="<?=$imgPath?>home/marketing_banner/2021/01/98b84974a05e8964e7047d3d47efd8af.jpeg" alt="product" class="cover_img">
+//             </a>
+//         </li>
+//         <?php } ?>
+//     </ul>
+//     <div class="swiper-pagination"></div>
+// </div>

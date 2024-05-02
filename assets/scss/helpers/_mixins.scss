@@ -1,0 +1,248 @@
+@mixin initialize-interval() {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+}
+//단일 라인 말줄임
+@mixin single-ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+//여러 라인 말줄임
+@mixin multi-ellipsis($line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+}
+//thumnail 이미지 :: 사이즈 100%, center 정렬
+@mixin thumbnail() {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+@mixin thumOverDeem {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($black, 0.03);
+    z-index: 2;
+}
+//360보다 작을 경우
+@mixin little-small-mobile {
+    @media (max-width: #{ ($default-size - 1) + 'px'}) {
+        @content;
+    }
+}
+//360보다 클경우
+@mixin little-big-mobile {
+    @media (min-width: #{ ($default-size + 1) + 'px'}) {
+        @content;
+    }
+}
+@mixin hide-scroll {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    /* Hide scrollbar for IE, Edge add Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}
+//text hide
+@mixin blind {
+    position: absolute;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+@mixin selectInit {
+    -webkit-appearance: none;
+    /* 크롬 화살표 없애기 */
+    -moz-appearance: none;
+    /* 파이어폭스 화살표 없애기 */
+    appearance: none;
+    /* 화살표 없애기 */
+}
+@mixin orderSelect {
+    // -webkit-appearance: menulist-button;
+    background: url($s3-path + 'img/m/m_icon/select-arrow.svg') no-repeat right 12px top
+        14px;
+    background-size: 14px;
+    padding: 0 25px 0 11px;
+    border-radius: 4px;
+    border: solid 1px $grayd;
+    background-color: $white;
+    height: 44px;
+    width: 100%;
+    font-family: Pretendard;
+    font-size: 14px;
+    // color: $gray2;
+    box-sizing: border-box;
+    outline: none;
+    color: $gray8;
+    &.selected {
+        color: $gray2;
+    }
+}
+
+@mixin orderInput {
+    border-radius: 4px;
+    border: solid 1px $grayd;
+    background-color: $white;
+    padding: 12px;
+    height: 44px;
+    width: 100%;
+    font-size: 14px;
+    color: $gray2;
+    box-sizing: border-box;
+}
+
+@mixin orderCheckbox {
+    input[type='checkbox'] {
+        display: none;
+        & + .checkbox_name {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray8;
+            &::before {
+                content: '';
+                display: block;
+                width: 20px;
+                height: 20px;
+                margin: 0 6px 0 0;
+                border-radius: 2px;
+                border: solid 1px $grayd;
+                background: url($s3-path + 'img/m/m_icon/icon_checkbox_check_off.svg')
+                    center center no-repeat $white;
+                box-sizing: border-box;
+            }
+        }
+
+        &:checked + .checkbox_name {
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 20px;
+                height: 20px;
+                left: 0;
+                top: 0;
+                border-radius: 2px;
+                border: solid 1px $primary;
+                background: url($s3-path + 'img/m/m_icon/icon_checkbox_check_on.svg')
+                    center center no-repeat $primary;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+@mixin place-holder {
+    &::placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &::-ms-input-placeholder {
+        @content;
+    }
+}
+@mixin input-text-common {
+    width: 100%;
+    padding: 10px 11px 11px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: solid 1px $grayd;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $gray2;
+    caret-color: $primary;
+    &:focus {
+        outline: none;
+        border-color: $gray3;
+    }
+    &::placeholder {color: $grayc;}
+}
+
+@mixin soldoutImg{
+    background: url(#{$s3-path}img/m/m_product/thumb_soldout_500.png) no-repeat left top / cover;
+}
+// 동그라미
+@mixin circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: calc($size / 2);
+}
+//별점 프레임
+@mixin star_frame($wid, $hei) {
+    display: block;
+    width: $wid + px;
+    height: $hei + px;
+    background: url($s3-path + 'img/m/m_icon/icon-star-frame.png') left top no-repeat;
+    background-size: 100%;
+}
+@mixin tooltip-arr-top-center($width) {
+    position: absolute;
+    width: $width;
+    padding: 7px 11px;
+    box-sizing: border-box;
+    border: 1px solid $gray5;
+    border-radius: 3px;
+    background-color: $white;
+    text-align: left;
+    font-size: 11px;
+    color: $gray5;
+    line-height: 1.45;
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        border-style: solid;
+        border-width: 0 4px 5px;
+    }
+    &::before {
+        top: -6px;
+        border-color: $gray5 transparent;
+        z-index: 0;
+    }
+    &::after {
+        top: -4.5px;
+        border-color: $white transparent;
+        z-index: 1;
+    }
+}
+
+@mixin soldoutImg{
+    background: url(#{$s3-path}img/m/m_product/thumb_soldout_500.png) no-repeat left top / cover;
+}
+@mixin soldoutImgWhite{
+    background: url(#{$s3-path}img/m/m_product/thumb_soldout_white.png) no-repeat left top / cover;
+}
+
+@mixin fake-btn{
+    cursor: pointer;
+    &:active{
+      -webkit-tap-highlight-color: rgba($black, 0.03);
+    }
+}

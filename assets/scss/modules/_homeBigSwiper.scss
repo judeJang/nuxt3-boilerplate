@@ -1,0 +1,57 @@
+.big_banner{
+    position: relative;
+    .big_banner__swiper{
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide{
+        position: relative;
+        width:100%;
+        height:get-vw(293px);
+        overflow: hidden;
+        .swiper_link{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .cover_img{@include thumbnail;}
+    }
+    .big_banner__pagination{
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        right:16px;
+        bottom:16px;
+        min-width: 60px;
+        height: 26px;
+        padding:0 9px;
+        border-radius: 13px;
+        z-index:100;
+        background-color:rgba($black, .3);
+        font-size: 11px;
+        font-weight: $fw-regular;
+        color: rgba($white, .7);
+        .current{color: rgba($white, 1);}
+        .icon{
+            position: relative;
+            width: 9px;
+            height: 9px;
+            margin-left: 6px;
+            &::before,
+            &::after{
+                content: '';
+                @include thumbnail;
+                background: $white;
+            }
+            &::before{
+                width: 9px;
+                height: 1px;
+            }
+            &::after{
+                width: 1px;
+                height: 9px;
+            }
+        }    
+    }
+}

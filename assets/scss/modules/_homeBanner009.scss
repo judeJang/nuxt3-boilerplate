@@ -1,0 +1,13 @@
+.banner009 {
+  padding-bottom: 32px;
+  background-color: $white;
+  .banner_swiper {
+    .banner_box {
+      width: get-vw(140px);
+      margin-right: 8px;
+      &:first-child {margin-left: 16px;}
+      &:last-child {margin-right: 16px;}
+      img {width: 100%;}
+    }
+  }
+}

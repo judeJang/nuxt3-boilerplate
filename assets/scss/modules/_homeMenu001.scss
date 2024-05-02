@@ -1,0 +1,52 @@
+.category_direct{
+    position: relative;
+    padding:24px 12px 12px;
+    background: $white;
+    .category_direct__lists{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        .category_direct__list{
+            position: relative;
+            width:64px;
+            flex-shrink: 0;
+            text-align: center;
+            margin-bottom: 14px;
+            @include little-small-mobile{width:20%;}
+            @include little-big-mobile{width:20%;}
+            &.new{
+                &::after{
+                    content: "";
+                    position: absolute;
+                    left:50%;
+                    transform: translateX(14px);
+                    top: -2px;
+                    z-index: 9;
+                    width: 16px;
+                    height: 16px;
+                    background: url($s3-path+'img/m/m_badge/iconN_v2.png') no-repeat center;
+                    background-size: cover;
+                }
+            }
+            .category_direct__link{display: block;}
+            .category_direct__img{
+                max-width: 56px;
+                max-height: 56px;
+                width: 100%;
+                height:auto;
+                border-radius: 22px;
+                overflow: hidden;
+            }
+            .category_direct__text{
+                width: 100%;
+                margin-top: 8px;
+                font-size: 12px;
+                font-weight: $fw-regular;
+                color: $gray2;
+                text-align: center;
+                @include single-ellipsis();
+            }
+        }
+    }
+}

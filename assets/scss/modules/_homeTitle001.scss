@@ -1,0 +1,49 @@
+.main_title{
+    display: flex;
+    height: 66px;
+    padding:0 16px 15px; 
+    justify-content: space-between;
+    align-items: flex-end;
+    background: $color-fa;
+    &.white_bg{background: $white;}
+    &__name{
+        display: inline-flex;
+        gap:2px;
+        font-size: 20px;
+        font-weight: $fw-bold;
+        color: $gray2;
+        line-height: 1.44;
+        span{font-weight: $fw-regular;}
+    }
+    &__link{
+        padding-bottom:2px;
+        font-size: 13px;
+        line-height: 1.38;
+        color:$gray8;
+    }
+}
+
+.PDP_title{
+    display: flex;
+    height: 66px;
+    padding:0 16px 15px; 
+    justify-content: space-between;
+    align-items: flex-end;
+    background: $color-fa;
+    &.white_bg{background: $white;}
+    &__name{
+        display: inline-flex;
+        gap:2px;
+        font-size: 18px;
+        font-weight: $fw-bold;
+        color: $gray2;
+        line-height: 1.44;
+        span{font-weight: $fw-regular;}
+    }
+    &__link{
+        padding-bottom:2px;
+        font-size: 13px;
+        line-height: 1.38;
+        color:$gray8;
+    }
+}

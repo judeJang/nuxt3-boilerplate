@@ -1,0 +1,265 @@
+.compare_container{
+    padding:0 16px 38px 16px;  
+    .b_checkbox_red{
+        padding:16px 0;
+        input[type=checkbox] + .checkbox_name{
+            font-size: 12px;
+            line-height: 16px;
+            color: $gray5;
+        }
+    } 
+    .compare_item_list + .desc_text{margin-top: 16px;}
+    .empty{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height:calc(404px - 38px);
+        p{
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 20px;
+            color: $gray8;
+        }
+    }
+    .desc_text{
+        position: relative;
+        padding-left: 9px;
+        font-size: 13px;
+        line-height: 1.38;
+        color: $gray8;
+        + .desc_text{margin-top: 4px;}
+        &::before{
+            content: "";
+            position: absolute;
+            left:0;top:6px;
+            width:3px;height:3px;
+            border-radius: 100%;
+            background-color: $graya;
+        }
+    }
+}
+
+
+//list
+.compare_item_list{
+    @mixin arrDown{
+        &::after{
+            content: "";
+            transform: rotate(90deg);
+            width: 10px;
+            height: 10px;
+            background: svg-icon(arr_ltr_12, aaa);
+            @content;
+        }
+    }
+
+    position: relative;
+    padding: 15px 15px 8px 15px;
+    border-radius: 8px;
+    border: solid 1px $grayd;
+    background-color:$white;
+    overflow: hidden;
+    + .compare_item_list{margin-top: 8px;}
+    // 현재 상품
+    &:not(.current){@include fake-btn;}
+    &.current{
+        border-color:$primary;
+        &::before{
+            content:"";
+            position: absolute;
+            left:-1px;top:-1px;
+            width:0;height:0;
+            border-left:solid 32px $primary;
+            border-bottom:solid 32px $white;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            width:13px;height:9px;
+            left:3px;top:5px;
+            background: svg-icon(check_13_9, fff);
+        }
+    }
+    &.is_open{
+        padding-bottom: 0;
+        .option_info .option_btn::after{transform: rotate(-90deg);}
+    }
+    //최저가
+    &.lowest{
+        .info_header{
+            .price{
+                gap:4px;
+                color: $primary;
+                &::before{
+                    content: "최저가";
+                    position: relative;
+                    top:3px;
+                    font-size: 11px;
+                    font-weight: $fw-regular;
+                    line-height: 1.27;
+                    color: $primary;
+                    
+                }
+            }
+        }
+    }
+   
+    .info_header{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .seller{
+            display: inline-flex;
+            align-items: center;
+            gap:4px;
+            width:50%;
+            
+            span{
+                font-size: 16px;
+                font-weight: $fw-semibold;
+                line-height: 20px;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            
+            &.grand::before{
+                content: "";
+                width: 16px;
+                height: 16px;
+                flex:0 0 16px;
+                background: svg-icon(seller_grand);
+                background-size: cover;
+            }
+            &.excellence::before{
+                content: "";
+                width: 16px;
+                height: 16px;
+                flex:0 0 16px;
+                background: svg-icon(seller_excellence);
+                background-size: cover;
+            }
+
+
+        }
+        .price{
+            display: inline-flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: $fw-bold;
+            line-height: 24px;
+            color: $gray2;
+        }
+
+    }
+
+    .info_middle{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        .shipping{
+            display: inline-flex;
+            align-items: center;
+            span{
+                display: inline-flex;
+                align-items: center;
+                font-size: 12px;
+                line-height: 16px;
+                color: $gray8;
+                &.bold{color:$primary}
+                + span{
+                    &::before{
+                        content: "";
+                        width:1px;
+                        height:10px;
+                        margin:0 6px;
+                        background: $grayd;
+                    }
+                }
+            }
+        }
+        .delivery_paid{
+            display: flex;
+            align-items: center;
+            gap:2px;
+            font-size: 12px;
+            line-height: 16px;
+            color: $gray8;
+            &::before{
+                content: "";
+                width: 16px;
+                height: 16px;
+                background: svg-PDP(PDP_delivery_domestic,888);
+                background-size: cover;
+            }
+        }
+    }
+
+    .option_info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        padding: 8px 0;
+        border-top:1px solid $color-f5;
+        .badge{
+            display: flex;
+            gap:4px;
+            padding: 0;
+            span{
+                display: inline-flex;
+                align-items: center;
+                height: 18px;
+                padding: 0 4px;
+                border-radius: 3px;
+                border: solid 1px $grayd;
+                background-color: $white;
+                font-size: 9px;
+                line-height: 1.33;
+                color: $gray8;
+            }
+        }
+        .option_btn{
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height:18px;
+            gap:2px;
+            font-size: 10px;
+            font-weight: $fw-medium;
+            line-height: 12px;
+            color: $gray8;
+            &::before{
+                content: "";
+                position: absolute;
+                left:-10%;
+                top:-10%;
+                width:120%;
+                height:120%;
+            }
+            @include arrDown{
+                background-size: cover;
+            }
+        }
+    }
+
+    .option{
+        position: relative;
+        width: calc(100% + 32px);
+        padding: 8px 17px;
+        transform: translateX(-16px);
+        background: $color-fa;
+        >li{
+            display: flex;
+            align-items: center;
+            height:22px;
+            font-size: 11px;
+            line-height: 1.27;
+            color: $gray6;
+        }
+    }
+    
+}//E list

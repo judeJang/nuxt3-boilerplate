@@ -1,0 +1,34 @@
+.layer_container .order_terms_container {
+    h3 {
+        font-size: 20px !important;
+        font-weight: $fw-semibold;
+        line-height: 1.35;
+        color: $gray2;
+        + h4 {
+            margin-top: 24px;
+        }
+    }
+    h4 {
+        font-size: 14px !important;
+        font-weight: $fw-bold;
+        line-height: 1.43;
+        color: $gray2;
+        + p {
+            margin-top: 4px;
+        }
+        + h4 {
+            margin-top: 16px;
+        }
+    }
+    p {
+        font-size: 14px;
+        line-height: 1.43;
+        color: $gray2;
+        &.mt8 {
+            margin-top: 8px;
+        }
+        + h4 {
+            margin-top: 16px;
+        }
+    }
+}

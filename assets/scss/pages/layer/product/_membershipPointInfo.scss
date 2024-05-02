@@ -1,0 +1,16 @@
+.membership_point_info{
+    .common_alert_header{
+        h1{
+            padding: 3px 0;
+            font-size: 18px !important;
+            font-weight: $fw-bold;
+            line-height: 1.44;
+            color: $gray2;
+        }
+    }
+    .info_desc{
+        font-size: 14px;
+        line-height: 1.43;
+        color: $gray5;
+    }
+}

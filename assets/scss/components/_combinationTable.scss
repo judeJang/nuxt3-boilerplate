@@ -1,0 +1,49 @@
+.comp_combination_table{
+    border-top: 1px solid $gray5;
+    table{
+        width:100%;
+        border-collapse: collapse;
+    }
+    th,
+    td{
+        height:48px;
+        font-size: 13px;
+        font-weight: 400;
+        color: $gray6;
+        text-align: center;
+        border-bottom: 1px solid #e6e6e6;
+        &:first-child{color:$gray2;}
+        &:nth-child(odd){background: $color-f5;}
+        &:nth-child(even){background: $white;}
+        &.odd{background: $color-f5;} //forced
+        &.even{background: $white;}   //forced
+    }
+    th{color:$gray2;}
+}
+
+// <div class="comp_combination_table">
+//     <table>
+//         <colgroup>
+//             <col width="15%">
+//             <col width="25%">
+//             <col width="30%">
+//             <col width="30%">
+//         </colgroup>
+//         <thead>
+//             <tr>
+//                 <th>미국</th>
+//                 <th>개월 수</th>
+//                 <th>키 (cm)</th>
+//                 <th>몸무게 (kg)</th>
+//             </tr>
+//         </thead>
+//         <tbody>
+//             <tr>
+//                 <td>NB</td>
+//                 <td>0-3개월</td>
+//                 <td>48 이하</td>
+//                 <td>48 이하</td>
+//             </tr>
+//         </tbody>
+//     </table>
+// </div>

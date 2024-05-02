@@ -1,0 +1,46 @@
+.boutique_big_swiper{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    .swiper-slide{
+        position: relative;
+        &::after{
+            content: "";
+            @include thumOverDeem
+        }
+        img{
+            display: block;
+            width:100%;
+        }
+    } 
+    .boutique_pagination {
+        position: absolute;
+        display: block;
+        left: 40px;
+        right: 40px;
+        bottom: 24px;
+        width: auto;
+        height: 2px;
+        z-index: 1;
+        background-color: rgba($white, 0.2);
+        .move {
+            display: block;
+            height: 2px;
+            position: absolute;
+            background-color: $white;
+            transition: left 0.5s;
+        }
+        @for $i from 1 through 24 {
+            &[data-total='#{$i}'] {
+                $width: calc(1 / $i);
+                .move {width: percentage($width);}
+                @for $j from 1 through 24 {
+                    &[data-current='#{$j}'] {
+                        $left: $width * ($j - 1);
+                        .move {left: percentage($left);}
+                    }
+                }
+            }
+        }
+    }
+}

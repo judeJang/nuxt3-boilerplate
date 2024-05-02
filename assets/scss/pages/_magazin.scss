@@ -1,0 +1,264 @@
+@charset "UTF-8";
+.megazing_content {
+    position: relative;
+    background: $color-fa;
+    .magazing_header {
+        padding: 16px;
+        background: $white;
+        .inner_box {
+            position: relative;
+            overflow: hidden;
+        }
+        .img_box {
+            position: relative;
+            font-size: 0;
+            line-height: 0;
+            img {
+                width: 100%;
+                height: 66.667vw;
+                object-fit: cover;
+            }
+            .hash_tag {
+                position: absolute;
+                display: flex;
+                bottom: 0;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+                padding: 0 13px;
+                height: 28px;
+                font-size: 12px;
+                text-align: center;
+                color: $white;
+                background: $black;
+            }
+        }
+        .desc_box {
+            .sub_title {
+                display: block;
+                height: 21px;
+                margin: 12px 0 0;
+                font-size: 14px;
+                line-height: 1.5;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .title {
+                display: block;
+                margin: 4px 0 0;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 1.35;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .desc {
+                display: block;
+                height: 42px;
+                margin: 4px 0 0;
+                font-size: 14px;
+                line-height: 1.5;
+                color: $gray8;
+                @include multi-ellipsis(2);
+            }
+        }
+        .mgz_pagination {
+            display: flex;
+            justify-content: center;
+            padding: 24px 0 16px;
+            text-align: center;
+            .swiper-pagination-bullet {
+                display: block;
+                width: 6px;
+                height: 6px;
+                margin: 0 4.5px;
+                background: $color-e6;
+                opacity: 1 !important;
+                &.swiper-pagination-bullet-active {
+                    background: $gray3;
+                }
+            }
+        }
+    }
+    .magazing_container {
+        background: $white;
+        margin-top: 10px;
+        padding: 24px 0 40px;
+        .menu_box {
+            position: sticky;
+            top: 52px;
+            background: $white;
+            z-index: 1;
+            .magazing_menu {
+                padding: 8px 16px 16px 10px;
+                overflow: hidden;
+                ul {
+                    li {
+                        width: auto;
+                        margin: 0 0 0 6px;
+                        .slider_btn {
+                            display: flex;
+                            height: 34px;
+                            padding: 0 16px;
+                            align-items: center;
+                            border-radius: 17px;
+                            font-size: 13px;
+                            border-radius: 17px;
+                            border: solid 1px $color-e6;
+                            color: $gray5;
+                            background-color: $white;
+                            box-sizing: border-box;
+                            .hash {
+                                margin-right: 2px;
+                            }
+                            &.active {
+                                font-weight: 500;
+                                .hash {
+                                    font-weight: 500;
+                                }
+                            }
+                            &.color_01 {
+                                &.active {
+                                    background-color: $gray3;
+                                    border-color: $gray3;
+                                }
+                                .hash {
+                                    color: $gray3;
+                                }
+                            }
+                            &.color_02 {
+                                &.active {
+                                    background-color: $primary;
+                                    border-color: $primary;
+                                }
+                                .hash {
+                                    color: $primary;
+                                }
+                            }
+                            &.color_03 {
+                                &.active {
+                                    background-color: $color-48a;
+                                    border-color: $color-48a;
+                                }
+                                .hash {
+                                    color: $color-48a;
+                                }
+                            }
+                            &.color_04 {
+                                &.active {
+                                    background-color: $color-6f5;
+                                    border-color: $color-6f5;
+                                }
+                                .hash {
+                                    color: $color-6f5;
+                                }
+                            }
+                            &.color_05 {
+                                &.active {
+                                    background-color: $color-cb5;
+                                    border-color: $color-cb5;
+                                }
+                                .hash {
+                                    color: $color-cb5;
+                                }
+                            }
+                            &.color_06 {
+                                &.active {
+                                    background-color: $color-ffa;
+                                    border-color: $color-ffa;
+                                }
+                                .hash {
+                                    color: $color-ffa;
+                                }
+                            }
+                            &.color_07 {
+                                &.active {
+                                    background-color: $color-409;
+                                    border-color: $color-409;
+                                }
+                                .hash {
+                                    color: $color-409;
+                                }
+                            }
+                            &.color_08 {
+                                &.active {
+                                    background-color: $color-55a;
+                                    border-color: $color-55a;
+                                }
+                                .hash {
+                                    color: $color-55a;
+                                }
+                            }
+                            &.active {
+                                color: $white;
+                                .hash {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // &.shadow_on:after {
+            //     content: '';
+            //     position: absolute;
+            //     display: block;
+            //     bottom: -8px;
+            //     left: 0;
+            //     width: 100%;
+            //     height: 8px;
+            //     background-image: linear-gradient(
+            //         to bottom,
+            //         rgba(0, 0, 0, 0.05) 0%,
+            //         rgba(0, 0, 0, 0)
+            //     );
+            //     z-index: 5;
+            // }
+        }
+        .magazing_list {
+            padding: 0 16px;
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-top: 8px;
+            }
+            li {
+                width: calc(50% - 4px);
+                margin-top: 24px;
+                &:nth-child(1),
+                &:nth-child(2) {
+                    margin: 0;
+                }
+                .img_box {
+                    display: block;
+                    font-size: 0;
+                    line-height: 0;
+                    img {
+                        width: 100%;
+                        height: 35.556vw;
+                        object-fit: cover;
+                    }
+                }
+                .title {
+                    display: block;
+                    height: 18px;
+                    margin: 10px 0 2px;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: $gray8;
+                    @include single-ellipsis;
+                }
+                .desc {
+                    display: block;
+                    height: 40px;
+                    margin: 2px 0 0;
+                    font-size: 14px;
+                    line-height: 1.43;
+                    color: $gray2;
+                    @include multi-ellipsis(2);
+                }
+            }
+        }
+    }
+}

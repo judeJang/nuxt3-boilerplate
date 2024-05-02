@@ -1,0 +1,10 @@
+.hotdeal_content {
+    background-color: $white;
+    padding-bottom: 16px;
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+}

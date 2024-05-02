@@ -1,0 +1,9 @@
+.page_title{
+    display: flex;
+    padding:25px 14px 15px;
+    font-size: 18px;
+    font-weight: $fw-bold;
+    line-height: 1.44;
+    h2, p{color: $gray2;font-size: 18px;}
+    .hash{color: $primary;}
+}

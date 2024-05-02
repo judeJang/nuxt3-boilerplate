@@ -1,0 +1,38 @@
+.category_home_big_banner {
+    padding: 20px 16px 0;
+    .big_banner_container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px 8px;
+        a {
+            display: block;
+            width: calc((100% - 8px) / 2);
+        }
+        .img_wrap {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 64%;
+            overflow: hidden;
+            border-radius: 6px;
+            img {
+                @include thumbnail;
+                object-fit: cover;
+            }
+            &::before{
+                content: "";
+                @include thumOverDeem;
+            }
+        }
+        .name {
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: $fw-regular;
+            line-height: 1.33;
+            color: $gray2;
+            text-align: center;
+            @include single-ellipsis;
+        }
+    }
+}

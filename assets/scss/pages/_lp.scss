@@ -1,0 +1,70 @@
+.lp_content {
+    background: $white;
+    .product_list_box {
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}
+.premium_info {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: $white;
+
+    .premium_info__container {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        margin: 0 16px;
+        overflow: hidden;
+        font-size: 0;
+
+        .premium_info__text {
+            display: block;
+            margin: 1px 0;
+            font-size: 11px;
+            line-height: 1.45;
+            color: $gray8;
+        }
+        .btn_premium_popup {
+            margin-left: 2px;
+        }
+        .question_icon {
+            display: block;
+            width: 16px;
+            height: 16px;
+            background: url($s3-path + 'img/m/m_icon/icon-tooltips-16.png') center center / contain no-repeat;
+            &.active {
+                background-image: url($s3-path + 'img/m/m_icon/icon-tooltips-active-16.png');
+            }
+        }
+    }
+    .premium_info__popup {
+        @include tooltip-arr-top-center(210px);
+        display: none;
+        top: 39px;
+        left: 16px;
+        z-index: 101;
+
+        &::before,
+        &::after { 
+            left: 82px; 
+            transform: translateX(0);
+        }
+        &.active { display: block; }
+    }
+    .sort_container_transition {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: transparent;
+
+        &.active { display: block; }
+    }
+}

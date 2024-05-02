@@ -1,0 +1,36 @@
+.best_review_version2{
+    padding-bottom: 32px;
+    background: $white;
+    overflow: hidden;
+    .swiper-slide{
+        width:get-vw(180px);
+        margin-right: 8px;
+        &:first-of-type{margin-left: 16px;}
+        &:last-of-type{margin-right: 16px;}
+        > a {display: block;}
+        .review_img{
+            height:get-vw(240px);
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .comp_star_rating{margin-top: 12px;}
+        .review_text{
+            margin-top: 8px;
+            height: 54px;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray2;
+            @include multi-ellipsis(3);
+        }
+        .item_container{
+            margin-top: 12px;
+            font-size: 11px;
+            line-height: 1.45;
+            color: $gray8;
+            .brand{    font-weight: $fw-bold;}
+            .name{@include single-ellipsis();}
+        }
+    }
+}

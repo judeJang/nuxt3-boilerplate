@@ -1,0 +1,41 @@
+.banner008 {
+    width: 100%;
+    position: relative;
+    .swiper_container {
+        overflow: hidden;
+        .banner_box {
+            img {width: 100%;}
+        }
+    }
+    .pagination {
+        &_type1 {
+            position: absolute;
+            left: 40px;
+            right: 40px;
+            bottom: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1;
+            .progress {
+                flex: 1;
+                height: 2px;
+                background-color: rgba($white, 0.2);
+                span {
+                    display: block;
+                    height: 100%;
+                    transition: all 0.5s ease;
+                    background-color: $white;
+                }
+            }
+            .paging {
+                flex-shrink: 0;
+                min-width: 36px;
+                font-size: 11px;
+                line-height: 1.45;
+                text-align: right;
+                color: $white;
+            }
+        }
+    }
+}

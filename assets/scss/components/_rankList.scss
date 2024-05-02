@@ -1,0 +1,126 @@
+.comp_ranking__lists{padding:0 16px 46px;}
+.comp_ranking__list{
+    border-bottom: 1px solid $color-f5;
+    &:last-child{border-bottom: 0;}
+    .ranking_link__link{
+        display: flex;
+        height:80px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .brand_container{
+        display: flex;
+        align-items: center;
+        width: calc(100% - 24px);
+        .rank{
+            width:24px;
+            flex-shrink: 0;
+            font-size: 18px;
+            font-weight: $fw-medium;
+            text-align: center;
+            color: $gray3;
+        }
+        .rank_img{
+            position: relative;
+            width:48px;
+            height:48px;
+            flex-shrink: 0;
+            border-radius: 100%;
+            margin: 0 16px;
+            overflow: hidden;
+            .cover_img{@include thumbnail;}
+        }
+        .rank_name{
+            width: calc( 100% - 120px);
+            .eng{
+                font-size: 14px;
+                font-weight: $fw-bold;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .kor{
+                margin-top: 4px;
+                font-size: 13px;
+                color: $gray8;
+                @include single-ellipsis;
+            }
+        }
+
+    }
+    .change_container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:24px;
+        flex-shrink: 0;
+        &::before{content: "";}
+        &::after{
+            content:attr(data-change);
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        &.up{
+            &::before{
+                width: 0; 
+                height: 0; 
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-bottom: 5px solid $primary;
+            }
+            &::after{color: $primary;}
+        }
+        &.down{
+            &::before{
+                width: 0; 
+                height: 0; 
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 5px solid $color-05f;
+            }
+            &::after{color: $color-05f;}
+        }
+        &.new{
+            &::after{
+                content: "new";
+                position: relative;
+                top: -1px;
+                margin-left: 0;
+                color: #ff5000;
+            }
+        }
+        &.same,
+        &.static{
+            &::before{
+                position: relative;
+                top: -1px;
+                width: 8px;
+                height: 2px;
+                background-color: $grayc;
+            }
+            &::after{display: none;}
+        }
+    }
+}
+
+
+//html ::
+// <ol class="comp_ranking__lists">
+//     <?php for($j = 0; $j < 5; $j++){?>
+        // <li class="comp_ranking__list">
+        //     <a href="#" class="ranking_link__link">
+        //         <div class="brand_container">
+        //             <div class="rank"><?= ($j+1) + ($i * 5)?></div>
+        //             <div class="rank_img">
+        //                 <img src="<?=$imgPath?>home/special_display_plan/2022/01/77f9f13145db57a278c382b5efa691d4.jpeg" alt="product" class="cover_img">
+        //             </div>
+        //             <div class="rank_name">
+        //                 <p class="eng">Commed des GarconsCommed des GarconsCommed des Garcons</p>
+        //                 <p class="kor">꼼데가르송</p>
+        //             </div>
+        //         </div>
+        //         <div class="change_container <?= $j == 1 ? 'up' : '' ?> <?= $j == 2 ? 'down' : '' ?> <?= $j == 3 ? 'new' : '' ?> <?= $j == 4 ? 'same' : '' ?>" data-change="<?=$j?>">
+        //         </div>
+        //     </a>
+        // </li>
+// <?php } ?>
+// </ol>

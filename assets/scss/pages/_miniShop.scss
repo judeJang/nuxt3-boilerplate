@@ -1,0 +1,10 @@
+.minishop_content {
+    background: $white;
+    .product_list_box {
+        .list {
+            display: flex;
+
+            flex-wrap: wrap;
+        }
+    }
+}

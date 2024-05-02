@@ -1,0 +1,7 @@
+.marketing_banner{
+    .comp_img_swiper .swiper_link{display: flex;} //for vue
+    .comp_img_swiper{
+        .swiper-pagination-bullets,
+        .swiper-pagination{width: 100%;bottom:10px;}
+    } 
+}

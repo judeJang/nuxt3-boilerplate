@@ -1,0 +1,23 @@
+@use '../helpers/variables';
+
+.container {
+  color: variables.$black;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.layout-box {
+  padding: 20px 0;
+  border: {
+    style: solid;
+    color: #ddd;
+    width: 1px 0;
+  }
+  color: #ccc;
+  text-align: center;
+}
+
+.test {
+  color: #111;
+}

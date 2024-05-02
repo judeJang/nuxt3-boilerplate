@@ -1,0 +1,1536 @@
+@charset "UTF-8";
+/*
+    PDP 전체 개선 시 
+    vip scss 삭제 
+    vip외에 리뷰등 여러 view파일 들어가 있는 부분 별도 생성
+*/
+.PDP{
+
+    //혜택안내, 배송정보 화살표
+    @mixin arrDown{
+        &::after{
+            content: "";    
+            position: absolute;
+            right:0;
+            top:6px;
+            transform: rotate(90deg);
+            width: 12px;
+            height: 12px;
+            background: svg-icon(arr_ltr_12, 555);
+        }
+    }
+
+    //inline tooltip icon
+    @mixin tooltipIcon{
+        margin-left: 4px;
+        width: 16px;
+        height: 16px;
+        background: svg-icon(tooltip, 999);
+    }
+
+    @mixin allViewBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 48px;
+        margin-top: 16px;
+        gap: 4px;
+        border-radius: 4px;
+        border: solid 1px $gray3;
+        background-color: $white;
+        font-size: 15px;
+        font-weight: $fw-semibold;
+        color: $gray2;
+        &::after{
+            content: "";
+            width: 16px;
+            height: 16px;
+            background: svg-icon(arr_ltr_16, 333);
+        }
+    }
+
+    
+
+
+    /*
+        margin-bottom 등 간격 : 윗 엘리먼트에서 설정 || 특정 상황은 예외
+    */
+    &_items_banner{
+        position: relative;
+        margin-bottom: 24px;
+        .swiper-slide{
+            position: relative;
+            height:100%;
+            &::after{
+                content:"";
+                position: absolute;
+                left:0;top:0;
+                width:100%;
+                height:100%;
+                background: rgba($black, 0.03);
+            }
+            img{
+                width: 100%;
+                height:100%;
+                object-fit: cover;
+                will-change: transform;
+            }
+        }
+        
+        .paging{
+            position: absolute;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 48px;
+            height: 24px;
+            padding: 0 12px;
+            right:16px;
+            bottom: 16px;
+            font-size: 11px;
+            color:$white;
+            border-radius: 12px;
+            background-color: rgba($black, 0.2);
+            z-index: 1;
+        }
+        
+        .time_sale_count{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:40px;
+            width:100%;
+            background-color: #121212;
+            font-size: 13px;
+            font-weight: $fw-semibold;
+            line-height: 1.54;
+            color: $white;
+            z-index:1;
+            &::before{
+                content: "";
+                width: 14px;
+                height: 14px;
+                margin-right: 4px;
+                background: url($s3-path + "img/m/m_icon/icon_time.svg") center center no-repeat;
+                background-size: cover;
+            }
+            strong{
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                margin-left: 11px;
+                left:-2px;
+                font-size: 16px;
+                font-weight: $fw-bold;
+                line-height: 1.25;
+                color: $primary;
+                span:not(.time){
+                    position: relative;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    top:-1px;
+                    width:10px;
+                    & + .time{min-width:21px;}
+                }
+            }
+        }//E PDP_time_sale_count
+
+        .discount_count{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:40px;
+            width:100%;
+            background-color: $color-f5;
+            font-size: 13px;
+            font-weight: $fw-semibold;
+            line-height: 1.54;
+            color: $gray2;
+            z-index:1;
+            strong{color:$primary}
+        }//E PDP_discount_count
+    } //E PDP_items_banner
+
+    //info container
+    &_info_container{padding:0 16px;}
+
+        //info children
+    &_badge_box{
+        display: flex;
+        align-items: center;
+        gap:4px;
+        margin-bottom: 13px;
+        span{
+            display: inline-flex;
+            align-items: center;
+            padding:0 6px;
+            height:20px;
+            font-size: 10px;
+            font-weight: $fw-semibold;
+            border-radius: 3px;
+            
+        }
+        .badge{
+            &_outlet{
+                background: $color-outlet;
+                color:$white;
+            }
+            &_hotdeal{
+                background: $gray3;
+                color:$white;
+            }
+            &_exhibition{
+                border:1px solid rgba(245, 38, 68, 0.5);
+                color:$primary;
+            }
+            &_free,
+            &_used{
+                border:1px solid $grayc;
+                color:$gray8;
+            }
+        }
+    }
+
+    &_brand_name{
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 7px;
+        &::after{
+            content:"";
+            width: 12px;
+            height: 12px;
+            background: svg-icon(arr_ltr_12, 555);
+        }
+        a{
+            font-size: 16px;
+            line-height: 1.25;
+            font-weight: $fw-bold;
+            color: $gray2;
+        }
+    }
+
+    &_location{
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+        span{
+            display: inline-flex;
+            align-items: center;
+            font-size: 10px;
+            line-height: 1.2;
+            color: $graya;
+            + span::before{
+                content: "";
+                width: 8px;
+                height: 8px;
+                margin:0 2px;
+                background: url($s3-path + 'img/m/m_icon/icon-arrow-right-grayc-8.svg') center center / contain no-repeat;
+            }
+        }
+    }
+
+    &_item_name{
+        font-size: 14px;
+        line-height: 1.43;
+        color: $gray5;
+        @include multi-ellipsis(2);
+        + .PDP_info_price{margin-top: 8px;}
+    }
+
+    &_info_reviews{
+        display: flex;
+        align-items: center;
+        height:20px;
+        margin:8px 0;
+        gap:2px;
+        &::before{
+            content:"";
+            width:10px;
+            height:10px;
+            margin-right: 2px;
+            background: svg-PDP(PDP_info_review_star);
+        }
+        &::after{
+            content:"";
+            width:12px;
+            height:12px;
+            background: svg-icon(arr_ltr_12, aaa);
+        }
+        strong{
+            font-size: 12px;
+            font-weight: $fw-medium;
+            color: $gray2;
+        }
+        span{
+            font-size: 12px;
+            line-height: 1;
+            color: $gray8;
+        }
+    }
+
+    &_info_price{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .price_box{
+            .real_price{
+                display: flex;
+                align-items: center;
+                gap:8px;
+                .discount_ratio{
+                    display: inline-flex;
+                    align-content: center;
+                    font-size: 22px;
+                    font-weight: $fw-semibold;
+                    line-height: 1.18;
+                    color:$primary;
+                    &::after{
+                        content: "%";
+                        font-weight: $fw-medium;
+                    }
+                }
+                .final_price{
+                    &, span {
+                        display: inline-flex;
+                        align-items: center;
+                        font-size: 22px;
+                        font-weight: $fw-semibold;
+                        line-height: 1.18;
+                        color: $gray2;
+                    }
+                    span::after{
+                        content: "원";
+                        font-weight: $fw-medium;
+                        font-size: 18px;
+                    }
+                    .show_discount_info{
+                        @include tooltipIcon();
+                    }
+                }
+            }
+            .etc_price{
+                display: flex;
+                align-items: center;
+                gap:4px;
+                margin-top: 2px;
+                .market_price{
+                    display: inline-flex;
+                    align-items: center;
+                    font-size: 13px;
+                    line-height: 1.23;
+                    text-align: left;
+                    color: $gray2;
+                    &::after{content: "원";}
+                }
+                .origin_price{
+                    display: inline-flex;
+                    align-items: center;
+                    font-size: 13px;
+                    line-height: 1.23;
+                    color: $graya;
+                    text-decoration: line-through;
+                    &::after{content: "원";}
+                }
+            }
+        }
+
+        .apply_discount_btn{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap:2px;
+            width: 84px;
+            height: 32px;
+            border-radius: 4px;
+            border: solid 1px $gray3;
+            background-color: $white;
+            font-size: 13px;
+            font-weight: $fw-semibold;
+            line-height: 1.23;
+            color: $gray2;
+            &::after{
+                content: "";
+                width: 14px;
+                height: 14px;
+                background: svg-PDP(PDP_get_discount,555);
+            }
+            &:disabled{
+                border: solid 1px $grayd;
+                background-color: $white;
+                color:$gray8;
+                &::after{
+                    content: "";
+                    width: 14px;
+                    height: 14px;
+                    background: svg-PDP(PDP_apply_discount,F52644);
+                }
+            }
+        }
+    }
+
+    &_app_buy{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:13px 0 4px;
+        margin-top: 12px;
+        border-top: 1px solid $color-f5;
+        p{
+            display: inline-flex;
+            align-items: center;
+            gap:4px;
+            font-size: 13px;
+            font-weight: $fw-medium;
+            color: $gray2;
+            strong{
+                font-weight: $fw-bold;
+                font-size: 14px;
+                &::after{
+                    content: "원";
+                }
+            }
+        }
+        a{
+            display: inline-flex;
+            align-items: center;
+            gap:2px;
+            font-size: 12px;
+            line-height: 1.33;
+            color: #48a2b6;
+            &::after{
+                content: "";
+                width: 12px;
+                height: 12px;
+                background: svg-icon(arr_ltr_12, '48a2b6');
+            }
+        }
+
+        
+    }
+        //End info children
+    //E PDP_info_container
+
+    &_sign_up_btn{
+        padding:0 16px 24px;
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:4px;
+            height: 44px;
+            margin-top: 16px;
+            border-radius: 4px;
+            border: solid 1px $primary;
+            background-color: $white;
+            font-size: 13px;
+            font-weight: $fw-bold;
+            color:$gray2;
+            strong{color:$primary;}
+            &::after{
+                content: "";
+                width: 12px;
+                height: 12px;
+                background: svg-icon(arr_ltr_12, f52644);
+            }
+        }
+    }
+    //E PDP_sign_up_btn
+
+    &_benefit{
+        padding:27px 16px 0;
+        h3{
+            margin-bottom: 5px;
+            height:20px;
+            font-size: 14px;
+            font-weight: $fw-bold;
+            color: $gray2;
+        }
+
+        .benefit_list{
+            .b_list{
+                position: relative;
+                 + .b_list{margin-top: 4px;}
+                
+                &.point{
+                    .name{
+                        &::before{
+                            content: "";
+                            width:20px;
+                            height:20px;
+                            background: svg-PDP(PDP_w, 333);
+                        }
+                        &::after{display: none;}
+                        .save_point_question{
+                            @include tooltipIcon();
+                        }
+                    }
+                }
+                &.installment{ 
+                    .name{
+                        @include fake-btn;
+                        &::before{
+                            content: "";
+                            width:20px;
+                            height:20px;
+                            background: svg-PDP(PDP_card, 333);
+                        }
+                        &::after{transform: rotate(0);}
+                    }
+                }
+                &.as{
+                    
+                    &.is_open{
+                        .name::after{transform: rotate(-90deg);}
+                        .group_delivery_btn{margin-top: 2px;}
+                    }
+                    .name{
+                        @include fake-btn;
+                        &::before{
+                            content: "";
+                            width:20px;
+                            height:20px;
+                            background: svg-PDP(PDP_AS, 333);
+                        }
+                    }
+                }
+                &.free_exchange{
+                    &.is_open .name::after{transform: rotate(-90deg);}
+                    .name{
+                        @include fake-btn;
+                        &::before{
+                            content: "";
+                            width:20px;
+                            height:20px;
+                            background: svg-PDP(PDP_free_exchange, 333);
+                        }
+                    }
+                }
+                .name{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    width:100%;
+                    height:24px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray2;
+                    strong{
+                        font-weight: $fw-regular;
+                        color:$primary
+                    }
+                    span, strong{margin-left: 2px;}
+                    &::before{margin-right: 8px;}
+                    @include arrDown;
+                }
+            }
+            .children_list{
+                margin-top: 4px;
+                padding:0 20px 8px 28px;
+                li{
+                    position: relative;
+                    padding-left: 9px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray8;
+                    + li{margin-top: 2px;}
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        left:0;
+                        top:6px;
+                        width:3px;
+                        height:3px;
+                        border-radius: 100%;
+                        background: $graya;
+                    }
+                }
+            }
+        }
+
+        .show_membership_benefit{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height:44px;
+            gap: 4px;;
+            margin-top: 16px;
+            font-size: 13px;
+            font-weight: $fw-bold;
+            line-height: 18px;
+            color: $gray2;
+            border-radius: 4px;
+            background-color: $color-f5;
+            &::after{
+                content: "";
+                width:12px;
+                height:12px;
+                background: svg-icon(arr_ltr_12, 555);
+            }
+        }
+    }//E PDP_benefit
+
+    //배송정보
+    &_delivery{
+        padding:27px 16px 24px;
+        h3{
+            height:20px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: $fw-bold;
+            color: $gray2;
+        }
+        // three class :: toggle, is_open, single_line
+        .delivery_list{
+            position: relative;
+            + .delivery_list{margin-top: 4px;}
+            &::before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                left:0;top:2px;
+            }
+            &.toggle{
+                @include arrDown;
+                &::after{top:5px;}
+                &.is_open::after{transform: rotate(-90deg);}   
+                .name{@include fake-btn}
+            }
+            &.single_line{
+                padding-bottom: 0;
+                &.is_open{padding-bottom: 6px;}
+                .add_info{margin-top: 2px;}
+            } 
+            &.domestic::before{background: svg-PDP('PDP_delivery_domestic', 333);}
+            &.international::before{background: svg-PDP('PDP_delivery_international', 333);}
+            &.reservation::before{background: svg-PDP('PDP_delivery_reservation', 333);}
+            &.quick::before{background: svg-PDP('PDP_delivery_quick', 333);}
+    
+            .name{
+                padding: 0 20px 0 28px;
+                .type{
+                    position: relative;
+                    width:calc(100% + 20px);
+                    padding:4px 20px 4px 0;
+                    z-index: 3;
+                }
+                .type, .arrive_date{
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray2;
+                    strong{
+                        font-weight: $fw-regular;
+                        color:$primary
+                    }
+                }
+                .arrive_date{
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 4px;
+                    .tooltip{@include tooltipIcon();}
+                }
+            }
+
+            .group_delivery_btn{
+                display: inline-flex;
+                align-items: center;
+                margin:2px 0 4px 28px;
+                height: 24px;
+                padding: 0 8px;
+                border-radius: 3px;
+                border: solid 1px $grayd;
+                font-size: 11px;
+                line-height: 1.45;
+                color: $gray8;
+            }
+
+            .add_info{
+                margin-top: 4px;
+                padding:0 20px 8px 28px;
+                .title{
+                    margin-bottom: 2px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray2;
+                }
+                .list{
+                    position: relative;
+                    padding-left: 9px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray8;
+                    + .list{margin-top: 2px;}
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        left:0;
+                        top:6px;
+                        width:3px;
+                        height:3px;
+                        border-radius: 100%;
+                        background: $graya;
+                    }
+                }
+                .text{
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray8;
+                    + .title{margin-top: 8px;}
+                }
+                .more_quick{
+                    display: inline-flex;
+                    margin-top: 6px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray5;
+                    text-decoration: underline;
+                }
+            }
+        }       
+    }//E PDP_delivery
+
+    //가격비교
+    &_compare_price_wrap{
+        padding:0 16px 24px;
+        background: $color-fa;
+
+        .utility_box{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            height:40px;
+            .b_checkbox_red{
+                margin-top: 4px;
+                .checkbox_name{
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: $gray5;
+                }
+            } 
+            .alarm_drop_price{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width:130px;
+                height: 28px;
+                padding:0 11px;
+                border-radius: 14px;
+                border: solid 1px $grayd;
+                background-color: $white;
+                font-size: 12px;
+                line-height: 16px;
+                color: $gray5;
+                &::before{
+                    content: "";
+                    margin-right: 4px;
+                    width:16px;
+                    height:16px;
+                    background: svg-icon(alarm, 555);
+                }
+                &.apply_alarm::before{background: svg-icon(alarmActive, F52644);}
+            }
+        }
+
+        .compare_all_view_btn{@include allViewBtn;}
+
+        .empty{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height:200px;
+            .comp_icon_empty{
+                width:40px;
+                height:40px;
+                background-size: cover;
+            }
+            p{
+                margin-top: 8px;
+                font-size: 13px;
+                line-height: 1.38;
+                color: $gray8;
+            }
+        }
+    }//E PDP_compare_price_wrap
+
+    // 기획전 배너
+    &_product_event_banner {
+        padding: 24px 16px;
+        background-color: #fff;
+        .banner {
+            width: 100%;
+        }
+    }
+
+    // tab
+    &_tab{
+        position: sticky;
+        display: flex;
+        top:52px;
+        height:50px;
+        padding:0 16px;
+        background: $white;
+        z-index:11;
+        border-bottom: solid 1px $color-f0;
+        button{
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex:1;
+            gap:4px;
+            font-size: 15px;
+            font-weight: $fw-bold;
+            line-height: 1.47;
+            color: $graya; 
+            span{
+                font-size: 12px;
+                font-weight: $fw-regular;
+                line-height: 1.33;
+                color: $graya;
+            }
+            &.active{
+                &::after{
+                    content:"";
+                    position: absolute;
+                    left:0;
+                    bottom:-1px;
+                    width:100%;
+                    height:2px;
+                    background: $gray3;
+                }
+                &, span{color:$gray2;}
+            }
+        }
+
+    }
+
+    //리뷰 
+    &_review{
+        padding:0 16px 24px;
+        .review_header{
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            .point{
+                display: inline-flex;
+                align-items: center;
+                padding:1px 0 0 8px;
+                flex:0 0 106px;
+                gap:6px;
+                font-size: 28px;
+                font-weight: $fw-bold;
+                line-height: 1.29;
+                color: $gray2;
+                &::before{
+                    content: "";
+                    width: 24px;
+                    height: 24px;
+                    background: svg-icon(star_24,F5A523);
+                }
+            }
+            .percentage{
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                flex: 1 1 auto;
+                padding-left: 24px;
+                min-height:62px;
+                border-left:1px solid $color-f0;
+                dl{
+                    display: flex;
+                    align-items: center;
+                    height:18px;
+                    + dl{margin-top: 4px;}
+                    dt{
+                       width:44px;
+                       flex:0 0 44px; 
+                       font-size: 13px;
+                        line-height: 18px;;
+                        color: $gray8;
+                    }
+                    dd{
+                        display:flex;
+                        align-items: center;
+                        flex:1 1 auto;
+                        .name{
+                            flex:0 0 auto;
+                            font-size: 13px;
+                            line-height: 1.38;
+                            color: $gray2;
+                        }
+                        .dot{
+                            flex:1 1 auto;
+                            width:100%;
+                            height:1px;
+                            margin:0 8px;
+                            border-top:1px dashed $grayd;
+                        }
+                        .num{
+                            flex:0 0 auto;
+                            padding-right: 8px;
+                            font-size: 13px;
+                            font-weight: $fw-bold;
+                            line-height: 1.38;
+                            color: $gray2;
+                            &::after{content: "%";}
+                        }
+
+                    }
+                }
+            }
+            
+        }
+        .review_all_view_btn{
+            @include allViewBtn;
+            margin-top: 24px;
+        }
+        .empty{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height:139px;
+            &::before{
+                content:"";
+                width: 40px;
+                height: 40px;
+                background: url($s3-path + "img/m/m_icon/icon_vip_empty.svg") no-repeat center;
+            }
+            p{
+                margin-top: 12px;
+                font-size: 13px;
+                line-height: 18px;
+                text-align: center;
+                color: $gray8;
+            }
+        }
+    }
+
+    //리뷰 리스트
+    &_review_list{
+        + .PDP_review_list{
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid $color-f5;
+        }
+        .review_list_header{
+            display: flex;
+            align-items: center;
+            height:16px;
+            gap:8px;
+            .point_star{
+                display: inline-flex;
+                align-items: center;
+                gap:2px;
+                i{
+                    width:12px;
+                    height:12px;
+                    background: svg-icon(star_24, dddd);
+                    background-size: cover;
+                    &.active{
+                        background: svg-icon(star_24, F5A523);
+                        background-size: cover;
+                    }
+                }
+            }
+            .review_name{
+                font-size: 12px;
+                font-weight:$fw-bold;
+                line-height: 16px;
+                color: $gray2;
+            }
+            .user_info{
+                font-size: 12px;
+                line-height: 1.33;
+                color: $graya;
+            }
+        }
+        .review_info{
+            display: flex;
+            width:100%;
+            margin-top: 8px;
+            overflow: hidden;
+            .img_wrap{
+                flex:0 0 60px;
+                margin-right: 16px;
+                height:60px;
+                border-radius: 4px;
+                overflow: hidden;
+                img{width:100%;height:100%;object-fit: cover;}
+            }
+            .reply{
+                flex:1 1 auto;
+                max-height:54px;
+                font-size: 13px;
+                line-height: 18px;
+                color: $gray2;
+                @include multi-ellipsis(3);
+            }
+        }
+        .review_list_bottom{
+            display: flex;
+            align-items: center;
+            gap:9px;
+            margin-top: 8px;
+            span{
+                font-size: 11px;
+                line-height: 1.45;
+                color: $graya;
+                &.date{
+                    
+                    + span{
+                        display: inline-flex;
+                        align-items: center;
+                        gap:8px;
+                        &::before{
+                            content:'';
+                            width: 1px;
+                            height:10px;
+                            background: $grayd;   
+                        }
+                    }
+                }
+            }
+        }
+    }//E PDP_review_list
+
+    //하단 구매 버튼
+    &_bottom_order_btn{
+        @keyframes wishBounce {
+            0% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(0.3);
+            }
+            80% {
+                transform: scale(1.4);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9001;
+        &.hide_shadow::after{display: none;}
+        &::after{
+            content:"";
+            display: block;
+            position: absolute;
+            top: -5px;
+            width: 100%;
+            height: 5px;
+            opacity: 0.03;
+            background: linear-gradient(to bottom, rgba($black, 0), $black 100%);
+        }
+        .order_btn_container{
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding:0 12px;
+            height:77px;
+            background: $white;
+            z-index:2;
+            
+            .wish{
+                position: relative;
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 14px;
+                width: 52px;
+                height:52px;
+                flex: 0 0 52px;
+                &.animation{
+                    i{animation: wishBounce 0.4s ease-in;}
+                }
+                &.add{
+                    i{
+                        &::before{opacity: 0;}
+                        &::after{opacity: 1;}
+                    }
+                }
+                i{
+                    position: relative;
+                    width:24px;
+                    height:24px;
+                    &::before, &::after{
+                        content: "";
+                        position: absolute;
+                        left:0;top:0;
+                        width: 24px;
+                        height: 24px;
+                        
+                    }
+                    &::before{background: svg-icon(zzim_off_bold_line, 333);}
+                    &::after{
+                        background: svg-icon(zzim_on);
+                        opacity: 0;
+                    }
+                }
+                p{
+                    font-size: 10px;
+                    line-height: 1.2;
+                    color: $gray5;
+                }
+            }
+            .share{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 52px;
+                height:52px;
+                flex: 0 0 52px;
+                @include fake-btn;
+                &::before{
+                    content:"";
+                    width:24px;height:24px;
+                    background: svg-PDP(PDP_share);
+                }
+            }
+            @mixin btn{
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                flex:1 1 auto;
+                height:52px;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: $fw-bold;
+                line-height: 1.5;
+                color: $white;
+            }
+            .buy_btn{
+                @include btn;
+                margin-left: 12px; 
+                background: $primary;
+            }
+            .get_cart{
+                @include btn;
+                margin-right: 4px;
+                background: $gray3;
+            }
+            .direct_buy{
+                @include btn;
+                margin-left: 4px;
+                background: $primary;
+            }
+            .soldout{
+                @include btn;
+                background: $grayd;
+                color:$white;
+            }
+
+        }    
+    }//E PDP_bottom_order_btn
+
+    &_option_container{
+        position: fixed;
+        width: 100%;
+        bottom: 77px;
+        left: 0;
+        padding: 20px 16px 0 16px;
+        border-radius: 8px 8px 0 0;
+        background: $white;
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -5px;
+            width: 100%;
+            height: 5px;
+            opacity: 0.03;
+            background: linear-gradient(to bottom, rgba($black, 0), $black 100%);
+        }
+        .size_tip{
+            width: 100%;
+            height:32px;
+            text-align: right;
+            button{
+                padding-bottom: 16px;
+                font-size: 13px;
+                color: $gray8;
+                text-decoration: underline;
+            }
+        }
+        .select_box{
+            position: relative;
+            border-radius: 4px;
+            z-index: 2;
+            &.active{
+                .name{
+                    border-radius: 0;
+                    border-bottom: 1px solid $color-f5;
+                    &::after{transform: rotate(-180deg);}
+                }
+            }
+            .name{
+                position: relative;
+                display: flex;
+                align-items: center;
+                height: 44px;
+                border-radius: 4px;
+                background-color: $white;
+                font-size: 16px;
+                color: $gray2;
+                padding: 0 12px 0 10px;
+                box-sizing: border-box;
+                border: solid 1px $grayd;
+                z-index: 6;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 14px;right: 12px;
+                    width: 16px;height: 16px;
+                    background: url(https://static-ux.mustit.co.kr/img/m/m_icon/icon_arrow_down_m1.svg) center center no-repeat;
+                }
+            }
+            .option_box{
+                position: absolute;
+                top: 0;left: 0;
+                width: 100%;height: calc(100% + 183px + 53px);
+                padding-top: 44px;
+                border-radius: 4px;
+                border: 1px solid #333;
+                overflow: hidden;
+                z-index: 6;
+                .inner_wrap{
+                    height: 100%;
+                    padding: 8px 0;
+                    overflow: auto;
+                    -webkit-overflow-scrolling: touch;
+                    background: $white;
+                    @include hide-scroll;
+                    >li{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 40px;
+                        padding: 0 12px;
+                        &.soldout{
+                            .option_name{color:$grayc}
+                            .stock_info{color:$grayc}
+                        }
+                        .option_name{
+                            min-width: 240px;
+                            font-size: 13px;
+                            color: $gray2;
+                            @include single-ellipsis;
+                        }
+                        .stock_info{
+                            flex:0 0 auto;
+                            font-size: 13px;
+                            color:$primary
+                        }
+                    }
+                }
+            }
+        }
+
+        .select_price_info{
+            position: relative;
+            margin-top: 16px;
+            height:167px;
+            z-index: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            @include hide-scroll;
+            .select_list{
+                padding-bottom: 16px;
+                + .select_list{
+                    padding-top: 16px;
+                    border-top:1px solid $color-f5;
+                }
+                .list_header{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    overflow: hidden;
+                    .name{
+                        font-size: 14px;
+                        line-height: 17px;
+                        color: $gray2;
+                        @include single-ellipsis;
+                    }
+                    .list_delete_btn{
+                        position: relative;
+                        width: 12px;
+                        height: 12px;
+                        flex: 0 0 12px;
+                        background: url(https://static-ux.mustit.co.kr/img/m/m_icon/icon_close_w12.svg) 50% no-repeat;
+                        &::after{
+                            content: "";
+                            position: absolute;
+                            left: 50%;top: 50%;
+                            transform: translate(-50%,-50%);
+                            width: 40px;height: 40px;
+                            border-radius: 20px;
+                        }
+                    }
+                }
+                .amount_price{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-top: 10px;
+                    .amount_box{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 104px;
+                        height: 32px;
+                        box-sizing: border-box;
+                        border-radius: 3px;
+                        border: 1px solid #d8d8d8;
+                        button{
+                            position: relative;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 31px;
+                            height:100%;
+                            &.minus::after{
+                                content: "";
+                                display: block;
+                                width: 11px;
+                                height: 1px;
+                                background: $gray2;
+                            }
+                            &.plus{
+                                &::before, &::after{
+                                    content: "";
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    width: 11px;
+                                    height: 1px;
+                                    background-color: $gray2;
+                                    transform: translate(-50%,-50%);
+                                }
+                                &::after{
+                                    transform: translate(-50%,-50%) rotate(90deg);
+                                }   
+                            }
+                        }
+                        input{
+                            width: 40px;
+                            height: 100%;
+                            font-size: 14px;
+                            color: $gray2;
+                            border-width: 0 1px 0 1px;
+                            border-color:$color-d8;
+                            border-style: solid;
+                            text-align: center;
+                            -webkit-appearance: none;
+                        }
+                    }
+                    .price_box{
+                        font-size: 16px;
+                        font-weight: $fw-semibold;
+                        color: $gray2;
+                        &::after{
+                            content: "원";
+                            position: relative;
+                            top: -2px;
+                            margin-left: 2px;
+                            font-weight: $fw-regular;
+                            font-size: 14px;
+                            color: $gray2;
+                        }
+                    }
+
+                }
+
+                .select_gift{
+                    margin-top: 8px;
+                    padding: 0 44px 0 12px;
+                    width: 100%;
+                    height: 40px;
+                    border: 0;
+                    font-size: 13px;
+                    border-radius: 4px;
+                    color: $gray5;
+                    -webkit-appearance: none;
+                    -webkit-border-radius: 0;
+                    background: url(https://static-ux.mustit.co.kr/img/m/m_icon/icon_arrow_down_gray.svg) right 12px center no-repeat #fafafa;
+                }
+            }
+        }
+
+        .payment_price{
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-top: 1px solid $gray5;
+            padding-top: 15px;
+            height:56px;
+            .discount{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 80px;
+                height:28px;
+                gap:2px;
+                font-size: 12px;
+                border-radius: 14px;
+                border:1px solid $grayd;
+                background: $white;
+                color:$gray2;
+                &::after{
+                    content:"";
+                    width: 12px;
+                    height: 12px;
+                    background: url(https://static-ux.mustit.co.kr/img/m/m_icon/icon_download_red.svg) 50% no-repeat;
+                }
+                &.active{
+                    font-size: 11px;
+                    color:$gray8;
+                    background: $color-f5;
+                    border-color:$color-f5;
+                    &::after{
+                        background: url(https://static-ux.mustit.co.kr/img/m/m_icon/icon_check_red.svg) 50% no-repeat;
+                    }
+                }
+            }
+            .total_price{
+                display: inline-flex;
+                align-items: center;
+                height:28px;
+                font-size: 20px;
+                font-weight: $fw-bold;
+                color: $primary;
+                &::before{
+                    content: "총 금액";
+                    position:relative;
+                    top:-1px;
+                    margin-right: 12px;
+                    font-weight: $fw-regular;
+                    font-size: 14px;
+                    color: $gray2;
+                }
+                &::after{
+                    content:"원";
+                    margin-left: 2px;
+                    font-weight: $fw-regular;
+                    font-size: 14px;
+                    color: $primary;
+                }
+            }
+        }
+
+        .fix_height_box{height:223px;}
+        
+    }//E PDP_option_container
+
+    //toast 장바구니 담겼을때
+    &_get_cart_info{
+        position: absolute;
+        display: flex;
+        flex-wrap:wrap;
+        align-items: center;
+        justify-content: space-between;
+        bottom:77px;
+        left:16px;
+        padding:0 16px;
+        height:48px;
+        width: calc(100% - 32px);
+        z-index: 9001;
+        background: rgba($black,0.8);
+        border-radius: 4px;
+        p{
+            font-size: 14px;
+            line-height: 1.5;
+            color: $white;
+        }
+        a{
+            font-size: 14px;
+            line-height: 1.5;
+            color: #48a2b6;
+        }
+    }//E PDP_get_cart_info
+
+    &_toast_has_compare{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left:50%;
+        transform: translateX(-50%);
+        width:320px;    
+        height:48px;
+        padding:0 16px;
+        bottom:93px;
+        border-radius: 24px;
+        background-color: #121212;
+        z-index: 15;
+        button{
+            position: relative;
+            top: -1px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: $fw-medium;
+            line-height: 1.38;
+            color: $white;
+            background: transparent;
+            &::after{
+                content: "";
+                position: relative;
+                display: inline-block;
+                top:3px;
+                width:16px;
+                height:16px;
+                margin-left: 4px;
+                transform: rotate(90deg);
+                background: svg-icon(arr_ltr_16, fff);
+            }
+            strong{
+                font-weight: $fw-medium;
+                color:$primary;
+            }
+        }
+    }//E PDP_toast_has_compare
+
+    &_toast_alarm_price{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left:50%;transform: translateX(-50%);
+        bottom:93px;
+        height:48px;
+        padding: 15px 16px;
+        border-radius: 24px;
+        background-color: rgba(18, 18, 18, 0.8);
+        z-index: 15;
+        font-size: 13px;
+        font-weight: $fw-medium;
+        line-height: 1.38;
+        color: $white;
+        white-space: nowrap;
+    }//E PDP_toast_alarm_price
+    
+}//E PDP
+
+//PDP 상단 배너로 인한 헤더 위치 변경
+.product_detail_area{
+    .sub_header{
+        position: sticky;
+        top:0;
+        z-index:8999;
+        .fixed_container{
+            position: relative;
+        }
+    }
+}

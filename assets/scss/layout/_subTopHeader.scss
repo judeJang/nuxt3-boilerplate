@@ -1,0 +1,161 @@
+
+.comp_sub_header{
+    position: relative;
+    height: 52px;
+    font-size: 13px;
+    z-index: 9002;
+    background: $white;
+    // BLP 사용
+    &.fade_mode{
+        position: fixed;
+        width:100%;
+        background: transparent;
+        top: constant(safe-area-inset-top);
+        top: env(safe-area-inset-top);
+        .sub_header_title{
+            transition: all 0s;
+        }
+        .original_frame{opacity: 0;}
+        .duplicate_frame{
+            background: transparent;
+            .comp_icon_back{
+                background: url(#{$s3-path}img/m/m_icon/icon_back_w.svg) center center no-repeat;
+                background-size: 24px;
+            }
+            .comp_icon_search{
+                background: url(#{$s3-path}img/m/m_icon/icon_search_w.svg) center center no-repeat;
+                background-size: 24px;
+            }
+            .comp_icon_basket{
+                background: url(#{$s3-path}img/m/m_icon/icon_cart_w.svg) center center no-repeat;
+                background-size: 24px;
+            }
+            
+        }
+    }
+    .sub_header_title{
+        position: fixed;
+        display: flex;
+        top: constant(safe-area-inset-top);
+        top: env(safe-area-inset-top);
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height:52px;
+        background-color: $white;
+        z-index: 2;
+        transition: all .2s ;
+        &.scroll_down{top:-52px}
+        .name{
+            position: relative;
+            left:2px;
+            max-width: calc(100% - 180px);
+            font-size: 17px;
+            color: #1f1f2c;
+            text-align: center;
+            font-weight: 600;
+            @include single-ellipsis();
+            // 우측 장바구니 밑 search 없을 경우 네이밍 확장
+            &.extends{
+                max-width: get-vw(240px);
+            }
+        }
+        .button_drop{
+            position: relative;
+            display: flex;
+            left:2px;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            .comp_icon_drop{transition: transform .15s ease-out;}
+            &.isOpen{
+                .comp_icon_drop{transform: rotate(-180deg);}
+            }
+        }
+    }
+    .sub_header_left{
+        position: absolute;
+        left:8px;
+        top:50%;
+        transform: translateY(-50%);
+        .button_back{
+            width:40px;
+            height:40px;
+            padding:8px;
+        }
+        
+    }
+    .sub_header_right{
+        position: absolute;
+        display: flex;
+        right:8px;
+        .button_basket{
+            display: flex;
+            width:40px;
+            height:40px;
+            padding:8px;
+            
+            .badge{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                right:3px;
+                top:6px;
+                font-size: 10px;
+                min-width:16px;
+                height:16px;
+                padding:0;
+                font-weight: $fw-semibold;
+                color: $white;
+                white-space: nowrap;
+                text-align: center;
+                border-radius: 100%;
+                background-color: $primary;
+            }
+        }
+        .button_search{
+            display: flex;
+            width:40px;
+            height:40px;
+            padding:8px;
+            margin-right: 4px;
+            
+        }
+    }
+    .menu_drop__box{
+        position: fixed;
+        width:100%;
+        left:0;
+        top: calc(52px + constant(safe-area-inset-top));
+        top: calc(52px + env(safe-area-inset-top));
+        overflow: hidden;
+        z-index: 1;
+    }
+    .menu_drop{
+        display: flex;
+        flex-wrap: wrap;
+        background: $white;
+        padding:9px 24px 20px;
+        .menu_drop_list{
+            width:50%;
+            margin-bottom: 4px;
+            .menu_drop_link{
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding:5px 0;
+                font-size: 15px;
+                line-height: 1.53;
+                color: $gray5;
+                font-weight: $fw-regular;
+                
+                &.active{
+                    font-weight: $fw-semibold;
+                    color:$gray2;
+                }
+            }
+        }
+    }
+} 

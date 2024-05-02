@@ -1,0 +1,60 @@
+.bottom_confirm {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: $white;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    text-align: center;
+    .confirm_text_box {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        .text {
+            margin-bottom: 8px;
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: $fw-medium;
+            color: $gray3;
+        }
+        .sub {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4em;
+            color: $gray3;
+        }
+    }
+    .confirm_btn_container {
+        display: flex;
+        .btn_box {
+            width: 50%;
+        }
+        .btn_cancle {
+            display: block;
+            width: 100%;
+            padding: 0.85em 0;
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: $fw-medium;
+            border: 1px solid $grayc;
+            background-color: $grayc;
+            color: $white;
+            opacity: 1;
+            -webkit-text-fill-color: inherit;
+        }
+        .btn_confirm {
+            display: block;
+            width: 100%;
+            padding: 0.85em 0;
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: $fw-medium;
+            border: 1px solid $primary;
+            background-color: $primary;
+            color: $white;
+            opacity: 1;
+            -webkit-text-fill-color: inherit;
+        }
+    }
+}

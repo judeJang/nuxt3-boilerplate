@@ -1,0 +1,35 @@
+// 좌우 여백 있는 스와이퍼
+.comp_banner_swiper_padding_16{
+    position: relative;
+    padding-top:24px;
+    &.single_banner .swiper-container{padding-bottom: 0;}
+    .swiper-container{
+        padding:0 16px 18px;
+        .swiper-slide{
+            border-radius: 8px;
+            overflow: hidden;
+            img{width:100%;}
+        } 
+    }
+    .swiper-pagination,
+    .swiper-pagination-bullets{
+        display: flex;
+        justify-content: center;
+        bottom: 0 !important;
+        >span, .swiper-pagination-bullet{
+            width:6px;
+            height:6px;
+            opacity: 1;
+            background: $color-e6;
+            margin-left:0;
+            margin-right:9px;
+            &:last-child{margin-right: 0;}
+            &.swiper-pagination-bullet-active{background: $gray3;}
+        }
+    }
+    //dev env 
+    &.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin-left:0;
+        margin-right:9px;
+    }
+}

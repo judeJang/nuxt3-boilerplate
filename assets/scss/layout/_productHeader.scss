@@ -1,0 +1,184 @@
+.product_header2{
+    //use data
+    @mixin icon_box($width, $height) {
+        display: block;
+        width: $width;
+        height: $height;
+    }
+    //E use data
+
+
+    
+    width: 100%;
+    top: constant(safe-area-inset-top);
+    top: env(safe-area-inset-top);
+    z-index:20;
+
+    &[data-type = '1']{
+        position: fixed;
+        &.has_banner{
+            position: sticky;
+            top:-80px;
+            height:80px;
+        }
+    }
+    &[data-type='2']{
+        position: sticky;
+        &.has_banner{
+            top:-80px;
+        }
+    }
+
+    // drop shadow
+    &.drop_shadow::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 8px;
+        margin: 52px 0 0;
+        background-image: linear-gradient(to bottom, rgba($black, 0.04) 0%, rgba($black, 0));
+    }
+
+    .blind{@include blind}
+    
+    // overflow hidden 영역
+    .crop_container{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height:52px;
+        padding:0 8px;
+        overflow: hidden;
+        // 아이콘
+        .left_icons,
+        .right_icons{
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            flex:0 0 auto;
+            gap:4px;
+            a{
+                position: relative;
+                width: 40px;
+                height: 40px;
+                flex:0 0 40px;
+                .black_icon{
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    left:50%;
+                    top:50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0;
+                }
+            }
+        }
+        .left_icons {
+            .back{
+                z-index: 5;
+                background: url($s3-path + "img/m/m_icon/icon_back_w.svg") center center no-repeat;
+                .black_icon{
+                    background: url($s3-path + "img/m/m_icon/icon_back_b.svg") center center no-repeat;
+                }
+            }
+            .home{
+                z-index: 3;
+                background: url($s3-path + "img/m/m_icon/icon_home_w.svg") center center no-repeat;
+                .black_icon{
+                    background: url($s3-path + "img/m/m_icon/icon_home_b.svg") center center no-repeat;
+                }
+            }
+        }
+        .right_icons{
+            .search{
+                z-index: 3;
+                background: url($s3-path + "img/m/m_icon/icon_search_w.svg") center center no-repeat;
+                .black_icon{
+                    background: url($s3-path + "img/m/m_icon/icon_search_b.svg") center center no-repeat;
+                }
+            }
+            .cart{
+                z-index: 3;
+                background: url($s3-path + "img/m/m_icon/icon_cart_w.svg") center center no-repeat;
+                .black_icon{
+                    background: url($s3-path + "img/m/m_icon/icon_cart_b.svg") center center no-repeat;
+                }
+                .cart_num{
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 16px;
+                    min-height: 16px;
+                    top: 5px;
+                    right: 3px;
+                    font-size: 10px;
+                    border-radius: 50%;
+                    color: $white;
+                    background: $primary;
+                }
+            }
+        }
+        
+        //흰색 배경 영역
+        .white_area{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background: $white;
+            opacity: 1;
+
+            .logo{
+                width: 104px;
+                height: 20px;
+                flex: 0 0 auto;
+                background: url(#{$s3-path}img/m/m_bi/bi_mustit_header.svg) no-repeat 50%;
+                background-size: cover;
+            }
+
+            .anchor{
+                position: absolute;
+                display: flex;
+                justify-content: center;    
+                align-items: center;
+                width: 100%;
+                height:100%;
+                left:0;
+                top:0;
+                transform: translateY(52px);
+                transition:transform 0.2s ease;
+                z-index: 4;
+                background: $white;
+                &.visible{
+                    transform:translateY(0);
+                }
+                button{
+                    margin-left: 25px;
+                    font-size: 14px;
+                    font-weight: $fw-bold;
+                    line-height: 1.5;
+                    color: $gray2;
+                    &:first-child{margin-left: 0;}
+                    &.active{
+                        color:$primary;
+                        .num{color:$primary}
+                    }
+                    .num{
+                        font-size: 14px;
+                        font-weight: $fw-regular;
+                        line-height: 1.5;
+                        color: $gray2;
+                    }
+                }
+            }
+        }
+    }
+}

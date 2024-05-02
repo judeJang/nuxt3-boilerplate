@@ -1,0 +1,76 @@
+// Product_cate002, Product_cate003
+.product_cate_list {
+    padding: 0 0 32px;
+    background-color: $white;
+    .child_swiper {
+        .swiper-pagination,
+        .swiper-pagination-bullets {
+            position: static;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            > span,
+            .swiper-pagination-bullet {
+                width: 6px;
+                height: 6px;
+                background: $color-e6;
+                opacity: 1;
+                margin-left: 0;
+                margin-right: 9px;
+                &:last-child {margin-right: 0;}
+                &.swiper-pagination-bullet-active {background: $gray3;}
+            }
+        }
+    }
+    .child_swiper__slide {
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .child_swiper__lists {
+        .child_link {display: block;}
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 16px;
+    }
+    .child_swiper__list {
+        width: calc(50% - 4px);
+        overflow: hidden;
+        .img_wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            background: $white;
+            .cover_img {@include thumbnail;}
+            &::before {
+                content: '';
+                @include thumOverDeem;
+            }
+        }
+        .info_container {
+            margin-top: 10px;
+            padding-bottom: 24px;
+            .brand {
+                font-size: 12px;
+                font-weight: $fw-bold;
+                line-height: 1.33;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .desc {
+                margin-top: 4px;
+                font-size: 13px;
+                line-height: 1.38;
+                color: $gray5;
+                @include single-ellipsis;
+            }
+            .price {
+                margin-top: 4px;
+                font-size: 13px;
+                font-weight: $fw-bold;
+                line-height: 1.38;
+                color: $gray2;
+            }
+        }
+    }
+}

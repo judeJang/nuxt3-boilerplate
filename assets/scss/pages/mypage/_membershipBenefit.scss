@@ -1,0 +1,733 @@
+.member_benefit_content{
+    @function svgIcon($color) {
+        $color: '%23'+$color;
+        $icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='4'%3E%3Cpath d='M5.564.11a.373.373 0 0 0-.53 0l-2.75 2.75L.96 1.537a.375.375 0 1 0-.53.53l1.59 1.59a.373.373 0 0 0 .53 0l3-3A.373.373 0 0 0 5.564.11z' fill='#{$color}'/%3E%3C/svg%3E ";
+        @return url($icon);
+      };
+
+      @function returnColor($color){
+        $color : str-slice(#{$color},2);
+        @return $color;
+      };
+
+    @mixin afterArrDown(){
+        &::after{
+            content: "";
+            position: relative;
+            display: inline-flex;
+            margin-left: 5px;
+            transform: rotate(90deg);
+            width: 16px;
+            height: 16px;
+            background: url($s3-path+'img/m/m_lnb/icon_arrow_right.png') no-repeat center;
+            background-size: 16px;
+        }
+    }
+    .non_login{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding:40px 0 48px;
+        background-color: $white;
+        >p{
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            color: $gray2;
+        }
+        .go_signin{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 40px;
+            margin-top: 16px;
+            border-radius: 4px;
+            border: 1px solid $gray3;
+            font-size: 14px;
+            color: $gray2;
+        }
+
+    }
+    .grade_info{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding:24px 16px;
+        background-color: $white;
+        &.grade_green{
+            .icon{
+                background: $grade-green-64;
+                background-size: 64px;
+            }
+            .user strong.grade{color:$grade-green;}
+        }
+        &.grade_blue{
+            .icon{
+                background: $grade-blue-64;
+                background-size: 64px;
+            }
+            .user strong.grade{color:$grade-blue;}
+        }
+        &.grade_red{
+            .icon{
+                background: $grade-red-64;
+                background-size: 64px;
+            }
+            .user strong.grade{color:$grade-red;}
+        }
+        &.grade_black{
+            .icon{
+                background: $grade-black-64;
+                background-size: 64px;
+            }
+            .user strong.grade{color:$grade-black;}
+        }
+        .icon{
+            display: flex;
+            width:64px;
+            height:64px;
+            background: $grade-friends-64;
+            background-size: 64px;
+        }
+        .user{
+            margin-top: 16px;
+            font-size: 22px;
+            line-height: 1.36;
+            text-align: center;
+            color: $gray2;
+            strong{
+                font-weight: $fw-bold;
+                &.grade{color:$gray8;}
+            }
+        }
+        .reset_grade{
+            width: 100%;
+            padding:20px 24px 16px;
+            margin-top: 23px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px 0 rgba($black, .03);
+            border: 1px solid $color-f0;
+            .period{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                dt{
+                    display: flex;
+                    align-items: center;
+                    font-size: 13px;
+                    line-height: 1.54;
+                    color: $gray2;
+                    button{margin-left: 4px;}
+                }
+                dd{
+                    margin-left: 8px;
+                    font-size: 13px;
+                    line-height: 1.54;
+                    color: $gray8;
+                }
+            }
+            .range{
+                position: relative;
+                margin-top: 20px;
+                &.grade_green{
+                    .range_bar{
+                        &::before{
+                            width:calc(25% - 3px);
+                            background: $grade-green;
+                        }
+                        .end_point{
+                            left:calc(25% - 6px);
+                            background:$white svgIcon(returnColor($grade-green)) no-repeat center;
+                            background-size:6px 4px;
+                            border-color:$grade-green;
+                        }
+                    }
+                    .grade li:nth-child(2){
+                        img{opacity: 0;}
+                        &::after{opacity: 1;}
+                    }
+                }
+                &.grade_blue{
+                    .range_bar{
+                        &::before{
+                            width:calc(49% - 5px);
+                            background: $grade-blue;
+                        }
+                        .end_point{
+                            left:calc(49% - 6px);
+                            background:$white svgIcon(returnColor($grade-blue)) no-repeat center;
+                            background-size:6px 4px;
+                            border-color:$grade-blue;
+                        }
+                    }
+                    .grade li:nth-child(3){
+                        img{opacity: 0;}
+                        &::after{opacity: 1;}
+                    }
+                }
+                &.grade_red{
+                    .range_bar{
+                        &::before{
+                            width:calc(70% - 6px);;
+                            background: $grade-red;
+                        }
+                        .end_point{
+                            left:calc(69.5% - 6px);;
+                            background:$white svgIcon(returnColor($grade-red)) no-repeat center;
+                            background-size:6px 4px;
+                            border-color:$grade-red;
+                        }
+                    }
+                    .grade li:nth-child(4){
+                        img{opacity: 0;}
+                        &::after{opacity: 1;}
+                    }
+                }
+                &.grade_black{
+                    .range_bar{
+                        &::before{
+                            width:calc(100% - 6px);
+                            background: $grade-black;
+                        }
+                        .end_point{
+                            left:calc(100% - 12px);
+                            background:$white svgIcon(returnColor($grade-black)) no-repeat center;
+                            background-size:6px 4px;
+                            border-color:$grade-black;
+                        }
+                    }
+                    .grade li:nth-child(5){
+                        img{opacity: 0;}
+                        &::after{opacity: 1;}
+                    }
+                }
+                .range_bar{
+                    position: relative;
+                    height: 4px;
+                    border-radius: 2px;
+                    background-color: $color-f0;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        width:calc(4% + 1px);
+                        height: 4px;
+                        border-radius: 2px 0 0 2px;
+                        background: $gray8;
+                        transform-origin: left center;
+                        transition: width .35s;
+                        //6 26 50 69 100
+                    }
+                    .end_point{
+                        position: absolute;
+                        left:4%;
+                        top:50%;
+                        width:12px;
+                        height:12px;
+                        transform: translateY(-50%);
+                        transform-origin: center;
+                        border-radius: 100%;
+                        border:1px solid $gray8;
+                        background:$white svgIcon(returnColor($gray8)) no-repeat center;
+                        background-size:6px 4px;
+                        transition: all .35s;
+
+                    }
+                }
+                .grade{
+                    position: relative;
+                    display: flex;
+                    margin-top: 12px;
+                    justify-content: space-between;
+                    li{
+                        position: relative;
+                        display: inline-flex;
+                        align-items: flex-start;
+                        flex-basis: auto;
+                        height: 8px;
+                        transform-origin: center top;
+                        $gradeLabel:'/grade-txt-friends-on.png','/grade-txt-green-on.png', '/grade-txt-blue-on.png', '/grade-txt-red-on.png', '/grade-txt-black-on.png';
+                        $gradeLabelWidth: 35,53,46,42,53;
+
+                        @for $i from 1 through 5{
+                            &:nth-child(#{$i}){
+                                width: nth($gradeLabelWidth, $i) + px;
+                                img{width:100%;}
+                            }
+                        }
+                        
+                        @for $i from 1 through 5{
+                            &:nth-child(#{$i}){
+                                &::after{
+                                    content: "";
+                                    position: absolute;
+                                    left:0;top:0;
+                                    width:100%;
+                                    height:100%;
+                                    opacity: 0;
+                                    background: url($s3-path+'img/m/m_mypage'+nth($gradeLabel, $i)) no-repeat center top;
+                                    background-size: 100% auto;
+                                }
+                            }
+                        }
+                        &:nth-child(1){
+                            img{opacity: 0;}
+                            &::after{opacity: 1;}
+                        }
+                    }   
+                    
+                }
+            }
+            .next_level{
+                margin-top: 16px;
+                padding-bottom: 24px;
+                border-bottom: 1px solid $color-f5;
+                .more_cost{
+                    font-size: 13px;
+                    line-height: 1.54;
+                    text-align: center;
+                    color: $gray2;
+                    strong{font-weight: $fw-bold;}
+                }
+                .cost_history{
+                    margin-top: 2px;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    text-align: center;
+                    color: $gray8;
+                }
+            }
+        }
+        .expect_grade{
+            margin-top: 12px;
+            &.is_open{
+                dt::after{transform: rotate(90deg) scaleX(-1);}
+                dd{
+                    max-height: 1000px;
+                    margin-top: 17px;padding-bottom: 7px;
+                }
+            }
+            dt{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 13px;
+                line-height: 1.54;
+                color: $gray2;
+                cursor: pointer;
+                @include afterArrDown;
+            }
+            dd{
+                max-height: 0;
+                overflow: hidden;
+                .grade_dec{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $gray2;
+                    i{margin: 0 4px 0 8px;}
+                    strong{
+                        font-size: 14px;
+                        font-weight: $fw-bold;
+                        line-height: 1.5;
+                        color: $gray8;
+                        &.grade_black{color:$grade-black}
+                        &.grade_red{color:$grade-red}
+                        &.grade_blue{color:$grade-blue}
+                        &.grade_green{color:$grade-green}  
+                    }
+                    +.info{margin-top: 8px;}
+                }
+                .info{
+                    font-size: 13px;
+                    line-height: 1.54;
+                    text-align: center;
+                    color: $gray8;
+                }
+            }
+        }
+        .private_banner{
+            div{display: flex;}
+            margin-top: 24px;
+            img{width: 100%;}
+        }
+    }
+    .monthly_benefit{
+        padding:24px 16px;
+        background:$white;
+        h2{
+            font-size: 18px !important;
+            font-weight: $fw-bold;
+            line-height: 1.44;
+            color: $gray2;
+        }
+        .benefit_container{
+            margin-top: 18px;
+            padding: 20px 19px 19px;
+            border-radius: 8px;
+            border: 1px solid  $color-f0;
+            text-align: center;
+            .benefit_info{
+                font-size: 14px;
+                line-height: 1.5;
+                color: $gray5;
+            }
+            .point{
+                margin-top: 2px;
+                font-size: 20px;
+                font-weight: $fw-bold;
+                line-height: 1.35;
+                color: $gray2;
+            }
+            .point_box{
+                position: relative;
+                margin: 16px auto 0;
+                max-width: 240px;
+                overflow: hidden;
+                >button{
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    left:0;
+                    top:0;
+                    width:100%;
+                    height:40px;
+                    border-radius: 20px;
+                    text-align: center;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $white;
+                    background: $gray3;
+                }
+            }
+
+            .point_code{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width:100%;
+                height: 40px;
+                border-radius: 20px;
+                background-color: $color-f5;
+                dt{
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $gray5;
+                }
+                dd{
+                    margin-left: 8px;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $gray2;
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                }
+            }
+
+            .point_notice{
+                max-height:0;
+                overflow: hidden;
+                text-align: left;
+                &.is_open{
+                    margin-top: 20px;
+                    max-height: 1000px;
+                }
+                .title{
+                    font-size: 12px;
+                    font-weight: $fw-medium;
+                    line-height: 1.5;
+                    color: $gray2;
+                }
+                .info{
+                    margin-top: 2px;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: $gray8;
+                    &.bullet{
+                        position: relative;
+                        padding-left: 9px;
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            width:3px;height:3px;
+                            border-radius: 100%;
+                            background: $graya;
+                            left:0;
+                            top:8px;
+                        }
+                    }
+                    a{
+                        font-size: 12px;
+                        line-height: 1.5;
+                        color: $gray5;
+                        text-decoration: underline;
+                    }
+                    +.title{margin-top: 12px;}
+                }
+            }
+            .more_btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 20px auto 0;
+                font-size: 13px;
+                line-height: 1.54;
+                color: $gray2;
+                @include afterArrDown;
+                &.is_open{
+                    &::after{
+                        transform: rotate(90deg) scaleX(-1);
+                    }
+                }
+            }
+        }
+    }
+    .each_benefit{
+        padding:24px 16px;
+        background-color: #fff;
+        h2{
+            font-size: 18px !important;
+            font-weight: $fw-bold;
+            line-height: 1.44;
+            color: $gray2;
+        }
+        .title_info{
+            margin-top: 5px;
+            font-size: 13px;
+            line-height: 1.54;
+            color: $gray8;
+        }
+        .grade_graph{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 19px;
+            border-bottom:1px solid $gray8;
+
+            $graphHei: 99, 87, 71, 59,47;
+            $colorList : $grade-black, $grade-red, $grade-blue, $grade-green, $gray8;
+            >button{
+                position: relative;
+                width:calc((100% - 28px) / 5);
+                overflow: hidden;
+                border-radius: 4px 4px 0 0;
+                border: 1px solid $grayd;
+                border-bottom:0;
+                background-color: $white;
+                @for $i from 1 through 5{
+                    &:nth-child(#{$i}){
+                        height:nth($graphHei, $i)+px;
+                        transition: border .25s linear,
+                                    background-color .25s linear;
+                      
+                        span{transition: color .25s linear;}
+                    }
+                }
+                &.on{
+                    @for $i from 1 through 5{
+                        &:nth-child(#{$i}){
+                            border:1px solid nth($colorList, $i);
+                            background: nth($colorList, $i); //for safari bug
+                        }
+                    }
+                    .fill{opacity: 1;}
+                    span{color:$white;}
+                }
+                span{
+                    position: absolute;
+                    top:10px;
+                    left:50%;
+                    transform: translateX(-50%);
+                    font-size: 24px;
+                    font-weight: $fw-bold;
+                    color: $grayd;
+                    z-index:3;
+                }
+                
+            }
+        }
+        .grade_choice_info{
+            margin-top: 20px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid $color-f0;
+            &.grade_black{
+                .grade{color:$grade-black}
+            }
+            &.grade_red{
+                .grade{color:$grade-red}
+            }
+            &.grade_blue{
+                .grade{color:$grade-blue}
+            }
+            &.grade_green{
+                .grade{color:$grade-green}
+            }
+            .grade{
+                font-size: 18px;
+                font-weight: $fw-bold;
+                line-height: 1.44;
+                color: $gray8;
+            }
+            .condition{
+                margin-top: 2px;
+                font-size: 14px;
+                font-weight: $fw-medium;
+                line-height: 1.5;
+                color: $gray2;
+            }
+        }
+        .benefit_lists{
+            margin-top: 20px;
+            >li{
+                display: flex;
+                align-items: center;
+                margin-top: 8px;
+                &:first-child{margin-top: 0;}
+                &.align_top{
+                    align-items: flex-start;
+                    + .align_top {margin-top: 16px;}
+                }
+                >i{flex-basis: auto;}
+                .desc{
+                    margin-left: 8px;
+                }
+                .title{
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $gray2;
+                    +.info{margin-top: 2px;}
+                }
+                .info{
+                    font-size: 13px;
+                    line-height: 1.54;
+                    letter-spacing: normal;
+                    color: $gray8;
+                }
+            }
+        }
+    }
+
+    .notice{
+        position: relative;
+        padding:24px 16px 40px;
+        background-color: $color-fa;
+        h2{
+            font-size: 14px !important;
+            font-weight: $fw-bold;
+            line-height: 1.5;
+            color: $gray2;
+            + .notice_strong{margin-top: 8px;}
+            + .notice_info{margin-top: 8px;}
+        }
+        &_strong{
+            margin-top: 4px;
+            font-size: 13px;
+            line-height: 1.54;
+            color: $gray2;
+        }
+        &_info{
+            position: relative;
+            padding-left: 9px;
+            font-size: 13px;
+            line-height: 1.54;
+            color: $gray8;
+            
+            &::before{
+                content: "";
+                position: absolute;
+                left:0;top:8px;
+                width:3px;
+                height:3px;
+                border-radius: 100%;
+                background: $graya;   
+            }
+            &.gray2{
+                color:$gray2;
+                &::before{background: $gray5;}
+                strong{
+                    color:$primary;
+                    font-weight: $fw-semibold;
+                }
+            }
+            +.notice_info{margin-top: 4px;}
+            +.notice_tit{margin-top: 24px;}
+            &.mt2{margin-top: 2px;}
+            & + .notice_info2{margin-top: 8px;}
+        }
+        &_info2{
+            font-size: 12px;
+            line-height: 1.5;
+            color: $gray8;
+            strong{
+                display: block;
+                font-weight: $fw-regular;
+                color:$gray5;
+            }
+            & + .notice_tit{margin-top: 24px;}
+        }
+        &_tit{
+            font-size: 14px;
+            font-weight: $fw-bold;
+            line-height: 1.5;
+            color: $gray2;
+            +.notice_info{margin-top: 8px;}
+        }
+        .more_box{
+            max-height: 0;
+            overflow: hidden;
+            &.is_open{
+                margin-top: 4px;
+                max-height: 1000px;
+            }
+        }
+        .more_notice{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-basis: auto;
+            margin:16px auto 0;
+            font-size: 13px;
+            line-height: 1.54;
+            color: $gray2;
+            @include afterArrDown;
+            &.is_open{
+                &::after{transform: rotate(90deg) scaleX(-1);}
+            }
+        }
+
+    }
+
+
+    @media (min-width:601px) {
+        .grade_info{
+            .reset_grade .range{
+                .range_bar{
+                    &::before{width:2%}
+                    .end_point{left:2%;}
+                }
+                &.grade_green{
+                    .range_bar{
+                        &::before{width:calc(25.5% - 6px)}
+                        .end_point{left:calc(25.5% - 6px)}
+                    }
+                }
+                &.grade_blue{
+                    .range_bar{
+                        &::before{width:calc(50% - 6px);}
+                        .end_point{left:calc(50% - 6px);}
+                    }
+                }
+                &.grade_red{
+                    .range_bar{
+                        &::before{width:calc(72.5% - 6px);}
+                        .end_point{left:calc(72.5% - 6px);}
+                    }
+                }
+            }
+        }
+    }
+}

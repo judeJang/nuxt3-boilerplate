@@ -1,0 +1,151 @@
+.hot_deal{
+    background: $color-fa;
+    .hot_deal__swiper{padding-bottom: 62px;}
+    .product-modules-pagination,
+    .product-modules-pagination-bullets{
+        position: absolute;
+        width: 100%;
+        bottom:30px;
+        text-align: center;
+        >span, .product-modules-pagination-bullet{
+            display: inline-block;
+            margin-left:0;
+            margin-right:9px;
+            width:6px;
+            height:6px;
+            background: $color-e6;
+            border-radius: 100%;
+            opacity: 1;
+            &:last-child{margin-right: 0;}
+            &.product-modules-pagination-bullet-active{
+                background: $gray3;
+            }
+        }
+    }
+    .swiper-slide{
+        width: get-vw(260px);
+        border-radius: 8px;
+        box-shadow: 0 2px 8px 0 rgba($black, 0.02);
+        min-height:324px;
+        background-color: white;
+        &:first-child{margin-left: 16px;}
+        &:last-child{margin-right: 16px;}
+    }
+    .swiper_link{
+        position: relative;
+        display: block;
+        padding:39px 16px 15px;
+    }
+    .time_wrap{
+        position: absolute;
+        left:16px;
+        top:17px;
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: $fw-medium;
+        color: $gray2;
+        >span{
+            position: relative;
+            top: 1px;
+            font-family: "Pretendard"; //for android
+            &[data-v-facdf1ca]{font-family: "Pretendard";} //for android
+        }
+        .timer{
+            color: $primary;
+            margin:0 4px;
+        }
+        &::before{
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background: url($s3-path+'img/m/m_badge/icon-time.png') no-repeat center;
+            background-size: cover;
+        }
+    }
+    .img_wrap{
+        position: relative;
+        display: block;
+        margin:0 14px;
+        padding-top:calc(100% - 28px);
+        overflow: hidden;
+        .cover_img{@include thumbnail;}
+
+    }
+    .info_container{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 11px;
+        .info_container__text{
+            width:calc( 100% - 56px );
+            .brand{
+                font-size: 12px;
+                font-weight: $fw-bold;
+                color: $gray2;
+                @include single-ellipsis;
+            }
+            .name{
+                margin-top: 7px;
+                font-size: 13px;
+                line-height: 1.31;
+                letter-spacing: normal;
+                color: $gray5;
+                @include single-ellipsis;
+            }
+            .price{
+                display: flex;
+                align-items: center;
+                margin-top: 7px;
+                .discount_price{
+                    font-size: 13px;
+                    font-weight: $fw-bold;
+                    color: $gray2;
+                }
+                .real_price{
+                    position: relative;
+                    top: 1px;
+                    margin-left: 4px;
+                    font-size: 11px;
+                    color: $graya;
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width:100%;
+                        height: 1px;
+                        background: $graya;
+                        left:0;
+                        top:50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+        .info_container__discount{
+            position: relative;
+            right: -5px;
+            bottom: -6px;
+            display: flex;
+            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 100%;
+            background: $primary;
+            font-size: 12px;
+            color:$white;
+            .big{
+                font-size: 20px;
+                font-weight:$fw-bold;
+            }
+            i{
+                position: relative;
+                top: 2px;
+                font-weight:$fw-semibold;
+                font-style: normal;
+            }
+        }
+    }
+}

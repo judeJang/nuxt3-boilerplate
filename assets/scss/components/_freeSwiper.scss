@@ -1,0 +1,98 @@
+.comp_free_swiper {
+    padding-bottom: 24px;
+    .small_product &{background: $white;}
+    .swiper-slide {
+        width: get-vw(140px);
+        margin-right: 8px;
+        &:first-child {
+            margin-left: 16px;
+        }
+        &:last-child {
+            margin-right: 16px;
+        }
+    }
+    .swiper_link {
+        display: block;
+    }
+    .img_wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+        background: rgba($black, 0.03);
+        .cover_img {
+            @include thumbnail;
+        }
+        &::after {
+            content: '';
+            @include thumOverDeem;
+        }
+    }
+    .info_container {
+        margin-top: 10px;
+        .brand {
+            height: 16px;
+            line-height: 1.33;
+            font-size: 12px;
+            font-weight: $fw-bold;
+            color: $gray2;
+            @include single-ellipsis;
+        }
+        .name {
+            margin-top: 5px;
+            line-height: 1.31;
+            height: 17px;
+            color: #555;
+            font-size: 13px;
+            color: $gray5;
+            @include single-ellipsis;
+        }
+        .price {
+            display: flex;
+            flex-flow:row-reverse;
+            margin-top: 7px;
+            height: 16px;
+            gap:4px;
+            font-size: 13px;
+            .discount_price {
+                font-weight: $fw-bold;
+                color: $gray2;
+            }
+            .discount {
+                font-weight: $fw-bold;
+                color: $primary;
+            }
+        }
+        .del_price {
+            display: block;
+            margin-top: 2px;
+            font-size: 11px;
+            color: $graya;
+        }
+    }
+}
+
+
+//function :: FreeBannerInit(target);
+//html ::
+// <div id="changeID40" class="comp_free_swiper swiper-container">
+//     <ul class="swiper-wrapper">
+//         <?php for($i = 0; $i < 5; $i++){ ?>
+//         <li class="swiper-slide">
+//             <a class="swiper_link" href="#">
+//                 <div class="img_wrap">
+//                     <img src="<?=$imgPath?>admin/specialSale/img_1640913386-9229573986.jpg" alt="product" class="cover_img">
+//                 </div>
+//                 <div class="info_container">
+//                     <p class="brand">Barbour</p>
+//                     <p class="name">여성 인터내셔널 폴라 퀼여성 인터내셔널 폴라 퀼여성 인터내셔널 폴라 퀼</p>
+//                     <div class="price">
+//                         <p class="discount_price">189,000</p>
+//                         <p class="discount"></p>
+//                     </div>
+//                 </div>
+//             </a>
+//         </li>
+//         <?php } ?>
+//     </ul>
+// </div>

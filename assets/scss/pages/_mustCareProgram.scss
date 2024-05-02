@@ -1,0 +1,77 @@
+
+.must_care_program_container{
+    @function get-vw-1080($value){
+        $vw-context: (1080 * .01) * 1px;
+        @return calc($value/$vw-context) * 1vw;
+    }
+    .fit_img{width:100%;}
+    .blind{@include blind}
+    .program_desc{
+        padding:get-vw-1080(202px) get-vw-1080(50px) get-vw-1080(150px);
+        background: $white;
+        h2{
+            font-size: get-vw-1080(80.5px);
+            font-weight: $fw-bold;
+            line-height: 1.35;
+            text-align: center;
+            color: $black;
+        }
+        p{
+            margin-top: get-vw-1080(99px);
+            font-size: get-vw-1080(48.5px);
+            font-weight: $fw-medium;
+            line-height: 1.43;
+            letter-spacing: get-vw-1080(-0.97px);
+            text-align: center;
+            color: $gray3;
+            strong{font-weight: $fw-semibold;}
+        }
+        .program_list{
+            margin-top: get-vw-1080(100px);
+            >li{                
+                margin-top: get-vw-1080(54px);
+                &:first-of-type{margin-top: 0;}
+            }
+        }
+    }
+    .diagram_wrap{
+        padding:get-vw-1080(147px) get-vw-1080(55px) get-vw-1080(135px);
+        background: $color-f5;
+        h2{
+            text-align: center;
+            img{width:get-vw-1080(512px)}
+        }
+        p{
+            margin-top: get-vw-1080(116px);
+            font-size: get-vw-1080(48.5px);
+            line-height: 1.43;
+            text-align: center;
+            color: $gray3;
+        }
+        .img_box{margin-top: get-vw-1080(117px);}
+    }
+    .care_layout{
+        padding:get-vw-1080(143px) get-vw-1080(100px) get-vw-1080(175px);
+        text-align: center;
+        h2{
+            font-size: get-vw-1080(80.5px);
+            font-weight: $fw-bold;
+            line-height: 0.78;
+            color: $black;
+        }
+        p{
+            margin-top: get-vw-1080(96px);
+            font-size: get-vw-1080(48px);
+            line-height: 1.48;
+            color: $black;
+        }
+        .img_list{
+            margin-top: get-vw-1080(100px);
+            >li{
+                margin-top: get-vw-1080(54px);
+                &:first-child{margin-top: 0;}
+            }
+             + .text_box{margin-top: get-vw-1080(150px);}
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.comp_select {
+    background: url($s3-path + 'img/m/m_icon/select-arrow.svg') no-repeat right 11px
+        center;
+    background-size: 12px;
+    padding: 0 25px 0 11px;
+    border-radius: 4px;
+    border: solid 1px $grayd;
+    background-color: $white;
+    height: 44px;
+    font-size: 13px;
+    color: $gray2;
+}
+.b_select {
+    @include selectInit;
+    @include orderSelect;
+}

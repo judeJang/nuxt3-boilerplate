@@ -1,0 +1,262 @@
+.comp_icon_drop {
+    display: flex;
+    width: $icon-drop-size;
+    height: $icon-drop-size;
+    background: $icon-drop;
+    background-size: $icon-drop-size;
+}
+.comp_icon_back {
+    display: flex;
+    width: $icon-back-size;
+    height: $icon-back-size;
+    background: $icon-back;
+    background-size: $icon-back-size;
+}
+.comp_icon_basket {
+    display: flex;
+    width: $icon-basket-size;
+    height: $icon-basket-size;
+    background: $icon-basket;
+    background-size: $icon-basket-size;
+}
+
+.comp_icon_search {
+    display: flex;
+    width: $icon-search-size;
+    height: $icon-search-size;
+    background: $icon-search;
+    background-size: $icon-search-size;
+}
+
+.comp_icon_search_gr_14 {
+    display: flex;
+    width: 14px;
+    height: 14px;
+    background: $icon-search-gr-14;
+    background-size: 14px;
+}
+
+.comp_icon_lnb_arrow_r {
+    display: flex;
+    width: $icon-arrow-r-size;
+    height: $icon-arrow-r-size;
+    background: $icon-arrow-r;
+    background-size: $icon-arrow-r-size;
+}
+
+.comp_icon_lnb_close {
+    display: flex;
+    width: $icon-close-size;
+    height: $icon-close-size;
+    background: $icon-close;
+    background-size: $icon-close-size;
+}
+
+.comp_icon_lnb_member {
+    display: flex;
+    width: $icon-member-size;
+    height: $icon-member-size;
+    background: $icon-member;
+    background-size: $icon-member-size;
+}
+
+.comp_icon_lnb_setting {
+    display: flex;
+    width: $icon-setting-size;
+    height: $icon-setting-size;
+    background: $icon-setting;
+    background-size: $icon-setting-size;
+}
+
+@each $key, $value in $icons {
+    .comp_#{$key} {
+        display: flex;
+        background: $value;
+        @if ($key == 'icon_new_16' or $key == 'icon_circle_info') {
+            width: 16px;
+            height: 16px;
+            background-size: 16px;
+        } @else if($key == 'icon_arr_r_12' or $key == 'icon_star_12') {
+            width: 12px;
+            height: 12px;
+            background-size: 12px;
+        } @else if(
+            $key ==
+                'delivery_domestic' or
+                $key ==
+                'delivery_abroad' or
+                $key ==
+                'delivery_direct_abroad'
+        )
+        {
+            width: 46px;
+            height: 16px;
+            background-size: auto 16px;
+            background-position: left center;
+        } @else if($key == 'icon_empty') {
+            width: 48px;
+            height: 48px;
+            background-size: 48px;
+        } @else if(
+            $key ==
+                'grade_green_20' or
+                $key ==
+                'grade_friends_20' or
+                $key ==
+                'grade_blue_20' or
+                $key ==
+                'grade_red_20' or
+                $key ==
+                'grade_black_20' or
+                $key ==
+                'icon_star_20'
+        )
+        {
+            width: 20px;
+            height: 20px;
+            background-size: 20px;
+        } @else if(
+            $key ==
+                'grade_green_64' or
+                $key ==
+                'grade_friends_64' or
+                $key ==
+                'grade_blue_64' or
+                $key ==
+                'grade_red_64' or
+                $key ==
+                'grade_black_64'
+        )
+        {
+            width: 64px;
+            height: 64px;
+            background-size: 64px;
+        } @else if(
+            $key ==
+                'icon_vip_40' or
+                $key ==
+                'icon_box_40' or
+                $key ==
+                'icon_cs_40' or
+                $key ==
+                'icon_dry_40' or
+                $key ==
+                'icon_crown_40' or
+                $key ==
+                'icon_repair_40' or
+                $key ==
+                'icon_cake_40'
+        )
+        {
+            width: 40px;
+            height: 40px;
+            background-size: 40px;
+        } @else {
+            width: 24px;
+            height: 24px;
+            background-size: 24px;
+        }
+    }
+}
+
+//order modal bundle
+.icon_creditcard_company_bundle_100 {
+    display: inline-flex;
+    width: 100px;
+    height: 24px;
+    background: $creditcard_company_bundle_100;
+    background-size: 100% auto;
+    $names: '.bc', '.hana', '.kb', '.nh', '.samsung', '.shinhan', '.woori', '.hyundai',
+        '.lotte';
+    //24 * n + 1
+    @for $i from 1 through length($names) {
+        &#{nth($names, $i)} {
+            $top: (24 * ($i - 1)) * -1;
+            background-position: left $top + px;
+        }
+    }
+}
+
+//order
+$creditcard_kb: url($s3-path + 'img/m/m_order/creditcard-logo-kb.png') no-repeat center !default;
+$creditcard_shinhan: url($s3-path + 'img/m/m_order/creditcard-logo-shinhan.png') no-repeat
+    center !default;
+$creditcard_samsung: url($s3-path + 'img/m/m_order/creditcard-logo-samsung.png') no-repeat
+    center !default;
+
+$creditcard_hyundai: url($s3-path + 'img/m/m_order/creditcard-logo-hyundai.png') no-repeat
+    center !default;
+
+$creditcard_woori: url($s3-path + 'img/m/m_order/creditcard-logo-woori.png') no-repeat
+    center !default;
+$creditcard_nh: url($s3-path + 'img/m/m_order/creditcard-logo-nh.png') no-repeat center !default;
+$creditcard_bc: url($s3-path + 'img/m/m_order/creditcard-logo-bc.png') no-repeat center !default;
+$creditcard_lotte: url($s3-path + 'img/m/m_order/creditcard-logo-lotte.png') no-repeat
+    center !default;
+$creditcard_keb: url($s3-path + 'img/m/m_order/creditcard-logo-keb.png') no-repeat center !default;
+$creditcard_kakaobank: url($s3-path + 'img/m/m_order/creditcard-logo-kakaobank.png')
+    no-repeat center !default;
+$creditcard_citi: url($s3-path + 'img/m/m_order/creditcard-logo-citi.png') no-repeat
+    center !default;
+
+$creditcard_sh: url($s3-path + 'img/m/m_order/creditcard-logo-sh.png') no-repeat center !default;
+$creditcard_jeju: url($s3-path + 'img/m/m_order/creditcard-logo-jeju.png') no-repeat
+    center !default;
+$creditcard_jeonbuk: url($s3-path + 'img/m/m_order/creditcard-logo-jeonbuk.png') no-repeat
+    center !default;
+$creditcard_kwangju: url($s3-path + 'img/m/m_order/creditcard-logo-kwangju.png') no-repeat
+    center !default;
+
+$creditcards: (
+    'creditcard_kb': $creditcard_kb,
+    'creditcard_shinhan': $creditcard_shinhan,
+    'creditcard_samsung': $creditcard_samsung,
+    'creditcard_hyundai': $creditcard_hyundai,
+    'creditcard_woori': $creditcard_woori,
+    'creditcard_nh': $creditcard_nh,
+    'creditcard_bc': $creditcard_bc,
+    'creditcard_lotte': $creditcard_lotte,
+    'creditcard_keb': $creditcard_keb,
+    'creditcard_kakaobank': $creditcard_kakaobank,
+    'creditcard_citi': $creditcard_citi,
+    'creditcard_sh': $creditcard_sh,
+    'creditcard_jeju': $creditcard_jeju,
+    'creditcard_jeonbuk': $creditcard_jeonbuk,
+    'creditcard_kwangju': $creditcard_kwangju
+);
+
+@each $key, $value in $creditcards {
+    .creditcard.#{$key} {
+        display: flex;
+        justify-content: center;
+        background: $value;
+        background-size: 40px;
+        height: 40px;
+    }
+}
+
+// phase2 header icons
+$headerIcons :(
+    '.comp_header_icon_back' :  $header-back,
+    '.comp_header_icon_back_wh' :$header-back-wh,
+    '.comp_header_icon_basket' :$header-basket,
+    '.comp_header_icon_basket_wh' :$header-basket-wh,
+    '.comp_header_icon_search' :$header-search,
+    '.comp_header_icon_search_wh' :$header-search-wh,
+    '.comp_header_icon_home' :$header-home,
+    '.comp_header_icon_hoem_wh' :$header-home-wh,
+    '.comp_all_modal_close' :$all-modal-close,
+    '.comp_all_modal_close_wh' :$all-modal-close-wh
+);
+
+@each $key, $value in $headerIcons {
+   #{$key} {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex:0 0 40px;
+        width: 40px;
+        height: 40px;
+        background: $value;
+    }
+}

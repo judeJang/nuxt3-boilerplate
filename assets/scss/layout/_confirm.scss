@@ -1,0 +1,47 @@
+.common_confirm_wrap {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: $white;
+    .confirm_content {
+        padding: 16px 0;
+        h2 {
+            font-size: 16px;
+            font-weight: $fw-semibold;
+            line-height: 1.5;
+            text-align: center;
+            color: $gray2;
+            + p {margin-top: 8px;}
+        }
+        p {
+            font-size: 13px;
+            line-height: 1.54;
+            text-align: center;
+            color: $gray5;
+        }
+    }
+    .confirm_button_box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(50% - 4px);
+            height: 48px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: $fw-semibold;
+            line-height: 1.47;
+            &.btn_negative {
+                background-color: $color-f0;
+                color: $gray2;
+            }
+            &.btn_positive {
+                background-color: $gray3;
+                color: $white;
+            }
+        }
+    }
+}

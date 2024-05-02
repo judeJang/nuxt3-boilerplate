@@ -1,0 +1,41 @@
+.popular_brand{
+    padding-bottom: 32px;
+    .popular_swiper{
+        .popular_swiper__list{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 16px;
+            .comp_three_item{width:calc( (100% - 16px) / 3);}
+        }
+
+    }
+    .popular_btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:calc(100% - 32px);
+        margin: 2px 16px 0;
+        height:40px;
+        border:1px solid $grayd;
+        border-radius: 4px;
+        font-size: 13px;
+        color:$gray5;
+        line-height: 1.54;
+        strong{
+            color:$gray2;
+            font-weight: $fw-semibold;
+            margin-right: 5px;
+        }
+        &::after{
+            content: "";
+            display: flex;
+            margin-left: 4px;
+            width: 12px;
+            height: 12px;
+            background: url($s3-path+'img/m/m_icon/icon_arrow_right12.png') no-repeat center;
+            background-size: 12px;
+        }
+    }
+}
+    

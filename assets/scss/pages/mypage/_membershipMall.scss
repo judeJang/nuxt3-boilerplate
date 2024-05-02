@@ -1,0 +1,168 @@
+.member_mall_content{
+    background-color: $white;
+    .top_banner{
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    .member_mall_container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 16px 17px;
+    }
+    .soldout_check_box {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 14px 0;
+        margin: 8px 0;
+        .soldout_check_btn {
+            .soldout_check_txt {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                line-height: 1.5;
+                &::before {
+                    content: '';
+                    @include icon_box(20px, 20px);
+                    margin: 0 8px 0 0;
+                    border-radius: 2px;
+                    border: solid 1px $grayd;
+                    background: url('https://static-ux.mustit.co.kr/img/m/m_icon/icon_checkbox_check_off.svg')
+                        center center no-repeat $white;
+                    box-sizing: border-box;
+                }
+            }
+            & input[type='checkbox']:checked
+                + .soldout_check_txt::before {
+                border: solid 1px $gray3;
+                background: url('https://static-ux.mustit.co.kr/img/m/m_icon/icon_checkbox_check_on.svg')
+                    center center no-repeat $gray3;
+            }
+            & input[type='checkbox'] {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+            }
+        }
+    }
+
+    //MemberList component
+    .member_mall_list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        .comp_member_item{
+            width:calc(50% - 4px);
+            img{width: 100%;}
+            .img_wrap{
+                position: relative;
+                width:100%;
+                padding-top: 100%;
+                background: $white;
+                .cover_img{@include thumbnail;}
+                &::before{
+                    content: "";
+                    @include thumOverDeem;
+                }
+                .last_one_badge{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 48px;
+                    height: 20px;
+                    background-color: $primary;
+                    z-index: 999;
+                    span{
+                        font-size: 11px;
+                        font-weight: $fw-semibold;
+                        line-height: 1.45;
+                        color:$white;
+                    }
+                }
+            }
+            .info_container{
+                margin-top: 10px;
+                padding-bottom: 24px;
+                .brand{
+                    font-size: 12px;
+                    line-height: 1.33;
+                    font-weight: $fw-bold;
+                    color: $gray2;
+                    @include single-ellipsis;
+                  }
+                .desc{
+                      margin: 5px 0;
+                      font-size: 13px;
+                      color: $gray5;
+                      line-height: 1.31;
+                      @include single-ellipsis;
+                  }
+                  .benefit{
+                    font-size: 11px;
+                    font-weight: $fw-medium;
+                    line-height: 1.45;
+                    color:$gray8
+                  }
+                .price{
+                    display: flex;
+                    font-size: 13px;
+                    line-height: normal;
+                    font-weight: $fw-bold;
+                    color: $gray2;
+                    .discount{
+                        margin-left: 4px;
+                        color:$primary;
+                    }
+                }
+            }
+            &.soldout .img_wrap::after{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.7);
+                background-image: url('https://static-ux.mustit.co.kr/img/front/common/img_product_sold_out.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 90px;
+                // background-color: rgba(255, 255, 255, 0.8);
+                // background-color:hsla(0,0%,100%,.5) ;
+                z-index: 10;
+            }
+            &.soldout .soldout_badge{
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 48px;
+                    height: 20px;
+                    background-color: $primary;
+                    z-index: 10;
+                    span{
+                        font-size: 11px;
+                        font-weight: $fw-semibold;
+                        line-height: 1.45;
+                        color:$white;
+                    }
+            }
+            
+        }
+
+    }
+}  

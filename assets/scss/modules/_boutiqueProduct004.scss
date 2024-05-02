@@ -1,0 +1,60 @@
+.boutique_list{
+    position: relative;
+    display: inline-flex;
+    width:100%;
+    margin-bottom: 24px;
+    > a{
+        display: block;
+        width: 100%;
+    }
+    .img_wrap{
+        position: relative;
+        width:100%;
+        padding-top: 100%;
+        overflow: hidden;
+        background-color: $white;
+        &::after{
+            content: "";
+            @include thumOverDeem();
+        }
+        .cover_img {
+            @include thumbnail();
+        }
+    }
+    .info_container{
+        margin-top: 10px;
+        .brand{
+            font-size: 12px;
+            font-weight: $fw-bold;
+            line-height: 1.33;
+            color: $gray2;
+            @include single-ellipsis();
+        }
+        .name{
+            margin-top: 4px;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray5;
+            @include single-ellipsis();
+        }
+        .price{
+            margin-top: 4px;
+            font-size: 13px;
+            font-weight: $fw-bold;
+            line-height: 1.38;
+            color: $gray2;
+        }
+    }
+}
+//ux 전용
+.boutique_lists{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding:0 16px 8px;
+    background: $white;
+    > .boutique_list{
+        width:calc(50% - 4px);
+    }
+}

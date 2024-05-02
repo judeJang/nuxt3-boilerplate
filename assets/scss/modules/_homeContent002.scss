@@ -1,0 +1,60 @@
+.magazine_product_version2{
+    position: relative;
+    padding-bottom:60px;
+    overflow: hidden;
+    background: $white;
+    .swiper-slide{
+        width: calc(100% - 32px);
+        margin: 0 16px;
+        > a{
+            display: block;
+            .img_wrap{
+                position: relative;
+                height:get-vw(246px);
+                overflow: hidden;
+                img{@include thumbnail();height:auto;}
+            }
+        }
+    }
+    .swiper-pagination,
+    .swiper-pagination-bullets{
+        width: 100%;
+        bottom:30px;
+        >span, 
+        .swiper-pagination-bullet{
+            width:6px;
+            height:6px;
+            background: $color-e6;
+            opacity: 1;
+            margin-left:0;
+            margin-right:9px;
+            &:last-child{margin-right: 0;}
+            &.swiper-pagination-bullet-active{
+                background: $gray3;
+            }
+        }
+    }
+    .info_container{
+        margin-top: 16px;
+        .hash{
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray2;
+        }
+        .title{
+            margin-top: 4px;
+            font-size: 18px;
+            font-weight: $fw-bold;
+            line-height: 1.44;
+            color: $gray2;
+            @include single-ellipsis();
+        }
+        .desc{
+            margin-top: 4px;
+            font-size: 13px;
+            line-height: 1.38;
+            color: $gray8;
+            @include multi-ellipsis(2);
+        }
+    }
+}

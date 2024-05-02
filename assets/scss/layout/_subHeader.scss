@@ -1,0 +1,159 @@
+.sub_header{
+    position: relative;
+    width:100%;
+    height: 52px;
+    &.no_height{height:0;} //blp , vip 
+    
+    .fixed_container{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        height:52px;
+        left:0;
+        top: constant(safe-area-inset-top);
+        top: env(safe-area-inset-top);
+        z-index: 8999;
+        background: $white;
+    }
+
+    .left_area{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap:16px;
+        left:8px;
+        top:50%;
+        transform: translateY(-50%);
+        .logo{
+            width:94px;
+            height:18px;
+            background: svg-icon(mustit);
+            background-size: cover;
+        }
+    }
+
+    .right_area{
+        position: absolute;
+        display: flex;
+        gap: 0 8px;
+        right:8px;
+        top:50%;
+        transform: translateY(-50%);
+    }
+
+    .center_area{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        left:0;
+        top:-1px;
+        max-width: calc(100% - 192px);
+        text-align: center;
+
+        &.extends{max-width:calc(100% - 96px);}
+        &.add_btn{left:3px;}
+
+        h2{
+            font-size: 17px;
+            color: $gray2;
+            font-weight: $fw-semibold;
+            @include single-ellipsis;
+        }
+        .more_cate{
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            margin-left: 1px;
+            &::after{
+                content:"";
+                width: 100%;
+                height:100%;
+                background: $icon-drop;
+                background-size: 16px;
+                transition: transform .15s ease-out;
+                transform-origin: center;
+            }
+            &.active::after{transform: rotate(-180deg);}
+        }
+    }
+
+    //lp & cpp 전용
+    .cate_lists_area{
+        position: fixed;
+        left:0;
+        top: calc(52px + constant(safe-area-inset-top));
+        top: calc(52px + env(safe-area-inset-top));
+        width:100%;
+        overflow: hidden;
+        z-index: 1;
+        
+        .cate_lists{
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            padding:9px 24px 20px;
+            background: $white;
+            .list{
+                width: 50%;
+                margin-bottom: 4px;
+                padding:5px 0;
+                font-size: 15px;
+                text-align: left;
+                line-height: 1.53;
+                color: $gray5;
+                font-weight: $fw-regular;
+    
+                &.active{
+                    font-weight: $fw-semibold;
+                    color:$gray2;
+                }
+            }
+        }
+    }
+    
+
+} 
+
+
+//components 단위 다른곳에서도 사용
+.comp_header_icon_wrap{
+    position: relative;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    &.both{
+        i{
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    }
+}
+
+.comp_header_basket{
+    .count{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 3px;
+        top: 6px;
+        font-size: 10px;
+        min-width: 16px;
+        height: 16px;
+        padding: 0;
+        color: $white;
+        text-align: center;
+        white-space: nowrap;
+        border-radius: 100%;
+        background-color: $primary;
+    }
+}

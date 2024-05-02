@@ -1,0 +1,258 @@
+// 위조품 신고하기 layer - 신고하기 / 신고내역
+.forgery_apply_layer {
+    padding-bottom: 16px;
+    @mixin require-asterisk {
+        // 필수 입력 *
+        font-size: inherit;
+        line-height: normal;
+        color: $primary;
+    }
+    .text_blue {
+        font-size: inherit;
+        line-height: inherit;
+        color: $color-48a;
+    }
+    .forgery_product {
+        padding: 16px 16px 24px;
+        .forgery_product_head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 11px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid $color-f5;
+            .title {
+                font-size: 13px;
+                font-weight: $fw-bold;
+                line-height: 1.54;
+                color: $gray2;
+            }
+            .find_item {
+                position: relative;
+                padding-right: 16px;
+                font-size: 12px;
+                line-height: 20px;
+                text-align: right;
+                color: $gray8;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: calc(100% + 14px);
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 12px;
+                    height: 12px;
+                    background: url($s3-path + 'img/m/m_mypage/icon-arr-r.png') no-repeat
+                        center;
+                    background-size: 12px;
+                    opacity: 0.7;
+                }
+            }
+        }
+        .forgery_product_body {
+            display: flex;
+            width: 100%;
+            .thum {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                flex-shrink: 0;
+                img {
+                    @include thumbnail;
+                }
+                &::before {
+                    content: '';
+                    @include thumOverDeem();
+                }
+            }
+            .info_container {
+                width: calc(100% - 76px);
+                margin-left: 16px;
+                .brand {
+                    font-size: 12px;
+                    font-weight: $fw-bold;
+                    line-height: 1.5;
+                    color: $gray2;
+                }
+                .name {
+                    width: 100%;
+                    margin-top: 2px;
+                    font-size: 13px;
+                    line-height: 1.38;
+                    color: $gray5;
+                    @include single-ellipsis;
+                }
+                .price {
+                    margin-top: 2px;
+                    font-size: 13px;
+                    font-weight: $fw-bold;
+                    line-height: 1.54;
+                    color: $gray2;
+                }
+            }
+        }
+    }
+    .forgery_layer_container {
+        padding: 24px 16px;
+        .layer_title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            .title {
+                font-size: 16px;
+                font-weight: $fw-bold;
+                line-height: 1.5;
+                color: $gray2;
+            }
+            .sub_text {
+                margin-bottom: 1px;
+                font-size: 12px;
+                line-height: 1.5;
+                text-align: right;
+                color: #aaa;
+            }
+            .asterisk {
+                @include require-asterisk;
+                margin-right: 3px;
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+    .forgery_form {
+        .comp_inp_box {
+            margin-top: 16px;
+            font-size: 0;
+            .comp_label {
+                .asterisk {
+                    @include require-asterisk;
+                    margin-left: 4px;
+                    position: relative;
+                    top: 1px;
+                }
+            }
+        }
+        .notice_box {
+            margin-top: 12px;
+            p {
+                position: relative;
+                padding-left: 9px;
+                font-size: 13px;
+                line-height: 1.54;
+                color: $gray8;
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 8px;
+                    left: 0;
+                    @include circle(3px);
+                    background-color: $graya;
+                }
+            }
+        }
+        .btn_box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+            .reset_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc(50% - 4px);
+                height: 52px;
+                padding: 16px 0 17px;
+                border-radius: 4px;
+                border: 1px solid $gray3;
+                background-color: $white;
+                font-size: 16px;
+                font-weight: $fw-semibold;
+                color: $gray2;
+            }
+            .submit_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc(50% - 4px);
+                height: 52px;
+                padding: 16px 0 17px;
+                border-radius: 4px;
+                border: 1px solid $gray3;
+                background-color: $gray3;
+                font-size: 16px;
+                font-weight: $fw-semibold;
+                color: $white;
+                &:disabled {
+                    color: $white;
+                    border-color: $grayd;
+                    background-color: $grayd;
+                }
+            }
+        }
+    }
+    .forgery_history {
+        .divider {
+            display: block;
+            width: calc(100% - 32px);
+            height: 1px;
+            margin: 0 16px;
+            background-color: $color-f5;
+        }
+        .forgery_detail {
+            margin-top: 12px;
+            .forgery_user_info {
+                display: flex;
+                &:not(:first-child) {
+                    margin-top: 8px;
+                }
+                dt {
+                    flex-basis: 80px;
+                    margin-right: 8px;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $gray8;
+                }
+                dd {
+                    flex: 1;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $gray2;
+                }
+            }
+            .text_box {
+                margin-bottom: 8px;
+                p {
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $gray2;
+                }
+            }
+            .link_box {
+                .link {
+                    display: block;
+                    font-size: 13px;
+                    line-height: 1.54;
+                    color: $color-48a;
+                    text-decoration: underline;
+                    &:not(:last-child) {
+                        margin-bottom: 2px;
+                    }
+                }
+            }
+            .date {
+                font-size: 13px;
+                line-height: 1.54;
+                color: $gray8;
+            }
+        }
+    }
+}
