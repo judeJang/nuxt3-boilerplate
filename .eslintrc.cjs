@@ -48,5 +48,6 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'vue/no-multiple-template-root': 0,
   },
 };
