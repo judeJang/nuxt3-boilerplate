@@ -25,11 +25,12 @@ const data = ref({
 
 const headerBannerShow = useCookie('headerBannerShow');
 
+const emit = defineEmits<{
+  'banner-close': [state: boolean];
+}>();
 const bannerClose = () => {
   headerBannerShow.value = 'hidden';
-  defineEmits<{
-    'banner-close': [state: boolean];
-  }>();
+  emit('banner-close', false);
 };
 const backgroundColor = computed(
   () => `background-color:${data.value.backgroundColor}`,
