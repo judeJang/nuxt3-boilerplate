@@ -1,12 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-
   typescript: {
     shim: false,
     typeCheck: true,
   },
-
   modules: ['@nuxtjs/storybook'],
   storybook: {
     url: 'http://localhost:6006',
@@ -14,4 +12,10 @@ export default defineNuxtConfig({
     port: 6006,
   },
   css: ['@/assets/scss/service.scss'],
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      cssnano: {},
+    },
+  },
 });
